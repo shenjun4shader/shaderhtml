@@ -1,0 +1,1411 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.3 使用DX11\/OpenGL 的表面着色器的细分网格 · ShaderLab 开发实战</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="第4章-高级-shaderlab-主题.html" />
+    
+    
+    <link rel="prev" href="12-自定义光照模型的表面着色器.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.0 ShaderLab 框架.html">
+            
+                <a href="1.0 ShaderLab 框架.html">
+            
+                    
+                    1. ShaderLab 框架
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="第1章-shaderlab-语法.html">
+            
+                <a href="第1章-shaderlab-语法.html">
+            
+                    
+                    第1章 ShaderLab 语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="11-属性（properties）.html">
+            
+                <a href="11-属性（properties）.html">
+            
+                    
+                    1.1 属性（Properties）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="12-子着色器（subshader）.html">
+            
+                <a href="12-子着色器（subshader）.html">
+            
+                    
+                    1.2 子着色器（SubShader）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="121-pass.html">
+            
+                <a href="121-pass.html">
+            
+                    
+                    1.2.1 Pass
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1.1" data-path="1211-culling--depth-testing.html">
+            
+                <a href="1211-culling--depth-testing.html">
+            
+                    
+                    1.2.1.1 Culling & Depth Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.2" data-path="1212-blending.html">
+            
+                <a href="1212-blending.html">
+            
+                    
+                    1.2.1.2 Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.3" data-path="1213-pass-tags.html">
+            
+                <a href="1213-pass-tags.html">
+            
+                    
+                    1.2.1.3 Pass Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.4" data-path="1214-stencil.html">
+            
+                <a href="1214-stencil.html">
+            
+                    
+                    1.2.1.4 Stencil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.5" data-path="1215-name.html">
+            
+                <a href="1215-name.html">
+            
+                    
+                    1.2.1.5 Name
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.6" data-path="1216-legacy-lightiing.html">
+            
+                <a href="1216-legacy-lightiing.html">
+            
+                    
+                    1.2.1.6 Legacy Lightiing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.7" data-path="1217-legacy-texture-combiners.html">
+            
+                <a href="1217-legacy-texture-combiners.html">
+            
+                    
+                    1.2.1.7 Legacy Texture Combiners
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.8" data-path="1218-legacy-alpha-testing.html">
+            
+                <a href="1218-legacy-alpha-testing.html">
+            
+                    
+                    1.2.1.8 Legacy Alpha Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.9" data-path="1219-legacy-fog.html">
+            
+                <a href="1219-legacy-fog.html">
+            
+                    
+                    1.2.1.9 Legacy Fog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.10" data-path="12110-legacy-bindchannels.html">
+            
+                <a href="12110-legacy-bindchannels.html">
+            
+                    
+                    1.2.1.10 Legacy BindChannels
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="122-usepass.html">
+            
+                <a href="122-usepass.html">
+            
+                    
+                    1.2.2 UsePass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="123-grabpass.html">
+            
+                <a href="123-grabpass.html">
+            
+                    
+                    1.2.3 GrabPass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="124-subshader-tags.html">
+            
+                <a href="124-subshader-tags.html">
+            
+                    
+                    1.2.4 SubShader Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="13-回滚语句（fallback）.html">
+            
+                <a href="13-回滚语句（fallback）.html">
+            
+                    
+                    1.3 回滚语句（Fallback）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="14-自定义编译器（customeditor）.html">
+            
+                <a href="14-自定义编译器（customeditor）.html">
+            
+                    
+                    1.4 自定义编译器（CustomEditor）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="15-其他命令（other-commands）.html">
+            
+                <a href="15-其他命令（other-commands）.html">
+            
+                    
+                    1.5 其他命令（other commands）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="第2章-顶点和片段着色器.html">
+            
+                <a href="第2章-顶点和片段着色器.html">
+            
+                    
+                    第2章 顶点和片段着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="11-顶点和片段着色器-举例.html">
+            
+                <a href="11-顶点和片段着色器-举例.html">
+            
+                    
+                    1.1 顶点和片段着色器 举例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="12-shader-语义（semantics）.html">
+            
+                <a href="12-shader-语义（semantics）.html">
+            
+                    
+                    1.2 着色器语义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="13-在-cghlsl-中访问-shader-属性.html">
+            
+                <a href="13-在-cghlsl-中访问-shader-属性.html">
+            
+                    
+                    1.3 在 Cg\/HLSL 中访问着色器属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="14-为顶点程序提供顶点数据.html">
+            
+                <a href="14-为顶点程序提供顶点数据.html">
+            
+                    
+                    1.4 为顶点程序提供顶点数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="15-内置-shader-包含的文件.html">
+            
+                <a href="15-内置-shader-包含的文件.html">
+            
+                    
+                    1.5 内置 Shader 包含的文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="16-预定义着色器预处理宏.html">
+            
+                <a href="16-预定义着色器预处理宏.html">
+            
+                    
+                    1.6 预定义着色器预处理宏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="17-内置的辅助功能.html">
+            
+                <a href="17-内置的辅助功能.html">
+            
+                    
+                    1.7 内置的辅助功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="18-内置的着色器变量.html">
+            
+                <a href="18-内置的着色器变量.html">
+            
+                    
+                    1.8 内置的着色器变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="19-制作多个着色程序变体.html">
+            
+                <a href="19-制作多个着色程序变体.html">
+            
+                    
+                    1.9 制作多个着色程序变体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="110-glsl-着色器程序.html">
+            
+                <a href="110-glsl-着色器程序.html">
+            
+                    
+                    1.10 GLSL 着色器程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="111-unity-中使用的着色器语言.html">
+            
+                <a href="111-unity-中使用的着色器语言.html">
+            
+                    
+                    1.11 Unity 中使用的着色器语言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="112-着色器编译目标级别.html">
+            
+                <a href="112-着色器编译目标级别.html">
+            
+                    
+                    1.12 着色器编译目标级别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.13" data-path="113-着色器数据类型和精度.html">
+            
+                <a href="113-着色器数据类型和精度.html">
+            
+                    
+                    1.13 着色器数据类型和精度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="第3章-表面着色器.html">
+            
+                <a href="第3章-表面着色器.html">
+            
+                    
+                    第3章 表面着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="11-表面着色器举例.html">
+            
+                <a href="11-表面着色器举例.html">
+            
+                    
+                    1.1 表面着色器举例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="12-自定义光照模型的表面着色器.html">
+            
+                <a href="12-自定义光照模型的表面着色器.html">
+            
+                    
+                    1.2 自定义光照模型的表面着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3.3" data-path="13-使用dx11opengl-的表面着色器的细分网格.html">
+            
+                <a href="13-使用dx11opengl-的表面着色器的细分网格.html">
+            
+                    
+                    1.3 使用DX11\/OpenGL 的表面着色器的细分网格
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="第4章-高级-shaderlab-主题.html">
+            
+                <a href="第4章-高级-shaderlab-主题.html">
+            
+                    
+                    第4章 高级 ShaderLab 主题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="11-unity-的渲染管线.html">
+            
+                <a href="11-unity-的渲染管线.html">
+            
+                    
+                    1.1 Unity 的渲染管线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="12-书写着色器的性能提示.html">
+            
+                <a href="12-书写着色器的性能提示.html">
+            
+                    
+                    1.2 书写着色器的性能提示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="13-使用替换的着色器渲染.html">
+            
+                <a href="13-使用替换的着色器渲染.html">
+            
+                    
+                    1.3 使用替换的着色器渲染
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="14-自定义着色器gui.html">
+            
+                <a href="14-自定义着色器gui.html">
+            
+                    
+                    1.4 自定义着色器GUI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="15-使用深度图.html">
+            
+                <a href="15-使用深度图.html">
+            
+                    
+                    1.5 使用深度图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.6" data-path="16-特定平台的渲染差异.html">
+            
+                <a href="16-特定平台的渲染差异.html">
+            
+                    
+                    1.6 特定平台的渲染差异
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.7" data-path="17-着色器细节等级.html">
+            
+                <a href="17-着色器细节等级.html">
+            
+                    
+                    1.7 着色器细节等级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.8" data-path="18-纹理数组.html">
+            
+                <a href="18-纹理数组.html">
+            
+                    
+                    1.8 纹理数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.9" data-path="19-使用-visual-studio-调试-directx11-着色器.html">
+            
+                <a href="19-使用-visual-studio-调试-directx11-着色器.html">
+            
+                    
+                    1.9 使用 Visual Studio 调试 DirectX11 着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.10" data-path="110-固定功能着色器示例.html">
+            
+                <a href="110-固定功能着色器示例.html">
+            
+                    
+                    1.10 固定功能着色器示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2. Cg 语法/2.0 Cg 语法.html">
+            
+                <a href="../2. Cg 语法/2.0 Cg 语法.html">
+            
+                    
+                    2. Cg 语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2. Cg 语法/第1章-简介.html">
+            
+                <a href="../2. Cg 语法/第1章-简介.html">
+            
+                    
+                    第1章 简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../2. Cg 语法/11-什么是-cg.html">
+            
+                <a href="../2. Cg 语法/11-什么是-cg.html">
+            
+                    
+                    1.1 什么是 Cg
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../2. Cg 语法/12-顶点、片段和图形流水线.html">
+            
+                <a href="../2. Cg 语法/12-顶点、片段和图形流水线.html">
+            
+                    
+                    1.2 顶点、片段和图形流水线
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    第2章 最简单的程序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    第3章 参数、纹理和表达式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    第4章 变换
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    第5章 光照
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    第6章 动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" >
+            
+                <span>
+            
+                    
+                    第7章 环境映射技术
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" >
+            
+                <span>
+            
+                    
+                    第8章 凹凸映射
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" >
+            
+                <span>
+            
+                    
+                    第9章 高级论题
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" >
+            
+                <span>
+            
+                    
+                    第10章 Profile 和性能
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../3. ShaderLab 开发实战/3.0 ShaderLab 开发实战.html">
+            
+                <a href="../3. ShaderLab 开发实战/3.0 ShaderLab 开发实战.html">
+            
+                    
+                    3. ShaderLab 开发实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.3 使用DX11\/OpenGL 的表面着色器的细分网格</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x8868;&#x9762;&#x7740;&#x8272;&#x5668;&#x548C;dx11&#x9576;&#x5D4C;">&#x8868;&#x9762;&#x7740;&#x8272;&#x5668;&#x548C;DX11&#x9576;&#x5D4C;</h2>
+<p>&#x8868;&#x9762;&#x7740;&#x8272;&#x5668;&#x9700;&#x8981;DirectX 11 GPU&#x9576;&#x5D4C;&#x4E00;&#x4E9B;&#x652F;&#x6301;&#x3002;&#x601D;&#x60F3;&#x662F;&#xFF1A;</p>
+<pre><code>    &#x9576;&#x5D4C;&#x6240;&#x663E;&#x793A;&#x7684;&#x662F;&#x7EC6;&#x5206;&#xFF1A;&#x51FD;&#x6570;&#x540D;&#x4FEE;&#x9970;&#x3002;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8BA1;&#x7B97;&#x4E09;&#x89D2;&#x5F62;&#x8FB9;&#x7F18;&#x548C;&#x5185;&#x90E8;&#x9576;&#x5D4C;&#x7684;&#x56E0;&#x7D20;&#x3002;
+
+    &#x5F53;&#x9576;&#x5D4C;&#x4F7F;&#x7528;&#xFF0C;&#x201C;&#x9876;&#x70B9;&#x4FEE;&#x6539;&#x201D;&#xFF08;&#x70B9;&#xFF1A;&#x51FD;&#x6570;&#x540D;&#xFF09;&#x88AB;&#x8C03;&#x7528;&#x540E;&#x9576;&#x5D4C;&#xFF0C;&#x6BCF;&#x4E2A;&#x751F;&#x6210;&#x7684;&#x57DF;&#x7740;&#x8272;&#x5668;&#x9876;&#x70B9;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x4F60;&#x901A;&#x5E38;&#x4F1A;&#x4F4D;&#x79FB;&#x6620;&#x5C04;&#x3002;
+
+    &#x8868;&#x9762;&#x7740;&#x8272;&#x5668;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;Phong&#x9576;&#x5D4C;&#x5E73;&#x6ED1;&#x6A21;&#x578B;&#x8868;&#x9762;&#x751A;&#x81F3;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4F4D;&#x79FB;&#x6620;&#x5C04;&#x3002;
+</code></pre><p>&#x5F53;&#x524D;&#x7684;&#x5C40;&#x9650;&#x6027;&#x9576;&#x5D4C;&#x652F;&#x6301;:</p>
+<pre><code>    &#x53EA;&#x6709;&#x4E09;&#x89D2;&#x57DF;&#x2014;&#x2014;&#x56DB;&#x3001;&#x7B49;&#x503C;&#x7EBF;&#x9576;&#x5D4C;&#x3002;
+    &#x5F53;&#x4F7F;&#x7528;&#x9576;&#x5D4C;&#x65F6;,&#x6750;&#x8D28;&#x662F;&#x81EA;&#x52A8;&#x7F16;&#x8BD1;&#x6210;&#x7740;&#x8272;&#x6A21;&#x578B;5.0&#x7684;&#x76EE;&#x6807;,&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x5C06;&#x53EA;&#x5728;DX11&#x5DE5;&#x4F5C;&#x3002;
+</code></pre><h4 id="&#x6CA1;&#x6709;gpu&#x9576;&#x5D4C;&#x9876;&#x70B9;&#x4F4D;&#x79FB;&#x7684;&#x4FEE;&#x9970;&#x7B26;">&#x6CA1;&#x6709;GPU&#x9576;&#x5D4C;,&#x9876;&#x70B9;&#x4F4D;&#x79FB;&#x7684;&#x4FEE;&#x9970;&#x7B26;</h4>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x505A;&#x4E00;&#x4E9B;&#x8868;&#x9762;&#x7740;&#x8272;&#x5668;&#x4F4D;&#x79FB;&#x6620;&#x5C04;&#x4E0D;&#x4F7F;&#x7528;&#x9576;&#x5D4C;&#x7684;&#x5F00;&#x59CB;&#x3002;&#x5B83;&#x53EA;&#x662F;&#x6CBF;&#x7740;&#x91CF;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x4ECE;&#x4E00;&#x4E2A;&#x9876;&#x70B9;&#x6CD5;&#x7EBF;&#x4F4D;&#x79FB;&#x56FE;&#xFF1A;</p>
+<pre><code>Shader &quot;Tessellation Sample&quot; {
+        Properties {
+            _MainTex (&quot;Base (RGB)&quot;, 2D) = &quot;white&quot; {}
+            _DispTex (&quot;Disp Texture&quot;, 2D) = &quot;gray&quot; {}
+            _NormalMap (&quot;Normalmap&quot;, 2D) = &quot;bump&quot; {}
+            _Displacement (&quot;Displacement&quot;, Range(0, 1.0)) = 0.3
+            _Color (&quot;Color&quot;, color) = (1,1,1,0)
+            _SpecColor (&quot;Spec color&quot;, color) = (0.5,0.5,0.5,0.5)
+        }
+        SubShader {
+            Tags { &quot;RenderType&quot;=&quot;Opaque&quot; }
+            LOD 300
+
+            CGPROGRAM
+            #pragma surface surf BlinnPhong addshadow fullforwardshadows vertex:disp nolightmap
+            #pragma target 5.0
+
+            struct appdata {
+                float4 vertex : POSITION;
+                float4 tangent : TANGENT;
+                float3 normal : NORMAL;
+                float2 texcoord : TEXCOORD0;
+            };
+
+            sampler2D _DispTex;
+            float _Displacement;
+
+            void disp (inout appdata v)
+            {
+                float d = tex2Dlod(_DispTex, float4(v.texcoord.xy,0,0)).r * _Displacement;
+                v.vertex.xyz += v.normal * d;
+            }
+
+            struct Input {
+                float2 uv_MainTex;
+            };
+
+            sampler2D _MainTex;
+            sampler2D _NormalMap;
+            fixed4 _Color;
+
+            void surf (Input IN, inout SurfaceOutput o) {
+                half4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+                o.Albedo = c.rgb;
+                o.Specular = 0.2;
+                o.Gloss = 1.0;
+                o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_MainTex));
+            }
+            ENDCG
+        }
+        FallBack &quot;Diffuse&quot;
+    }
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x6750;&#x8D28;&#x662F;&#x76F8;&#x5F53;&#x6807;&#x51C6;&#x7684;&#xFF0C;&#x70B9;&#x7684;&#x76EE;&#x7684;&#xFF1A;</p>
+<pre><code>    &#x9876;&#x70B9;&#x4FEE;&#x6539;&#x663E;&#x793A;&#x6837;&#x54C1;&#x7684;&#x4F4D;&#x79FB;&#x56FE;&#x548C;&#x79FB;&#x52A8;&#x9876;&#x70B9;&#x6CBF;&#x5176;&#x6CD5;&#x7EBF;&#x3002;
+    &#x5B83;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x9876;&#x70B9;&#x6570;&#x636E;&#x8F93;&#x5165;&#x201D;&#x7ED3;&#x6784;&#xFF08;&#x6570;&#x636E;&#xFF09;&#x800C;&#x4E0D;&#x662F;&#x9ED8;&#x8BA4;&#x7684;appdata_full&#x3002;&#x8FD9;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x7684;&#xFF0C;&#x4F46;&#x5B83;&#x7684;&#x9576;&#x5D4C;&#x4F7F;&#x7528;&#x5C3D;&#x53EF;&#x80FD;&#x5C0F;&#x7684;&#x7ED3;&#x6784;&#x662F;&#x66F4;&#x6709;&#x6548;&#x7684;&#x3002;
+    &#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x7684;&#x9876;&#x70B9;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x7B2C;&#x4E8C;UV&#x5750;&#x6807;&#xFF0C;&#x6211;&#x4EEC;&#x6DFB;&#x52A0;nolightmap&#x6307;&#x4EE4;&#x6392;&#x9664;&#x5149;&#x7167;&#x8D34;&#x56FE;&#x3002;
+</code></pre><p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x5BF9;&#x8C61;&#x7684;&#x5916;&#x89C2;&#xFF1A;</p>
+<p><img src="../assets/SurfaceShaderTess1-none.png" alt=""></p>
+<p>&#xFFFC;</p>
+<h4 id="&#x56FA;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x9576;&#x5D4C;">&#x56FA;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x9576;&#x5D4C;</h4>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x6DFB;&#x52A0;&#x56FA;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x9576;&#x5D4C;,&#x5373;&#x76F8;&#x540C;&#x7684;&#x9576;&#x5D4C;&#x6C34;&#x5E73;&#x5BF9;&#x6574;&#x4E2A;&#x7F51;&#x3002;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x5408;&#x9002;&#x7684;,&#x5982;&#x679C;&#x4F60;&#x7684;&#x6A21;&#x578B;&#x7684;&#x8138;&#x5927;&#x81F4;&#x76F8;&#x540C;&#x5927;&#x5C0F;&#x7684;&#x5C4F;&#x5E55;&#x4E0A;&#x3002;&#x4E00;&#x4E9B;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x4ECE;&#x4EE3;&#x7801;&#x7684;&#x9576;&#x5D4C;&#x6C34;&#x5E73;,&#x57FA;&#x4E8E;&#x4E0E;&#x6444;&#x50CF;&#x673A;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;&#x3002;</p>
+<pre><code>Shader &quot;Tessellation Sample&quot; {
+        Properties {
+            _Tess (&quot;Tessellation&quot;, Range(1,32)) = 4
+            _MainTex (&quot;Base (RGB)&quot;, 2D) = &quot;white&quot; {}
+            _DispTex (&quot;Disp Texture&quot;, 2D) = &quot;gray&quot; {}
+            _NormalMap (&quot;Normalmap&quot;, 2D) = &quot;bump&quot; {}
+            _Displacement (&quot;Displacement&quot;, Range(0, 1.0)) = 0.3
+            _Color (&quot;Color&quot;, color) = (1,1,1,0)
+            _SpecColor (&quot;Spec color&quot;, color) = (0.5,0.5,0.5,0.5)
+        }
+        SubShader {
+            Tags { &quot;RenderType&quot;=&quot;Opaque&quot; }
+            LOD 300
+
+            CGPROGRAM
+            #pragma surface surf BlinnPhong addshadow fullforwardshadows vertex:disp tessellate:tessFixed nolightmap
+            #pragma target 5.0
+
+            struct appdata {
+                float4 vertex : POSITION;
+                float4 tangent : TANGENT;
+                float3 normal : NORMAL;
+                float2 texcoord : TEXCOORD0;
+            };
+
+            float _Tess;
+
+            float4 tessFixed()
+            {
+                return _Tess;
+            }
+
+            sampler2D _DispTex;
+            float _Displacement;
+
+            void disp (inout appdata v)
+            {
+                float d = tex2Dlod(_DispTex, float4(v.texcoord.xy,0,0)).r * _Displacement;
+                v.vertex.xyz += v.normal * d;
+            }
+
+            struct Input {
+                float2 uv_MainTex;
+            };
+
+            sampler2D _MainTex;
+            sampler2D _NormalMap;
+            fixed4 _Color;
+
+            void surf (Input IN, inout SurfaceOutput o) {
+                half4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+                o.Albedo = c.rgb;
+                o.Specular = 0.2;
+                o.Gloss = 1.0;
+                o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_MainTex));
+            }
+            ENDCG
+        }
+        FallBack &quot;Diffuse&quot;
+    }
+</code></pre><p>&#x9576;&#x5D4C;&#x529F;&#x80FD;,tessFixed&#x7740;&#x8272;&#x5668;,&#x8FD4;&#x56DE;&#x56DB;&#x4E2A;&#x9576;&#x5D4C;&#x56E0;&#x7D20;&#x4F5C;&#x4E3A;&#x5355;&#x4E2A;float4&#x503C;:&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x6BCF;&#x6761;&#x8FB9;&#x7684;&#x6811;&#x56E0;&#x7D20;,&#x5E76;&#x4E3A;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x5185;&#x90E8;&#x56E0;&#x7D20;&#x4E4B;&#x4E00;&#x3002;&#x5728;&#x8FD9;&#x91CC;,&#x6211;&#x4EEC;&#x53EA;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6052;&#x5B9A;&#x503C;&#x8BBE;&#x7F6E;&#x6750;&#x6599;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#xFFFC;<img src="../assets/SurfaceShaderTess2-fixed.png" alt=""></p>
+<h4 id="&#x57FA;&#x4E8E;&#x8DDD;&#x79BB;&#x7684;&#x9576;&#x5D4C;">&#x57FA;&#x4E8E;&#x8DDD;&#x79BB;&#x7684;&#x9576;&#x5D4C;</h4>
+<p>&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x628A;&#x57FA;&#x4E8E;&#x8DDD;&#x79BB;&#x76F8;&#x673A;&#x9576;&#x5D4C;&#x6C34;&#x5E73;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E24;&#x4E2A;&#x8DDD;&#x79BB;&#x503C;&#xFF1B;&#x8DDD;&#x79BB;&#xFF0C;&#x9576;&#x5D4C;&#x5728;&#x6700;&#x5927;&#xFF08;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;10&#x7C73;&#xFF09;&#xFF0C;&#x548C;&#x8DDD;&#x79BB;&#x5BF9;&#x9576;&#x5D4C;&#x6C34;&#x5E73;&#x9010;&#x6E10;&#x964D;&#x4F4E;&#xFF08;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;20&#x7C73;&#xFF09;&#x3002;</p>
+<pre><code>Shader &quot;Tessellation Sample&quot; {
+        Properties {
+            _Tess (&quot;Tessellation&quot;, Range(1,32)) = 4
+            _MainTex (&quot;Base (RGB)&quot;, 2D) = &quot;white&quot; {}
+            _DispTex (&quot;Disp Texture&quot;, 2D) = &quot;gray&quot; {}
+            _NormalMap (&quot;Normalmap&quot;, 2D) = &quot;bump&quot; {}
+            _Displacement (&quot;Displacement&quot;, Range(0, 1.0)) = 0.3
+            _Color (&quot;Color&quot;, color) = (1,1,1,0)
+            _SpecColor (&quot;Spec color&quot;, color) = (0.5,0.5,0.5,0.5)
+        }
+        SubShader {
+            Tags { &quot;RenderType&quot;=&quot;Opaque&quot; }
+            LOD 300
+
+            CGPROGRAM
+            #pragma surface surf BlinnPhong addshadow fullforwardshadows vertex:disp tessellate:tessDistance nolightmap
+            #pragma target 5.0
+            #include &quot;Tessellation.cginc&quot;
+
+            struct appdata {
+                float4 vertex : POSITION;
+                float4 tangent : TANGENT;
+                float3 normal : NORMAL;
+                float2 texcoord : TEXCOORD0;
+            };
+
+            float _Tess;
+
+            float4 tessDistance (appdata v0, appdata v1, appdata v2) {
+                float minDist = 10.0;
+                float maxDist = 25.0;
+                return UnityDistanceBasedTess(v0.vertex, v1.vertex, v2.vertex, minDist, maxDist, _Tess);
+            }
+
+            sampler2D _DispTex;
+            float _Displacement;
+
+            void disp (inout appdata v)
+            {
+                float d = tex2Dlod(_DispTex, float4(v.texcoord.xy,0,0)).r * _Displacement;
+                v.vertex.xyz += v.normal * d;
+            }
+
+            struct Input {
+                float2 uv_MainTex;
+            };
+
+            sampler2D _MainTex;
+            sampler2D _NormalMap;
+            fixed4 _Color;
+
+            void surf (Input IN, inout SurfaceOutput o) {
+                half4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+                o.Albedo = c.rgb;
+                o.Specular = 0.2;
+                o.Gloss = 1.0;
+                o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_MainTex));
+            }
+            ENDCG
+        }
+        FallBack &quot;Diffuse&quot;
+    }
+</code></pre><p>&#x8FD9;&#x91CC;&#x7684;&#x4E09;&#x89D2;&#x51FD;&#x6570;&#x9700;&#x8981;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF1B;&#x5728;&#x4E09;&#x89D2;&#x9576;&#x5D4C;&#x4E09;&#x89D2;&#x5F62;&#x9876;&#x70B9;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x662F;&#x9700;&#x8981;&#x8BA1;&#x7B97;&#x7684;&#x9576;&#x5D4C;&#x6C34;&#x5E73;&#xFF0C;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x9876;&#x70B9;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x73B0;&#x5728;&#x3002;&#x6211;&#x4EEC;&#x5305;&#x62EC;&#x4E00;&#x4E2A;&#x5185;&#x7F6E;&#x7684;&#x5E2E;&#x52A9;&#x6587;&#x4EF6;tessellation.cginc&#x53EB;unitydistancebasedtess&#x529F;&#x80FD;&#x7531;&#x5B83;&#x6765;&#x505A;&#x6240;&#x6709;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x9876;&#x70B9;&#x7684;&#x8DDD;&#x79BB;&#x76F8;&#x673A;&#x5BFC;&#x51FA;&#x6700;&#x7EC8;&#x7684;&#x7EC6;&#x5206;&#x56E0;&#x5B50;&#x3002;</p>
+<p><img src="../assets/SurfaceShaderTess3-distance.png" alt="">
+&#xFFFC;</p>
+<h4 id="&#x57FA;&#x4E8E;&#x8FB9;&#x7F18;&#x7684;&#x957F;&#x5EA6;&#x7684;&#x9576;&#x5D4C;">&#x57FA;&#x4E8E;&#x8FB9;&#x7F18;&#x7684;&#x957F;&#x5EA6;&#x7684;&#x9576;&#x5D4C;</h4>
+<p>&#x7EAF;&#x7CB9;&#x7684;&#x57FA;&#x4E8E;&#x8DDD;&#x79BB;&#x7684;&#x9576;&#x5D4C;&#x597D;&#x53EA;&#x6709;&#x5F53;&#x4E09;&#x89D2;&#x5F62;&#x5927;&#x5C0F;&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#x3002;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x56FE;&#x7247;&#x4E2D;,&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6709;&#x5C0F;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x5B8C;&#x5168;&#x5D4C;&#x5408;&#x592A;&#x591A;,&#x867D;&#x7136;&#x6709;&#x5927;&#x91CF;&#x4E09;&#x89D2;&#x5F62;&#x4E0D;&#x591F;&#x5B8C;&#x5168;&#x5D4C;&#x5408;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x76F8;&#x53CD;&#xFF0C;&#x9576;&#x5D4C;&#x7684;&#x6C34;&#x5E73;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;&#x4E09;&#x89D2;&#x5F62;&#x8FB9;&#x957F;&#x5728;&#x5C4F;&#x5E55;&#x7684;&#x957F;&#x8FB9;&#x8BA1;&#x7B97;&#xFF0C;&#x5E94;&#x91C7;&#x7528;&#x8F83;&#x5927;&#x7684;&#x7EC6;&#x5206;&#x56E0;&#x5B50;&#x3002;</p>
+<pre><code>Shader &quot;Tessellation Sample&quot; {
+        Properties {
+            _EdgeLength (&quot;Edge length&quot;, Range(2,50)) = 15
+            _MainTex (&quot;Base (RGB)&quot;, 2D) = &quot;white&quot; {}
+            _DispTex (&quot;Disp Texture&quot;, 2D) = &quot;gray&quot; {}
+            _NormalMap (&quot;Normalmap&quot;, 2D) = &quot;bump&quot; {}
+            _Displacement (&quot;Displacement&quot;, Range(0, 1.0)) = 0.3
+            _Color (&quot;Color&quot;, color) = (1,1,1,0)
+            _SpecColor (&quot;Spec color&quot;, color) = (0.5,0.5,0.5,0.5)
+        }
+        SubShader {
+            Tags { &quot;RenderType&quot;=&quot;Opaque&quot; }
+            LOD 300
+
+            CGPROGRAM
+            #pragma surface surf BlinnPhong addshadow fullforwardshadows vertex:disp tessellate:tessEdge nolightmap
+            #pragma target 5.0
+            #include &quot;Tessellation.cginc&quot;
+
+            struct appdata {
+                float4 vertex : POSITION;
+                float4 tangent : TANGENT;
+                float3 normal : NORMAL;
+                float2 texcoord : TEXCOORD0;
+            };
+
+            float _EdgeLength;
+
+            float4 tessEdge (appdata v0, appdata v1, appdata v2)
+            {
+                return UnityEdgeLengthBasedTess (v0.vertex, v1.vertex, v2.vertex, _EdgeLength);
+            }
+
+            sampler2D _DispTex;
+            float _Displacement;
+
+            void disp (inout appdata v)
+            {
+                float d = tex2Dlod(_DispTex, float4(v.texcoord.xy,0,0)).r * _Displacement;
+                v.vertex.xyz += v.normal * d;
+            }
+
+            struct Input {
+                float2 uv_MainTex;
+            };
+
+            sampler2D _MainTex;
+            sampler2D _NormalMap;
+            fixed4 _Color;
+
+            void surf (Input IN, inout SurfaceOutput o) {
+                half4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+                o.Albedo = c.rgb;
+                o.Specular = 0.2;
+                o.Gloss = 1.0;
+                o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_MainTex));
+            }
+            ENDCG
+        }
+        FallBack &quot;Diffuse&quot;
+    }
+</code></pre><p>&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;unityedgelengthbasedtess&#x529F;&#x80FD;Tessellation.cginc&#x505A;&#x5B9E;&#x9645;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p><img src="../assets/SurfaceShaderTess4-edgelength.png" alt=""></p>
+<p>&#xFFFC;
+&#x51FA;&#x4E8E;&#x6027;&#x80FD;&#x539F;&#x56E0;&#xFF0C;&#x53EB;unityedgelengthbasedtesscull&#x529F;&#x80FD;&#x76F8;&#x53CD;&#x5B83;&#x662F;&#x53EF;&#x53D6;&#x7684;&#xFF0C;&#x5B83;&#x4F1A;&#x505A;&#x8865;&#x4E01;&#x7684;&#x88C1;&#x526A;&#x3002;&#x8FD9;&#x4F7F;&#x5F97;&#x7740;&#x8272;&#x6709;&#x70B9;&#x8D35;&#xFF0C;&#x4F46;&#x8282;&#x7701;&#x4E86;&#x5927;&#x91CF;GPU&#x5DE5;&#x4F5C;&#x90E8;&#x5206;&#x7684;&#x7F51;&#x683C;&#xFF0C;&#x5728;&#x76F8;&#x673A;&#x7684;&#x89C6;&#x91CE;&#x3002;</p>
+<h4 id="phong-tessellation">Phong Tessellation</h4>
+<p>&#x51AF;&#x6C0F;&#x9576;&#x5D4C;</p>
+<p>Phong&#x9576;&#x5D4C;&#x4FEE;&#x6539;&#x7EC6;&#x5206;&#x9762;&#x4F4D;&#x7F6E;&#xFF0C;&#x8FD9;&#x6837;&#x4EA7;&#x751F;&#x7684;&#x8868;&#x9762;&#x7F51;&#x683C;&#x6CD5;&#x7EBF;&#x70B9;&#x5982;&#x4E0B;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#x4F7F;&#x4F4E;&#x591A;&#x8FB9;&#x5F62;&#x7F51;&#x683C;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x5149;&#x6ED1;&#x3002;</p>
+<p>Unity&#x7684;&#x8868;&#x9762;&#x7740;&#x8272;&#x5668;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;tessphong&#x81EA;&#x52A8;&#x8BA1;&#x7B97;Phong&#x9576;&#x5D4C;&#xFF1A;variablename&#x6C47;&#x7F16;&#x6307;&#x4EE4;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x7740;&#x8272;&#xFF1A;</p>
+<pre><code>Shader &quot;Phong Tessellation&quot; {
+        Properties {
+            _EdgeLength (&quot;Edge length&quot;, Range(2,50)) = 5
+            _Phong (&quot;Phong Strengh&quot;, Range(0,1)) = 0.5
+            _MainTex (&quot;Base (RGB)&quot;, 2D) = &quot;white&quot; {}
+            _Color (&quot;Color&quot;, color) = (1,1,1,0)
+        }
+        SubShader {
+            Tags { &quot;RenderType&quot;=&quot;Opaque&quot; }
+            LOD 300
+
+            CGPROGRAM
+            #pragma surface surf Lambert vertex:dispNone tessellate:tessEdge tessphong:_Phong nolightmap
+            #include &quot;Tessellation.cginc&quot;
+
+            struct appdata {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+                float2 texcoord : TEXCOORD0;
+            };
+
+            void dispNone (inout appdata v) { }
+
+            float _Phong;
+            float _EdgeLength;
+
+            float4 tessEdge (appdata v0, appdata v1, appdata v2)
+            {
+                return UnityEdgeLengthBasedTess (v0.vertex, v1.vertex, v2.vertex, _EdgeLength);
+            }
+
+            struct Input {
+                float2 uv_MainTex;
+            };
+
+            fixed4 _Color;
+            sampler2D _MainTex;
+
+            void surf (Input IN, inout SurfaceOutput o) {
+                half4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+                o.Albedo = c.rgb;
+                o.Alpha = c.a;
+            }
+
+            ENDCG
+        }
+        FallBack &quot;Diffuse&quot;
+    }
+</code></pre><p>&#x8FD9;&#x662F;&#x95F4;&#x5B9A;&#x671F;&#x6750;&#x8D28;&#x6BD4;&#x8F83;&#xFF08;&#x7B2C;&#x4E00;&#x6392;&#xFF09;&#x548C;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;Phong Tessellation&#xFF08;&#x5E95;&#x90E8;&#xFF09;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5373;&#x4F7F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4F4D;&#x79FB;&#x6620;&#x5C04;&#xFF0C;&#x8868;&#x9762;&#x53D8;&#x5F97;&#x66F4;&#x5706;&#x3002;</p>
+<p><img src="../assets/SurfaceShaderPhongTess.png" alt="">
+&#xFFFC;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="12-自定义光照模型的表面着色器.html" class="navigation navigation-prev " aria-label="Previous page: 1.2 自定义光照模型的表面着色器">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="第4章-高级-shaderlab-主题.html" class="navigation navigation-next " aria-label="Next page: 第4章 高级 ShaderLab 主题">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.3 使用DX11\\/OpenGL 的表面着色器的细分网格","level":"1.2.3.3","depth":3,"next":{"title":"第4章 高级 ShaderLab 主题","level":"1.2.4","depth":2,"path":"1. ShaderLab 框架/第4章-高级-shaderlab-主题.md","ref":"1. ShaderLab 框架/第4章-高级-shaderlab-主题.md","articles":[{"title":"1.1 Unity 的渲染管线","level":"1.2.4.1","depth":3,"path":"1. ShaderLab 框架/11-unity-的渲染管线.md","ref":"1. ShaderLab 框架/11-unity-的渲染管线.md","articles":[]},{"title":"1.2 书写着色器的性能提示","level":"1.2.4.2","depth":3,"path":"1. ShaderLab 框架/12-书写着色器的性能提示.md","ref":"1. ShaderLab 框架/12-书写着色器的性能提示.md","articles":[]},{"title":"1.3 使用替换的着色器渲染","level":"1.2.4.3","depth":3,"path":"1. ShaderLab 框架/13-使用替换的着色器渲染.md","ref":"1. ShaderLab 框架/13-使用替换的着色器渲染.md","articles":[]},{"title":"1.4 自定义着色器GUI","level":"1.2.4.4","depth":3,"path":"1. ShaderLab 框架/14-自定义着色器gui.md","ref":"1. ShaderLab 框架/14-自定义着色器gui.md","articles":[]},{"title":"1.5 使用深度图","level":"1.2.4.5","depth":3,"path":"1. ShaderLab 框架/15-使用深度图.md","ref":"1. ShaderLab 框架/15-使用深度图.md","articles":[]},{"title":"1.6 特定平台的渲染差异","level":"1.2.4.6","depth":3,"path":"1. ShaderLab 框架/16-特定平台的渲染差异.md","ref":"1. ShaderLab 框架/16-特定平台的渲染差异.md","articles":[]},{"title":"1.7 着色器细节等级","level":"1.2.4.7","depth":3,"path":"1. ShaderLab 框架/17-着色器细节等级.md","ref":"1. ShaderLab 框架/17-着色器细节等级.md","articles":[]},{"title":"1.8 纹理数组","level":"1.2.4.8","depth":3,"path":"1. ShaderLab 框架/18-纹理数组.md","ref":"1. ShaderLab 框架/18-纹理数组.md","articles":[]},{"title":"1.9 使用 Visual Studio 调试 DirectX11 着色器","level":"1.2.4.9","depth":3,"path":"1. ShaderLab 框架/19-使用-visual-studio-调试-directx11-着色器.md","ref":"1. ShaderLab 框架/19-使用-visual-studio-调试-directx11-着色器.md","articles":[]},{"title":"1.10 固定功能着色器示例","level":"1.2.4.10","depth":3,"path":"1. ShaderLab 框架/110-固定功能着色器示例.md","ref":"1. ShaderLab 框架/110-固定功能着色器示例.md","articles":[]}]},"previous":{"title":"1.2 自定义光照模型的表面着色器","level":"1.2.3.2","depth":3,"path":"1. ShaderLab 框架/12-自定义光照模型的表面着色器.md","ref":"1. ShaderLab 框架/12-自定义光照模型的表面着色器.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/13-使用dx11opengl-的表面着色器的细分网格.md","mtime":"2016-12-24T14:30:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-24T15:12:46.163Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

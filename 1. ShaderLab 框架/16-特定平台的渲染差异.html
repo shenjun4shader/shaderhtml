@@ -1,0 +1,1232 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.6 特定平台的渲染差异 · ShaderLab 开发实战</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="17-着色器细节等级.html" />
+    
+    
+    <link rel="prev" href="15-使用深度图.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.0 ShaderLab 框架.html">
+            
+                <a href="1.0 ShaderLab 框架.html">
+            
+                    
+                    1. ShaderLab 框架
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="第1章-shaderlab-语法.html">
+            
+                <a href="第1章-shaderlab-语法.html">
+            
+                    
+                    第1章 ShaderLab 语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="11-属性（properties）.html">
+            
+                <a href="11-属性（properties）.html">
+            
+                    
+                    1.1 属性（Properties）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="12-子着色器（subshader）.html">
+            
+                <a href="12-子着色器（subshader）.html">
+            
+                    
+                    1.2 子着色器（SubShader）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="121-pass.html">
+            
+                <a href="121-pass.html">
+            
+                    
+                    1.2.1 Pass
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1.1" data-path="1211-culling--depth-testing.html">
+            
+                <a href="1211-culling--depth-testing.html">
+            
+                    
+                    1.2.1.1 Culling & Depth Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.2" data-path="1212-blending.html">
+            
+                <a href="1212-blending.html">
+            
+                    
+                    1.2.1.2 Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.3" data-path="1213-pass-tags.html">
+            
+                <a href="1213-pass-tags.html">
+            
+                    
+                    1.2.1.3 Pass Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.4" data-path="1214-stencil.html">
+            
+                <a href="1214-stencil.html">
+            
+                    
+                    1.2.1.4 Stencil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.5" data-path="1215-name.html">
+            
+                <a href="1215-name.html">
+            
+                    
+                    1.2.1.5 Name
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.6" data-path="1216-legacy-lightiing.html">
+            
+                <a href="1216-legacy-lightiing.html">
+            
+                    
+                    1.2.1.6 Legacy Lightiing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.7" data-path="1217-legacy-texture-combiners.html">
+            
+                <a href="1217-legacy-texture-combiners.html">
+            
+                    
+                    1.2.1.7 Legacy Texture Combiners
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.8" data-path="1218-legacy-alpha-testing.html">
+            
+                <a href="1218-legacy-alpha-testing.html">
+            
+                    
+                    1.2.1.8 Legacy Alpha Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.9" data-path="1219-legacy-fog.html">
+            
+                <a href="1219-legacy-fog.html">
+            
+                    
+                    1.2.1.9 Legacy Fog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.10" data-path="12110-legacy-bindchannels.html">
+            
+                <a href="12110-legacy-bindchannels.html">
+            
+                    
+                    1.2.1.10 Legacy BindChannels
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="122-usepass.html">
+            
+                <a href="122-usepass.html">
+            
+                    
+                    1.2.2 UsePass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="123-grabpass.html">
+            
+                <a href="123-grabpass.html">
+            
+                    
+                    1.2.3 GrabPass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="124-subshader-tags.html">
+            
+                <a href="124-subshader-tags.html">
+            
+                    
+                    1.2.4 SubShader Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="13-回滚语句（fallback）.html">
+            
+                <a href="13-回滚语句（fallback）.html">
+            
+                    
+                    1.3 回滚语句（Fallback）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="14-自定义编译器（customeditor）.html">
+            
+                <a href="14-自定义编译器（customeditor）.html">
+            
+                    
+                    1.4 自定义编译器（CustomEditor）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="15-其他命令（other-commands）.html">
+            
+                <a href="15-其他命令（other-commands）.html">
+            
+                    
+                    1.5 其他命令（other commands）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="第2章-顶点和片段着色器.html">
+            
+                <a href="第2章-顶点和片段着色器.html">
+            
+                    
+                    第2章 顶点和片段着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="11-顶点和片段着色器-举例.html">
+            
+                <a href="11-顶点和片段着色器-举例.html">
+            
+                    
+                    1.1 顶点和片段着色器 举例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="12-shader-语义（semantics）.html">
+            
+                <a href="12-shader-语义（semantics）.html">
+            
+                    
+                    1.2 着色器语义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="13-在-cghlsl-中访问-shader-属性.html">
+            
+                <a href="13-在-cghlsl-中访问-shader-属性.html">
+            
+                    
+                    1.3 在 Cg\/HLSL 中访问着色器属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="14-为顶点程序提供顶点数据.html">
+            
+                <a href="14-为顶点程序提供顶点数据.html">
+            
+                    
+                    1.4 为顶点程序提供顶点数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="15-内置-shader-包含的文件.html">
+            
+                <a href="15-内置-shader-包含的文件.html">
+            
+                    
+                    1.5 内置 Shader 包含的文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="16-预定义着色器预处理宏.html">
+            
+                <a href="16-预定义着色器预处理宏.html">
+            
+                    
+                    1.6 预定义着色器预处理宏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="17-内置的辅助功能.html">
+            
+                <a href="17-内置的辅助功能.html">
+            
+                    
+                    1.7 内置的辅助功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="18-内置的着色器变量.html">
+            
+                <a href="18-内置的着色器变量.html">
+            
+                    
+                    1.8 内置的着色器变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="19-制作多个着色程序变体.html">
+            
+                <a href="19-制作多个着色程序变体.html">
+            
+                    
+                    1.9 制作多个着色程序变体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="110-glsl-着色器程序.html">
+            
+                <a href="110-glsl-着色器程序.html">
+            
+                    
+                    1.10 GLSL 着色器程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="111-unity-中使用的着色器语言.html">
+            
+                <a href="111-unity-中使用的着色器语言.html">
+            
+                    
+                    1.11 Unity 中使用的着色器语言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="112-着色器编译目标级别.html">
+            
+                <a href="112-着色器编译目标级别.html">
+            
+                    
+                    1.12 着色器编译目标级别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.13" data-path="113-着色器数据类型和精度.html">
+            
+                <a href="113-着色器数据类型和精度.html">
+            
+                    
+                    1.13 着色器数据类型和精度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="第3章-表面着色器.html">
+            
+                <a href="第3章-表面着色器.html">
+            
+                    
+                    第3章 表面着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="11-表面着色器举例.html">
+            
+                <a href="11-表面着色器举例.html">
+            
+                    
+                    1.1 表面着色器举例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="12-自定义光照模型的表面着色器.html">
+            
+                <a href="12-自定义光照模型的表面着色器.html">
+            
+                    
+                    1.2 自定义光照模型的表面着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="13-使用dx11opengl-的表面着色器的细分网格.html">
+            
+                <a href="13-使用dx11opengl-的表面着色器的细分网格.html">
+            
+                    
+                    1.3 使用DX11\/OpenGL 的表面着色器的细分网格
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="第4章-高级-shaderlab-主题.html">
+            
+                <a href="第4章-高级-shaderlab-主题.html">
+            
+                    
+                    第4章 高级 ShaderLab 主题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="11-unity-的渲染管线.html">
+            
+                <a href="11-unity-的渲染管线.html">
+            
+                    
+                    1.1 Unity 的渲染管线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="12-书写着色器的性能提示.html">
+            
+                <a href="12-书写着色器的性能提示.html">
+            
+                    
+                    1.2 书写着色器的性能提示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="13-使用替换的着色器渲染.html">
+            
+                <a href="13-使用替换的着色器渲染.html">
+            
+                    
+                    1.3 使用替换的着色器渲染
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="14-自定义着色器gui.html">
+            
+                <a href="14-自定义着色器gui.html">
+            
+                    
+                    1.4 自定义着色器GUI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="15-使用深度图.html">
+            
+                <a href="15-使用深度图.html">
+            
+                    
+                    1.5 使用深度图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4.6" data-path="16-特定平台的渲染差异.html">
+            
+                <a href="16-特定平台的渲染差异.html">
+            
+                    
+                    1.6 特定平台的渲染差异
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.7" data-path="17-着色器细节等级.html">
+            
+                <a href="17-着色器细节等级.html">
+            
+                    
+                    1.7 着色器细节等级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.8" data-path="18-纹理数组.html">
+            
+                <a href="18-纹理数组.html">
+            
+                    
+                    1.8 纹理数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.9" data-path="19-使用-visual-studio-调试-directx11-着色器.html">
+            
+                <a href="19-使用-visual-studio-调试-directx11-着色器.html">
+            
+                    
+                    1.9 使用 Visual Studio 调试 DirectX11 着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.10" data-path="110-固定功能着色器示例.html">
+            
+                <a href="110-固定功能着色器示例.html">
+            
+                    
+                    1.10 固定功能着色器示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2. Cg 语法/2.0 Cg 语法.html">
+            
+                <a href="../2. Cg 语法/2.0 Cg 语法.html">
+            
+                    
+                    2. Cg 语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2. Cg 语法/第1章-简介.html">
+            
+                <a href="../2. Cg 语法/第1章-简介.html">
+            
+                    
+                    第1章 简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../2. Cg 语法/11-什么是-cg.html">
+            
+                <a href="../2. Cg 语法/11-什么是-cg.html">
+            
+                    
+                    1.1 什么是 Cg
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../2. Cg 语法/12-顶点、片段和图形流水线.html">
+            
+                <a href="../2. Cg 语法/12-顶点、片段和图形流水线.html">
+            
+                    
+                    1.2 顶点、片段和图形流水线
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    第2章 最简单的程序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    第3章 参数、纹理和表达式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    第4章 变换
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    第5章 光照
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    第6章 动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" >
+            
+                <span>
+            
+                    
+                    第7章 环境映射技术
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" >
+            
+                <span>
+            
+                    
+                    第8章 凹凸映射
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" >
+            
+                <span>
+            
+                    
+                    第9章 高级论题
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" >
+            
+                <span>
+            
+                    
+                    第10章 Profile 和性能
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../3. ShaderLab 开发实战/3.0 ShaderLab 开发实战.html">
+            
+                <a href="../3. ShaderLab 开发实战/3.0 ShaderLab 开发实战.html">
+            
+                    
+                    3. ShaderLab 开发实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.6 特定平台的渲染差异</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="platform-specific-rendering-differences">Platform-specific rendering differences</h2>
+<p>Unity runs on various graphics library platforms: Open GL (developer.nvidia.com), Direct3D (msdn.microsoft.com), Metal (developer.apple.com), and games consoles. In some cases, there are differences in how graphics rendering behaves between the platforms and Shader language semantics. Most of the time the Unity Editor hides the differences, but there are some situations where the Editor cannot do this for you. In these situations, you need to ensure that you negate differences between the platforms. These situations, and the actions you need to take if they occur, are listed below.</p>
+<h4 id="render-texture-coordinates">Render Texture coordinates</h4>
+<p>Vertical Texture coordinate conventions differ between two types of platforms: Direct3D-like and OpenGL-like.</p>
+<p>Direct3D-like: The coordinate is 0 at the top and increases downward. This applies to Direct3D, Metal and consoles.
+OpenGL-like: The coordinate is 0 at the bottom and increases upward. This applies to OpenGL and OpenGL ES.
+This difference tends not to have any effect on your project, other than when rendering into a Render Texture. When rendering into a Texture on a Direct3D-like platform, Unity internally flips rendering upside down. This makes the conventions match between platforms, with the OpenGL-like platform convention the standard.</p>
+<p>Image Effects and rendering in UV space are two common cases in the Shaders where you need to take action to ensure that the different coordinate conventions do not create problems in your project.</p>
+<h4 id="image-effects">Image Effects</h4>
+<p>When you use Image Effects and anti-aliasing, the resulting source Texture for an Image Effect is not flipped to match the OpenGL-like platform convention. In this case, Unity renders to the screen to get anti-aliasing and then resolves rendering into a Render Texture for further processing with an Image Effect.</p>
+<p>If your Image Effect is a simple one that processes one Render Texture at a time, Graphics.Blit deals with the inconsistent coordinates. However, if you&#x2019;re processing more than one Render Texture together in your Image Effect, the Render Textures are likely to come out at different vertical orientations in Direct3D-like platforms and when you use anti-aliasing. To standardise the coordinates, you need to manually &#x201C;flip&#x201D; the screen Texture upside down in your Vertex Shader so that it matches the OpenGL-like coordinate standard.</p>
+<p>The following code sample demonstrates how to do this:</p>
+<pre><code>// Flip sampling of the Texture: 
+// The main Texture
+// texel size will have negative Y).
+
+#if UNITY_UV_STARTS_AT_TOP
+if (_MainTex_TexelSize.y &lt; 0)
+        uv.y = 1-uv.y;
+#endif
+</code></pre><p>Refer to the Edge Detection Scene in Unity&#x2019;s Shader Replacement sample project (see Unity&#x2019;s Learn resources) for a more detailed example of this. Edge detection in this project uses both the screen Texture and the Camera&#x2019;s Depth+Normals texture.</p>
+<p>A similar situation occurs with GrabPass. The resulting render Texture might not actually be turned upside down on Direct3D-like (non-OpenGL-like) platforms. If your Shader code samples GrabPass Textures, use the ComputeGrabScreenPos function from the UnityCG include file.</p>
+<h4 id="rendering-in-uv-space">Rendering in UV space</h4>
+<p>When rendering in Texture coordinate (UV) space for special effects or tools, you might need to adjust your Shaders so that rendering is consistent between Direct3D-like and OpenGL-like systems. You also might need to adjust your rendering between rendering into the screen and rendering into a Texture. Adjust these by flipping the Direct3D-like projection upside down so its coordinates match the OpenGL-like projection coordinates.</p>
+<p>The built-in variable ProjectionParams.x contains a +1 or &#x2013;1 value. -1 indicates a projection has been flipped upside down to match OpenGL-like projection coordinates, while +1 indicates it hasn&#x2019;t been flipped. You can check this value in your Shaders and then perform different actions. The example below checks if a projection has been flipped and, if so, flips and then returns the UV coordinates to match.</p>
+<pre><code>float4 vert(float2 uv : TEXCOORD0) : SV_POSITION
+{
+    float4 pos;
+    pos.xy = uv;
+    // This example is rendering with upside-down flipped projection,
+    // so flip the vertical UV coordinate too
+    if (_ProjectionParams.x &lt; 0)
+        pos.y = 1 - pos.y;
+    pos.z = 0;
+    pos.w = 1;
+    return pos;
+}
+</code></pre><h4 id="clip-space-coordinates">Clip space coordinates</h4>
+<p>Similar to Texture coordinates, the clip space coordinates (also known as post-projection space coordinates) differ between Direct3D-like and OpenGL-like platforms:</p>
+<p>Direct3D-like: The clip space depth goes from 0.0 at the near plane to +1.0 at the far plane. This applies to Direct3D, Metal and consoles.
+OpenGL-like: The clip space depth goes from &#x2013;1.0 at the near plane to +1.0 at the far plane. This applies to OpenGL and OpenGL ES.
+Inside Shader code, you can use the UNITY_NEAR_CLIP_VALUE built-in macro to get the near plane value based on the platform.</p>
+<p>Inside script code, use GL.GetGPUProjectionMatrix to convert from Unity&#x2019;s coordinate system (which follows OpenGL-like conventions) to Direct3D-like coordinates if that is what the platform expects.</p>
+<h4 id="precision-of-shader-computations">Precision of Shader computations</h4>
+<p>To avoid precision issues, make sure that you test your Shaders on the target platforms. The GPUs in mobile devices and PCs differ in how they treat floating point types. PC GPUs treat all floating point types (float, half and fixed) as the same - they do all calculations using full 32-bit precision, while many mobile device GPUs do not do this.</p>
+<p>See documentation on data types and precision for details.</p>
+<h4 id="const-declarations-in-shaders">Const declarations in Shaders</h4>
+<p>Use of const differs between Microsoft HSL (see msdn.microsoft.com) and OpenGL&#x2019;s GLSL (see Wikipedia) Shader language.</p>
+<p>Microsoft&#x2019;s HLSL const has much the same meaning as it does in C# and C++ in that the variable declared is read-only within its scope but can be initialized in any way.
+OpenGL&#x2019;s GLSL const means that the variable is effectively a compile time constant, and so it must be initialized with compile time constraints (either literal values or calculations on other consts).
+It is best to follow the OpenGL&#x2019;s GLSL semantics and only declare a variable as const when it is truly invariant. Avoid initializing a const variable with some other mutable values (for example, as a local variable in a function). This also works in Microsoft&#x2019;s HLSL, so using const in this way avoids confusing errors on some platforms.</p>
+<h4 id="semantics-used-by-shaders">Semantics used by Shaders</h4>
+<p>To get Shaders working on all platforms, some Shader values should use these semantics:</p>
+<p>Vertex Shader output (clip space) position: SV_POSITION. Sometimes Shaders use POSITION semantics to get Shaders working on all platforms. Note that this does not not work on Sony PS4 or with tessellation.
+Fragment Shader output color: SV_Target. Sometimes Shaders use COLOR or COLOR0 to get Shaders working on all platforms. Note that this does not work on Sony PS4.
+When rendering Meshes as Points, output PSIZE semantics from the vertex Shader (for example, set it to 1). Some platforms, such as OpenGL ES or Metal, treat point size as &#x201C;undefined&#x201D; when it&#x2019;s not written to from the Shader.</p>
+<p>See documentation on Shader semantics for more details.</p>
+<h4 id="direct3d-shader-compiler-syntax">Direct3D Shader compiler syntax</h4>
+<p>Direct3D platforms use Microsoft&#x2019;s HLSL Shader compiler. The HLSL compiler is stricter than other compilers about various subtle Shader errors. For example, it doesn&#x2019;t accept function output values that aren&#x2019;t initialized properly.</p>
+<p>The most common situations that you might run into using this are:</p>
+<p>A Surface Shader vertex modifier that has an out parameter. Initialize the output like this:</p>
+<pre><code>  void vert (inout appdata_full v, out Input o) 
+      {
+        **UNITY_INITIALIZE_OUTPUT(Input,o);**
+        // ...
+      }
+</code></pre><p>Partially initialized values. For example, a function returns float4 but the code only sets the .xyz values of it. Set all values or change to float3 if you only need three values.
+Using tex2D in the Vertex Shader. This is not valid, because UV derivatives don&#x2019;t exist in the vertex Shader. You need to sample an explicit mip level instead; for example, use tex2Dlod (tex, float4(uv,0,0)). You also need to add #pragma target 3.0 as tex2Dlod is a Shader model 3.0 feature.</p>
+<h4 id="directx-11-dx11-hlsl-syntax-in-shaders">DirectX 11 (DX11) HLSL syntax in Shaders</h4>
+<p>Some parts of the Surface Shader compilation pipeline do not understand DirectX 11-specific HLSL (Microsoft&#x2019;s shader language) syntax.</p>
+<p>If you&#x2019;re using HLSL features like StructuredBuffers, RWTextures and other non-DirectX 9 syntax, wrap them in a DirectX X11-only preprocessor macro as shown in the example below.</p>
+<pre><code>#ifdef SHADER_API_D3D11
+// DirectX11-specific code, for example
+StructuredBuffer&lt;float4&gt; myColors;
+RWTexture2D&lt;float4&gt; myRandomWriteTexture;
+#endif
+</code></pre><h4 id="using-shader-framebuffer-fetch">Using Shader framebuffer fetch</h4>
+<p>Some GPUs (most notably PowerVR-based ones on iOS) allow you to do a form of programmable blending by providing current fragment color as input to the Fragment Shader (see EXT_shader_framebuffer_fetch on khronos.org).</p>
+<p>It is possible to write Shaders in Unity that use the framebuffer fetch functionality. To do this, use the inout color argument when you write a Fragment Shader in either HLSL (Microsoft&#x2019;s shading language - see msdn.microsoft.com) or Cg (the shading language by Nvidia - see nvidia.co.uk).</p>
+<p>The example below is in Cg.</p>
+<pre><code>CGPROGRAM
+// only compile Shader for platforms that can potentially
+// do it (currently gles,gles3,metal)
+#pragma only_renderers framebufferfetch
+
+void frag (v2f i, inout half4 ocol : SV_Target)
+{
+    // ocol can be read (current framebuffer color)
+    // and written into (will change color to that one)
+    // ...
+}   
+ENDCG
+</code></pre><h4 id="the-depth-z-direction-in-shaders">The Depth (Z) direction in Shaders</h4>
+<p>Depth (Z) direction differs on different Shader platforms.</p>
+<p><strong>DirectX 11, DirectX 12, PS4, Xbox One, Metal: Reversed direction</strong></p>
+<p>The depth (Z) buffer is 1.0 at the near plane, decreasing to 0.0 at the far plane.
+Clip space range is [near,0] (meaning the near plane distance at the near plane, decreasing to 0.0 at the far plane).</p>
+<p><strong>Other platforms: Traditional direction</strong></p>
+<p>The depth (Z) buffer value is 0.0 at the near plane and 1.0 at the far plane.
+Clip space depends on the specific platform:
+On Direct3D-like platforms, the range is [0,far] (meaning 0.0 at the near plane, increasing to the far plane distance at the far plane).
+On OpenGL-like platforms, the range is [-near,far] (meaning minus the near plane distance at the near plane, increasing to the far plane distance at the far plane).
+Note that reversed direction depth (Z), combined with a floating point depth buffer, significantly improves depth buffer precision against the traditional direction. The advantages of this are less conflict for Z coordinates and better shadows, especially when using small near planes and large far planes.</p>
+<p>So, when you use Shaders from platforms with the depth (Z) reversed:</p>
+<p>UNITY_REVERSED_Z is defined.
+_CameraDepth Texture texture range is 1 (near) to 0 (far).
+Clip space range is within &#x201C;near&#x201D; (near) to 0 (far).
+However, the following macros and functions automatically work out any differences in depth (Z) directions:</p>
+<p>Linear01Depth(float z)
+LinearEyeDepth(float z)
+UNITY_CALC_FOG_FACTOR(coord)</p>
+<h4 id="fetching-the-depth-buffer">Fetching the depth Buffer</h4>
+<p>If you are fetching the depth (Z) buffer value manually, you might want to check the buffer direction. The following is an example of this:</p>
+<pre><code>float z = tex2D(_CameraDepthTexture, uv);
+#if defined(UNITY_REVERSED_Z)
+    z = 1.0f - z;
+#endif
+</code></pre><h4 id="using-clip-space">Using clip space</h4>
+<p>If you are using clip space (Z) depth manually, you might also want to abstract platform differences by using the following macro:</p>
+<p>float clipSpaceRange01 = UNITY_Z_0_FAR_FROM_CLIPSPACE(rawClipSpace);</p>
+<p>Note: This macro does not alter clip space on OpenGL or OpenGL ES platforms, so it returns within &#x201C;-near&#x201D;1 (near) to far (far) on these platforms.</p>
+<h4 id="projection-matrices">Projection matrices</h4>
+<p>GL.GetGPUProjectionMatrix() returns a z-reverted matrix if you are on a platform where the depth (Z) is reversed. However, if you&#x2019;re composing from projection matrices manually (for example, for custom shadows or depth rendering), you need to revert depth (Z) direction yourself where it applies via script.</p>
+<p>An example of this is below:</p>
+<pre><code>var shadowProjection = Matrix4x4.Ortho(...); //shadow camera projection matrix
+var shadowViewMat = ...     //shadow camera view matrix
+var shadowSpaceMatrix = ... //from clip to shadowMap texture space
+
+//&apos;m_shadowCamera.projectionMatrix&apos; is implicitly reversed 
+//when the engine calculates device projection matrix from the camera projection
+m_shadowCamera.projectionMatrix = shadowProjection; 
+
+//&apos;shadowProjection&apos; is manually flipped before being concatenated to &apos;m_shadowMatrix&apos;
+//because it is seen as any other matrix to a Shader.
+if(SystemInfo.usesReversedZBuffer) 
+{
+    shadowProjection[2, 0] = -shadowProjection[2, 0];
+    shadowProjection[2, 1] = -shadowProjection[2, 1];
+    shadowProjection[2, 2] = -shadowProjection[2, 2];
+    shadowProjection[2, 3] = -shadowProjection[2, 3];
+}
+    m_shadowMatrix = shadowSpaceMatrix * shadowProjection * shadowViewMat;
+</code></pre><h4 id="depth-z-bias">Depth (Z) bias</h4>
+<p>Unity automatically deals with depth (Z) bias to ensure it matches Unity&#x2019;s depth (Z) direction. However, if you are using a native code rendering plugin, you need to negate (reverse) depth (Z) bias in your C or C++ code.</p>
+<h5 id="tools-to-check-for-depth-z-direction">Tools to check for depth (Z) direction</h5>
+<p>Use SystemInfo.usesReversedZBuffer to find out if you are on a platform using reversed depth (Z).</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="15-使用深度图.html" class="navigation navigation-prev " aria-label="Previous page: 1.5 使用深度图">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="17-着色器细节等级.html" class="navigation navigation-next " aria-label="Next page: 1.7 着色器细节等级">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.6 特定平台的渲染差异","level":"1.2.4.6","depth":3,"next":{"title":"1.7 着色器细节等级","level":"1.2.4.7","depth":3,"path":"1. ShaderLab 框架/17-着色器细节等级.md","ref":"1. ShaderLab 框架/17-着色器细节等级.md","articles":[]},"previous":{"title":"1.5 使用深度图","level":"1.2.4.5","depth":3,"path":"1. ShaderLab 框架/15-使用深度图.md","ref":"1. ShaderLab 框架/15-使用深度图.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/16-特定平台的渲染差异.md","mtime":"2016-12-24T14:51:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-24T15:12:46.163Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

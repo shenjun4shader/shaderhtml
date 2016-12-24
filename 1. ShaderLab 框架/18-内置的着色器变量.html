@@ -1,0 +1,1355 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.8 内置的着色器变量 · ShaderLab 开发实战</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="19-制作多个着色程序变体.html" />
+    
+    
+    <link rel="prev" href="17-内置的辅助功能.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.0 ShaderLab 框架.html">
+            
+                <a href="1.0 ShaderLab 框架.html">
+            
+                    
+                    1. ShaderLab 框架
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="第1章-shaderlab-语法.html">
+            
+                <a href="第1章-shaderlab-语法.html">
+            
+                    
+                    第1章 ShaderLab 语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="11-属性（properties）.html">
+            
+                <a href="11-属性（properties）.html">
+            
+                    
+                    1.1 属性（Properties）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="12-子着色器（subshader）.html">
+            
+                <a href="12-子着色器（subshader）.html">
+            
+                    
+                    1.2 子着色器（SubShader）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="121-pass.html">
+            
+                <a href="121-pass.html">
+            
+                    
+                    1.2.1 Pass
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1.1" data-path="1211-culling--depth-testing.html">
+            
+                <a href="1211-culling--depth-testing.html">
+            
+                    
+                    1.2.1.1 Culling & Depth Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.2" data-path="1212-blending.html">
+            
+                <a href="1212-blending.html">
+            
+                    
+                    1.2.1.2 Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.3" data-path="1213-pass-tags.html">
+            
+                <a href="1213-pass-tags.html">
+            
+                    
+                    1.2.1.3 Pass Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.4" data-path="1214-stencil.html">
+            
+                <a href="1214-stencil.html">
+            
+                    
+                    1.2.1.4 Stencil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.5" data-path="1215-name.html">
+            
+                <a href="1215-name.html">
+            
+                    
+                    1.2.1.5 Name
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.6" data-path="1216-legacy-lightiing.html">
+            
+                <a href="1216-legacy-lightiing.html">
+            
+                    
+                    1.2.1.6 Legacy Lightiing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.7" data-path="1217-legacy-texture-combiners.html">
+            
+                <a href="1217-legacy-texture-combiners.html">
+            
+                    
+                    1.2.1.7 Legacy Texture Combiners
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.8" data-path="1218-legacy-alpha-testing.html">
+            
+                <a href="1218-legacy-alpha-testing.html">
+            
+                    
+                    1.2.1.8 Legacy Alpha Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.9" data-path="1219-legacy-fog.html">
+            
+                <a href="1219-legacy-fog.html">
+            
+                    
+                    1.2.1.9 Legacy Fog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.10" data-path="12110-legacy-bindchannels.html">
+            
+                <a href="12110-legacy-bindchannels.html">
+            
+                    
+                    1.2.1.10 Legacy BindChannels
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="122-usepass.html">
+            
+                <a href="122-usepass.html">
+            
+                    
+                    1.2.2 UsePass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="123-grabpass.html">
+            
+                <a href="123-grabpass.html">
+            
+                    
+                    1.2.3 GrabPass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="124-subshader-tags.html">
+            
+                <a href="124-subshader-tags.html">
+            
+                    
+                    1.2.4 SubShader Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="13-回滚语句（fallback）.html">
+            
+                <a href="13-回滚语句（fallback）.html">
+            
+                    
+                    1.3 回滚语句（Fallback）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="14-自定义编译器（customeditor）.html">
+            
+                <a href="14-自定义编译器（customeditor）.html">
+            
+                    
+                    1.4 自定义编译器（CustomEditor）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="15-其他命令（other-commands）.html">
+            
+                <a href="15-其他命令（other-commands）.html">
+            
+                    
+                    1.5 其他命令（other commands）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="第2章-顶点和片段着色器.html">
+            
+                <a href="第2章-顶点和片段着色器.html">
+            
+                    
+                    第2章 顶点和片段着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="11-顶点和片段着色器-举例.html">
+            
+                <a href="11-顶点和片段着色器-举例.html">
+            
+                    
+                    1.1 顶点和片段着色器 举例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="12-shader-语义（semantics）.html">
+            
+                <a href="12-shader-语义（semantics）.html">
+            
+                    
+                    1.2 着色器语义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="13-在-cghlsl-中访问-shader-属性.html">
+            
+                <a href="13-在-cghlsl-中访问-shader-属性.html">
+            
+                    
+                    1.3 在 Cg\/HLSL 中访问着色器属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="14-为顶点程序提供顶点数据.html">
+            
+                <a href="14-为顶点程序提供顶点数据.html">
+            
+                    
+                    1.4 为顶点程序提供顶点数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="15-内置-shader-包含的文件.html">
+            
+                <a href="15-内置-shader-包含的文件.html">
+            
+                    
+                    1.5 内置 Shader 包含的文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="16-预定义着色器预处理宏.html">
+            
+                <a href="16-预定义着色器预处理宏.html">
+            
+                    
+                    1.6 预定义着色器预处理宏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="17-内置的辅助功能.html">
+            
+                <a href="17-内置的辅助功能.html">
+            
+                    
+                    1.7 内置的辅助功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2.8" data-path="18-内置的着色器变量.html">
+            
+                <a href="18-内置的着色器变量.html">
+            
+                    
+                    1.8 内置的着色器变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="19-制作多个着色程序变体.html">
+            
+                <a href="19-制作多个着色程序变体.html">
+            
+                    
+                    1.9 制作多个着色程序变体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="110-glsl-着色器程序.html">
+            
+                <a href="110-glsl-着色器程序.html">
+            
+                    
+                    1.10 GLSL 着色器程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="111-unity-中使用的着色器语言.html">
+            
+                <a href="111-unity-中使用的着色器语言.html">
+            
+                    
+                    1.11 Unity 中使用的着色器语言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="112-着色器编译目标级别.html">
+            
+                <a href="112-着色器编译目标级别.html">
+            
+                    
+                    1.12 着色器编译目标级别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.13" data-path="113-着色器数据类型和精度.html">
+            
+                <a href="113-着色器数据类型和精度.html">
+            
+                    
+                    1.13 着色器数据类型和精度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="第3章-表面着色器.html">
+            
+                <a href="第3章-表面着色器.html">
+            
+                    
+                    第3章 表面着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="11-表面着色器举例.html">
+            
+                <a href="11-表面着色器举例.html">
+            
+                    
+                    1.1 表面着色器举例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="12-自定义光照模型的表面着色器.html">
+            
+                <a href="12-自定义光照模型的表面着色器.html">
+            
+                    
+                    1.2 自定义光照模型的表面着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="13-使用dx11opengl-的表面着色器的细分网格.html">
+            
+                <a href="13-使用dx11opengl-的表面着色器的细分网格.html">
+            
+                    
+                    1.3 使用DX11\/OpenGL 的表面着色器的细分网格
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="第4章-高级-shaderlab-主题.html">
+            
+                <a href="第4章-高级-shaderlab-主题.html">
+            
+                    
+                    第4章 高级 ShaderLab 主题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="11-unity-的渲染管线.html">
+            
+                <a href="11-unity-的渲染管线.html">
+            
+                    
+                    1.1 Unity 的渲染管线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="12-书写着色器的性能提示.html">
+            
+                <a href="12-书写着色器的性能提示.html">
+            
+                    
+                    1.2 书写着色器的性能提示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="13-使用替换的着色器渲染.html">
+            
+                <a href="13-使用替换的着色器渲染.html">
+            
+                    
+                    1.3 使用替换的着色器渲染
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="14-自定义着色器gui.html">
+            
+                <a href="14-自定义着色器gui.html">
+            
+                    
+                    1.4 自定义着色器GUI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="15-使用深度图.html">
+            
+                <a href="15-使用深度图.html">
+            
+                    
+                    1.5 使用深度图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.6" data-path="16-特定平台的渲染差异.html">
+            
+                <a href="16-特定平台的渲染差异.html">
+            
+                    
+                    1.6 特定平台的渲染差异
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.7" data-path="17-着色器细节等级.html">
+            
+                <a href="17-着色器细节等级.html">
+            
+                    
+                    1.7 着色器细节等级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.8" data-path="18-纹理数组.html">
+            
+                <a href="18-纹理数组.html">
+            
+                    
+                    1.8 纹理数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.9" data-path="19-使用-visual-studio-调试-directx11-着色器.html">
+            
+                <a href="19-使用-visual-studio-调试-directx11-着色器.html">
+            
+                    
+                    1.9 使用 Visual Studio 调试 DirectX11 着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.10" data-path="110-固定功能着色器示例.html">
+            
+                <a href="110-固定功能着色器示例.html">
+            
+                    
+                    1.10 固定功能着色器示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2. Cg 语法/2.0 Cg 语法.html">
+            
+                <a href="../2. Cg 语法/2.0 Cg 语法.html">
+            
+                    
+                    2. Cg 语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2. Cg 语法/第1章-简介.html">
+            
+                <a href="../2. Cg 语法/第1章-简介.html">
+            
+                    
+                    第1章 简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../2. Cg 语法/11-什么是-cg.html">
+            
+                <a href="../2. Cg 语法/11-什么是-cg.html">
+            
+                    
+                    1.1 什么是 Cg
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../2. Cg 语法/12-顶点、片段和图形流水线.html">
+            
+                <a href="../2. Cg 语法/12-顶点、片段和图形流水线.html">
+            
+                    
+                    1.2 顶点、片段和图形流水线
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    第2章 最简单的程序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    第3章 参数、纹理和表达式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    第4章 变换
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    第5章 光照
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    第6章 动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" >
+            
+                <span>
+            
+                    
+                    第7章 环境映射技术
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" >
+            
+                <span>
+            
+                    
+                    第8章 凹凸映射
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" >
+            
+                <span>
+            
+                    
+                    第9章 高级论题
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" >
+            
+                <span>
+            
+                    
+                    第10章 Profile 和性能
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../3. ShaderLab 开发实战/3.0 ShaderLab 开发实战.html">
+            
+                <a href="../3. ShaderLab 开发实战/3.0 ShaderLab 开发实战.html">
+            
+                    
+                    3. ShaderLab 开发实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.8 内置的着色器变量</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x5185;&#x7F6E;&#x7684;&#x7740;&#x8272;&#x5668;&#x53D8;&#x91CF;">&#x5185;&#x7F6E;&#x7684;&#x7740;&#x8272;&#x5668;&#x53D8;&#x91CF;</h2>
+<p>Unity&#x4E3A;&#x60A8;&#x7684;&#x7740;&#x8272;&#x5668;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x5185;&#x7F6E;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;:&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x7684;&#x53D8;&#x6362;&#x77E9;&#x9635;,&#x5149;&#x53C2;&#x6570;,&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x7B49;&#x7B49;&#x3002;&#x4F60;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x7740;&#x8272;&#x7A0B;&#x5E8F;&#x4E0E;&#x5176;&#x4ED6;&#x53D8;&#x91CF;&#x4E00;&#x6837;,&#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;,&#x4F60;&#x4E0D;&#x5FC5;&#x58F0;&#x660E;&#x5B83;&#x4EEC;&#x2014;&#x2014;&#x5B83;&#x4EEC;&#x90FD;&#x5728;UnityShaderVariables&#x58F0;&#x660E;&#x3002;&#x5305;&#x62EC;&#x81EA;&#x52A8;cginc&#x5305;&#x542B;&#x6587;&#x4EF6;&#x3002;</p>
+<h4 id="transformations">Transformations</h4>
+<p>&#x8FD9;&#x4E9B;&#x77E9;&#x9635;&#x662F;float4x4&#x7C7B;&#x578B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">UNITY_MATRIX_MVP</td>
+<td style="text-align:left">Current model <em> view </em> projection matrix.&#x5F53;&#x524D;&#x7684;&#x6A21;&#x578B;&#x89C6;&#x56FE;&#x6295;&#x5F71;&#x77E9;&#x9635;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">UNITY_MATRIX_MV</td>
+<td style="text-align:left">Current model <em> view matrix.&#x5F53;&#x524D;&#x6A21;&#x578B;</em>&#x89C6;&#x56FE;&#x77E9;&#x9635;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">UNITY_MATRIX_V</td>
+<td style="text-align:left">Current view matrix.&#x5F53;&#x524D;&#x89C6;&#x56FE;&#x77E9;&#x9635;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">UNITY_MATRIX_P</td>
+<td style="text-align:left">Current projection matrix.&#x5F53;&#x524D;&#x7684;&#x6295;&#x5F71;&#x77E9;&#x9635;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">UNITY_MATRIX_VP</td>
+<td style="text-align:left">Current view * projection matrix.&#x5F53;&#x524D;&#x89C6;&#x56FE;&#x6295;&#x5F71;&#x77E9;&#x9635;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">UNITY_MATRIX_T_MV</td>
+<td style="text-align:left">Transpose of model <em> view matrix.&#x6A21;&#x578B;</em>&#x89C6;&#x56FE;&#x77E9;&#x9635;&#x7684;&#x8F6C;&#x7F6E;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">UNITY_MATRIX_IT_MV</td>
+<td style="text-align:left">Inverse transpose of model <em> view matrix.&#x9006;&#x6A21;&#x578B;</em>&#x89C6;&#x56FE;&#x77E9;&#x9635;&#x7684;&#x8F6C;&#x7F6E;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">_Object2World</td>
+<td style="text-align:left">Current model matrix.&#x5F53;&#x524D;&#x7684;&#x6A21;&#x578B;&#x77E9;&#x9635;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">_World2Object</td>
+<td style="text-align:left">Inverse of current world matrix.&#x5F53;&#x524D;&#x7684;&#x4E16;&#x754C;&#x77E9;&#x9635;&#x7684;&#x9006;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="camera-and-screen">Camera and screen</h4>
+<p>&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x5BF9;&#x5E94;&#x4E8E;&#x6E32;&#x67D3;&#x76F8;&#x673A;&#x3002;&#x4F8B;&#x5982;&#x5728;shadowmap&#x5448;&#x73B0;,&#x4ED6;&#x4EEC;&#x4ECD;&#x5C06;&#x53C2;&#x8003;&#x76F8;&#x673A;&#x7EC4;&#x4EF6;&#x503C;,&#x800C;&#x4E0D;&#x662F;&#x201C;&#x865A;&#x62DF;&#x6444;&#x50CF;&#x673A;&#x201D;,&#x7528;&#x4E8E;shadowmap&#x6295;&#x5F71;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">_WorldSpaceCameraPos</td>
+<td style="text-align:left">float3</td>
+<td style="text-align:left">World space position of the camera.&#x4E16;&#x754C;&#x7A7A;&#x95F4;&#x76F8;&#x673A;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">_ProjectionParams</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">x is 1.0 (or &#x2013;1.0 if currently rendering with a flipped projection matrix), y is the camera&#x2019;s near plane, z is the camera&#x2019;s far plane and w is 1/FarPlane.x = 1.0(&#x6216;-1.0&#x5982;&#x679C;&#x76EE;&#x524D;&#x5448;&#x73B0;&#x4E86;&#x6295;&#x5F71;&#x77E9;&#x9635;),y&#x662F;&#x76F8;&#x673A;&#x7684;&#x8FDB;&#x9636;&#x8FD1;&#x622A;&#x5C4F;&#x9762;,z&#x662F;&#x76F8;&#x673A;&#x7684;&#x8FDC;&#x622A;&#x5E73;&#x9762;&#x548C;w&#x662F;1 / FarPlane&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">_ScreenParams</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">x is the camera&#x2019;s render target width in pixels, y is the camera&#x2019;s render target height in pixels, z is 1.0 + 1.0/width and w is 1.0 + 1.0/height.x&#x662F;&#x76F8;&#x673A;&#x7684;&#x6E32;&#x67D3;&#x76EE;&#x6807;&#x50CF;&#x7D20;&#x5BBD;&#x5EA6;,y&#x662F;&#x76F8;&#x673A;&#x7684;&#x6E32;&#x67D3;&#x76EE;&#x6807;&#x9AD8;&#x5EA6;&#x7684;&#x50CF;&#x7D20;,z&#x662F;1.0 + 1.0 /&#x5BBD;&#x5EA6;&#x548C;w&#x662F;1.0 + 1.0 /&#x9AD8;&#x5EA6;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">_ZBufferParams</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">Used to linearize Z buffer values. x is (1-far/near), y is (far/near), z is (x/far) and w is (y/far).&#x7528;&#x4E8E;&#x7EBF;&#x6027;&#x5316;Z&#x7F13;&#x51B2;&#x533A;&#x7684;&#x503C;&#x3002;x(1-far /&#x9644;&#x8FD1;),y(&#x8FDC;/&#x8FD1;)&#x3001;z(x /&#x8FDC;)&#x548C;w(y /&#x8FDC;)&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_OrthoParams</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">x is orthographic camera&#x2019;s width, y is orthographic camera&#x2019;s height, z is unused and w is 1.0 when camera is orthographic, 0.0 when perspective.x&#x662F;&#x76F4;&#x89D2;&#x7684;&#x76F8;&#x673A;&#x7684;&#x5BBD;&#x5EA6;,y&#x662F;&#x76F4;&#x89D2;&#x7684;&#x76F8;&#x673A;&#x7684;&#x9AD8;&#x5EA6;,z&#x662F;&#x672A;&#x4F7F;&#x7528;&#x7684;&#x548C;1.0 w&#x662F;&#x76F4;&#x89D2;&#x7684;&#x76F8;&#x673A;&#x65F6;,0.0&#x65F6;&#x7684;&#x89D2;&#x5EA6;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_CameraProjection</td>
+<td style="text-align:left">float4x4</td>
+<td style="text-align:left">Camera&#x2019;s projection matrix.Camera&#x7684;&#x6295;&#x5F71;&#x77E9;&#x9635;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_CameraInvProjection</td>
+<td style="text-align:left">float4x4</td>
+<td style="text-align:left">Inverse of camera&#x2019;s projection matrix.&#x76F8;&#x673A;&#x7684;&#x6295;&#x5F71;&#x77E9;&#x9635;&#x7684;&#x9006;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_CameraWorldClipPlanes[6]</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">Camera frustum plane world space equations, in this order: left, right, bottom, top, near, far.&#x76F8;&#x673A;&#x5E73;&#x622A;&#x5934;&#x4F53;&#x5E73;&#x9762;&#x4E16;&#x754C;&#x7A7A;&#x95F4;&#x65B9;&#x7A0B;,&#x5728;&#x8FD9;&#x4E2A;&#x79E9;&#x5E8F;:&#x5DE6;,&#x53F3;,&#x4E0B;,&#x4E0A;,&#x9644;&#x8FD1;,&#x8FDC;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="time">Time</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">_Time</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">Time since level load (t/20, t, t<em>2, t</em>3), use to animate things inside the shaders.</td>
+</tr>
+<tr>
+<td style="text-align:left">_SinTime</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">Sine of time: (t/8, t/4, t/2, t).</td>
+</tr>
+<tr>
+<td style="text-align:left">_CosTime</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">Cosine of time: (t/8, t/4, t/2, t).</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_DeltaTime</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">Delta time: (dt, 1/dt, smoothDt, 1/smoothDt).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="lighting">Lighting</h4>
+<p>&#x5149;&#x53C2;&#x6570;&#x4EE5;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x7ED9;&#x7740;&#x8272;&#x5668;&#x6839;&#x636E;&#x6E32;&#x67D3;&#x8DEF;&#x5F84;,&#x5E76;&#x4E14;LightMode&#x901A;&#x8FC7;&#x6807;&#x8BB0;&#x7528;&#x4E8E;&#x7740;&#x8272;&#x5668;&#x3002;</p>
+<h5 id="forward&#x6E32;&#x67D3;forwardbase&#x548C;forwardadd&#x901A;&#x9053;&#x7C7B;&#x578B;">Forward&#x6E32;&#x67D3;(ForwardBase&#x548C;ForwardAdd&#x901A;&#x9053;&#x7C7B;&#x578B;):</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">LightColor0 (declared in Lighting.cginc) / fixed4 /Light color. /WorldSpaceLightPos0</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">Directional lights: (world space direction, 0). Other lights: (world space position, 1).&#x4E16;&#x754C;&#x7A7A;&#x95F4;&#x65B9;&#x5411;,&#x65B9;&#x5411;&#x706F;:(0)&#x3002;&#x5176;&#x4ED6;&#x706F;:(&#x4E16;&#x754C;&#x7A7A;&#x95F4;&#x4F4D;&#x7F6E;,1)&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">_LightMatrix0 (declared in AutoLight.cginc)</td>
+<td style="text-align:left">float4x4</td>
+<td style="text-align:left">World-to-light matrix. Used to sample cookie &amp; attenuation textures.World-to-light&#x77E9;&#x9635;&#x3002;&#x7528;&#x4E8E;&#x6837;&#x54C1;&#x997C;&#x5E72;&#x548C;&#x8870;&#x51CF;&#x7EB9;&#x7406;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_4LightPosX0, unity_4LightPosY0, unity_4LightPosZ0</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">(ForwardBase pass only) world space positions of first four non-important point lights.(&#x4EC5;ForwardBase&#x901A;&#x8FC7;)&#x4E16;&#x754C;&#x524D;&#x56DB;&#x7684;&#x4F4D;&#x7F6E;&#x70B9;&#x5149;&#x6E90;&#x4E5F;&#x597D;&#x4E0D;&#x91CD;&#x8981;&#x7684;&#x7A7A;&#x95F4;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_4LightAtten0</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">(ForwardBase pass only) attenuation factors of first four non-important point lights.(&#x4EC5;ForwardBase&#x901A;&#x8FC7;)&#x8870;&#x51CF;&#x56E0;&#x7D20;&#x7684;&#x56DB;&#x4E2A;&#x70B9;&#x5149;&#x6E90;&#x4E5F;&#x597D;&#x4E0D;&#x91CD;&#x8981;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_LightColor</td>
+<td style="text-align:left">half4[4]</td>
+<td style="text-align:left">(ForwardBase pass only) colors of of first four non-important point lights.(&#x4EC5;ForwardBase&#x901A;&#x8FC7;)&#x989C;&#x8272;&#x7684;&#x524D;&#x56DB;&#x4E2A;&#x70B9;&#x5149;&#x6E90;&#x4E5F;&#x597D;&#x4E0D;&#x91CD;&#x8981;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="&#x5EF6;&#x8FDF;&#x9634;&#x5F71;&#x548C;&#x5EF6;&#x8FDF;&#x7167;&#x660E;&#x7528;&#x4E8E;&#x7167;&#x660E;&#x901A;&#x8FC7;&#x6750;&#x8D28;&#x6240;&#x6709;&#x5B9A;&#x4E49;&#x5728;unitydeferredlibrarycginc&#x4E2D;">&#x5EF6;&#x8FDF;&#x9634;&#x5F71;&#x548C;&#x5EF6;&#x8FDF;&#x7167;&#x660E;,&#x7528;&#x4E8E;&#x7167;&#x660E;&#x901A;&#x8FC7;&#x6750;&#x8D28;(&#x6240;&#x6709;&#x5B9A;&#x4E49;&#x5728;UnityDeferredLibrary.cginc&#x4E2D;):</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">LightColor / float4 / Light color. / LightMatrix0</td>
+<td style="text-align:left">float4x4</td>
+<td style="text-align:left">World-to-light matrix. Used to sample cookie &amp; attenuation textures.World-to-light&#x77E9;&#x9635;&#x3002;&#x7528;&#x4E8E;&#x6837;&#x54C1;&#x997C;&#x5E72;&#x548C;&#x8870;&#x51CF;&#x7EB9;&#x7406;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x7403;&#x8C10;&#x7CFB;&#x6570;&#xFF08;&#x88AB;&#x73AF;&#x5883;&#x5149;&#x63A2;&#x6D4B;&#x5668;&#x4F7F;&#x7528;&#xFF09;&#x8BBE;&#x7F6E;&#x4E3A;ForwardBase&#x3001;PrePassFinal&#x548C;Deferred pass &#x7C7B;&#x578B;&#x3002;&#x5B83;&#x4EEC;&#x542B;&#x6709;&#x7B2C;&#x4E09;&#x9636;SH&#x88AB;&#x4E16;&#x754C;&#x7A7A;&#x95F4;&#x6CD5;&#x7EBF;&#x8BA1;&#x7B97;&#xFF08;&#x5728;UnityCG.cginc&#x53C2;&#x89C1;ShadeSH9&#xFF09;&#x3002;&#x53D8;&#x91CF;&#x90FD;&#x662F;half4&#x578B;&#xFF0C;unity_SHAr&#x548C;&#x7C7B;&#x4F3C;&#x7684;&#x540D;&#x5B57;&#x3002;</p>
+<h5 id="vertex-lit-rendering-vertex-pass-type">Vertex-lit rendering (Vertex pass type):</h5>
+<p>&#x9AD8;&#x8FBE;8&#x706F;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x9876;&#x70B9;Pass&#x7C7B;&#x578B;&#xFF1B;&#x603B;&#x662F;&#x6392;&#x5E8F;&#x4ECE;&#x6700;&#x4EAE;&#x7684;&#x4E00;&#x4E2A;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x540C;&#x65F6;&#x6E32;&#x67D3;&#x53D7;&#x4E24;&#x4E2A;&#x5149;&#x5F71;&#x54CD;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x53EA;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x53D6;&#x524D;&#x4E24;&#x4E2A;&#x6761;&#x76EE;&#x3002;&#x5982;&#x679C;&#x6709;&#x6BD4;8&#x66F4;&#x5C11;&#x7684;&#x706F;&#x5149;&#x5F71;&#x54CD;&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x4F59;&#x5C06;&#x4ED6;&#x4EEC;&#x7684;&#x989C;&#x8272;&#x8BBE;&#x7F6E;&#x4E3A;&#x9ED1;&#x8272;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">unity_LightColor</td>
+<td style="text-align:left">half4[8]</td>
+<td style="text-align:left">Light colors.</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_LightPosition</td>
+<td style="text-align:left">float4[8]</td>
+<td style="text-align:left">View-space light positions. (-direction,0) for directional lights; (position,1) for point/spot lights.</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_LightAtten</td>
+<td style="text-align:left">half4[8]</td>
+<td style="text-align:left">Light attenuation factors. x is cos(spotAngle/2) or &#x2013;1 for non-spot lights; y is 1/cos(spotAngle/4) or 1 for non-spot lights; z is quadratic attenuation; w is squared light range.</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_SpotDirection</td>
+<td style="text-align:left">float4[8]</td>
+<td style="text-align:left">View-space spot light positions; (0,0,1,0) for non-spot lights.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="fog-and-ambient&#x96FE;&#x548C;&#x73AF;&#x5883;">Fog and Ambient(&#x96FE;&#x548C;&#x73AF;&#x5883;)</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">UNITY_LIGHTMODEL_AMBIENT</td>
+<td style="text-align:left">fixed4</td>
+<td style="text-align:left">Ambient lighting color (Equator ambient in three-color lighting case).&#x73AF;&#x5883;&#x7167;&#x660E;&#x7684;&#x989C;&#x8272;(&#x8D64;&#x9053;&#x5468;&#x56F4;&#x7684;&#x4E09;&#x8272;&#x7684;&#x7167;&#x660E;&#x60C5;&#x51B5;&#x4E0B;)&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left">unity_AmbientSky</td>
+<td style="text-align:left">fixed4</td>
+<td style="text-align:left">Sky ambient lighting color in three-color lighting case.</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5728;&#x4E09;&#x8272;&#x7684;&#x7167;&#x660E;&#x60C5;&#x51B5;&#x4E0B;&#x5929;&#x7A7A;&#x73AF;&#x5883;&#x7167;&#x660E;&#x7684;&#x989C;&#x8272;&#x3002;|
+|unity_AmbientGround|fixed4|Ground ambient lighting color in three-color lighting case.
+&#x5730;&#x9762;&#x73AF;&#x5883;&#x7167;&#x660E;&#x8272;&#x4E09;&#x8272;&#x7684;&#x7167;&#x660E;&#x60C5;&#x51B5;&#x3002;|
+|unity_FogColor|fixed4|Fog color.|
+|unity_FogParams|float4|Parameters for fog calculation: (density / sqrt(ln(2)), density / ln(2), &#x2013;1/(end-start), end/(end-start)). x is useful for Exp2 fog mode, y for Exp mode, z and w for Linear mode.&#x96FE;&#x8BA1;&#x7B97;&#x53C2;&#x6570;:&#x5BC6;&#x5EA6;/&#x221A;(ln(2)),&#x5BC6;&#x5EA6;/ ln(2),1 /(end-start),&#x7ED3;&#x675F;/(end-start))&#x3002;x&#x662F;y&#x7528;&#x4E8E;Exp2&#x96FE;&#x6A21;&#x5F0F;,&#x5BF9;&#x4E8E;&#x5B9E;&#x9A8C;&#x6A21;&#x5F0F;,z&#x548C;w&#x7EBF;&#x6027;&#x6A21;&#x5F0F;&#x3002;|</p>
+<h4 id="various&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;">Various(&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;)</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">unity_LODFade</td>
+<td style="text-align:left">float4</td>
+<td style="text-align:left">Level-of-detail fade when using LODGroup. x is fade (0..1), y is fade quantized to 16 levels, z and w unused.&#x7684;&#x8BE6;&#x7EC6;&#x7EA7;&#x522B;&#x4F7F;&#x7528;LODGroup&#x65F6;&#x6D88;&#x5931;&#x3002;x&#x662F;&#x892A;&#x8272;(0 . . 1),y&#x662F;&#x892A;&#x8272;&#x91CF;&#x5316;&#x5230;16&#x7684;&#x6C34;&#x5E73;,z&#x548C;w&#x672A;&#x4F7F;&#x7528;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="17-内置的辅助功能.html" class="navigation navigation-prev " aria-label="Previous page: 1.7 内置的辅助功能">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="19-制作多个着色程序变体.html" class="navigation navigation-next " aria-label="Next page: 1.9 制作多个着色程序变体">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.8 内置的着色器变量","level":"1.2.2.8","depth":3,"next":{"title":"1.9 制作多个着色程序变体","level":"1.2.2.9","depth":3,"path":"1. ShaderLab 框架/19-制作多个着色程序变体.md","ref":"1. ShaderLab 框架/19-制作多个着色程序变体.md","articles":[]},"previous":{"title":"1.7 内置的辅助功能","level":"1.2.2.7","depth":3,"path":"1. ShaderLab 框架/17-内置的辅助功能.md","ref":"1. ShaderLab 框架/17-内置的辅助功能.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/18-内置的着色器变量.md","mtime":"2016-12-24T07:56:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-24T15:12:46.163Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

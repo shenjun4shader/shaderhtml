@@ -1,0 +1,1131 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.2.1.10 Legacy BindChannels · ShaderLab 开发实战</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="122-usepass.html" />
+    
+    
+    <link rel="prev" href="1219-legacy-fog.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.0 ShaderLab 框架.html">
+            
+                <a href="1.0 ShaderLab 框架.html">
+            
+                    
+                    1. ShaderLab 框架
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="第1章-shaderlab-语法.html">
+            
+                <a href="第1章-shaderlab-语法.html">
+            
+                    
+                    第1章 ShaderLab 语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="11-属性（properties）.html">
+            
+                <a href="11-属性（properties）.html">
+            
+                    
+                    1.1 属性（Properties）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="12-子着色器（subshader）.html">
+            
+                <a href="12-子着色器（subshader）.html">
+            
+                    
+                    1.2 子着色器（SubShader）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="121-pass.html">
+            
+                <a href="121-pass.html">
+            
+                    
+                    1.2.1 Pass
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1.1" data-path="1211-culling--depth-testing.html">
+            
+                <a href="1211-culling--depth-testing.html">
+            
+                    
+                    1.2.1.1 Culling & Depth Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.2" data-path="1212-blending.html">
+            
+                <a href="1212-blending.html">
+            
+                    
+                    1.2.1.2 Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.3" data-path="1213-pass-tags.html">
+            
+                <a href="1213-pass-tags.html">
+            
+                    
+                    1.2.1.3 Pass Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.4" data-path="1214-stencil.html">
+            
+                <a href="1214-stencil.html">
+            
+                    
+                    1.2.1.4 Stencil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.5" data-path="1215-name.html">
+            
+                <a href="1215-name.html">
+            
+                    
+                    1.2.1.5 Name
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.6" data-path="1216-legacy-lightiing.html">
+            
+                <a href="1216-legacy-lightiing.html">
+            
+                    
+                    1.2.1.6 Legacy Lightiing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.7" data-path="1217-legacy-texture-combiners.html">
+            
+                <a href="1217-legacy-texture-combiners.html">
+            
+                    
+                    1.2.1.7 Legacy Texture Combiners
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.8" data-path="1218-legacy-alpha-testing.html">
+            
+                <a href="1218-legacy-alpha-testing.html">
+            
+                    
+                    1.2.1.8 Legacy Alpha Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.9" data-path="1219-legacy-fog.html">
+            
+                <a href="1219-legacy-fog.html">
+            
+                    
+                    1.2.1.9 Legacy Fog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.1.2.1.10" data-path="12110-legacy-bindchannels.html">
+            
+                <a href="12110-legacy-bindchannels.html">
+            
+                    
+                    1.2.1.10 Legacy BindChannels
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="122-usepass.html">
+            
+                <a href="122-usepass.html">
+            
+                    
+                    1.2.2 UsePass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="123-grabpass.html">
+            
+                <a href="123-grabpass.html">
+            
+                    
+                    1.2.3 GrabPass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="124-subshader-tags.html">
+            
+                <a href="124-subshader-tags.html">
+            
+                    
+                    1.2.4 SubShader Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="13-回滚语句（fallback）.html">
+            
+                <a href="13-回滚语句（fallback）.html">
+            
+                    
+                    1.3 回滚语句（Fallback）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="14-自定义编译器（customeditor）.html">
+            
+                <a href="14-自定义编译器（customeditor）.html">
+            
+                    
+                    1.4 自定义编译器（CustomEditor）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="15-其他命令（other-commands）.html">
+            
+                <a href="15-其他命令（other-commands）.html">
+            
+                    
+                    1.5 其他命令（other commands）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="第2章-顶点和片段着色器.html">
+            
+                <a href="第2章-顶点和片段着色器.html">
+            
+                    
+                    第2章 顶点和片段着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="11-顶点和片段着色器-举例.html">
+            
+                <a href="11-顶点和片段着色器-举例.html">
+            
+                    
+                    1.1 顶点和片段着色器 举例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="12-shader-语义（semantics）.html">
+            
+                <a href="12-shader-语义（semantics）.html">
+            
+                    
+                    1.2 着色器语义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="13-在-cghlsl-中访问-shader-属性.html">
+            
+                <a href="13-在-cghlsl-中访问-shader-属性.html">
+            
+                    
+                    1.3 在 Cg\/HLSL 中访问着色器属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="14-为顶点程序提供顶点数据.html">
+            
+                <a href="14-为顶点程序提供顶点数据.html">
+            
+                    
+                    1.4 为顶点程序提供顶点数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="15-内置-shader-包含的文件.html">
+            
+                <a href="15-内置-shader-包含的文件.html">
+            
+                    
+                    1.5 内置 Shader 包含的文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="16-预定义着色器预处理宏.html">
+            
+                <a href="16-预定义着色器预处理宏.html">
+            
+                    
+                    1.6 预定义着色器预处理宏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="17-内置的辅助功能.html">
+            
+                <a href="17-内置的辅助功能.html">
+            
+                    
+                    1.7 内置的辅助功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="18-内置的着色器变量.html">
+            
+                <a href="18-内置的着色器变量.html">
+            
+                    
+                    1.8 内置的着色器变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="19-制作多个着色程序变体.html">
+            
+                <a href="19-制作多个着色程序变体.html">
+            
+                    
+                    1.9 制作多个着色程序变体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="110-glsl-着色器程序.html">
+            
+                <a href="110-glsl-着色器程序.html">
+            
+                    
+                    1.10 GLSL 着色器程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="111-unity-中使用的着色器语言.html">
+            
+                <a href="111-unity-中使用的着色器语言.html">
+            
+                    
+                    1.11 Unity 中使用的着色器语言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="112-着色器编译目标级别.html">
+            
+                <a href="112-着色器编译目标级别.html">
+            
+                    
+                    1.12 着色器编译目标级别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.13" data-path="113-着色器数据类型和精度.html">
+            
+                <a href="113-着色器数据类型和精度.html">
+            
+                    
+                    1.13 着色器数据类型和精度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="第3章-表面着色器.html">
+            
+                <a href="第3章-表面着色器.html">
+            
+                    
+                    第3章 表面着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="11-表面着色器举例.html">
+            
+                <a href="11-表面着色器举例.html">
+            
+                    
+                    1.1 表面着色器举例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="12-自定义光照模型的表面着色器.html">
+            
+                <a href="12-自定义光照模型的表面着色器.html">
+            
+                    
+                    1.2 自定义光照模型的表面着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="13-使用dx11opengl-的表面着色器的细分网格.html">
+            
+                <a href="13-使用dx11opengl-的表面着色器的细分网格.html">
+            
+                    
+                    1.3 使用DX11\/OpenGL 的表面着色器的细分网格
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="第4章-高级-shaderlab-主题.html">
+            
+                <a href="第4章-高级-shaderlab-主题.html">
+            
+                    
+                    第4章 高级 ShaderLab 主题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="11-unity-的渲染管线.html">
+            
+                <a href="11-unity-的渲染管线.html">
+            
+                    
+                    1.1 Unity 的渲染管线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="12-书写着色器的性能提示.html">
+            
+                <a href="12-书写着色器的性能提示.html">
+            
+                    
+                    1.2 书写着色器的性能提示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="13-使用替换的着色器渲染.html">
+            
+                <a href="13-使用替换的着色器渲染.html">
+            
+                    
+                    1.3 使用替换的着色器渲染
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="14-自定义着色器gui.html">
+            
+                <a href="14-自定义着色器gui.html">
+            
+                    
+                    1.4 自定义着色器GUI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="15-使用深度图.html">
+            
+                <a href="15-使用深度图.html">
+            
+                    
+                    1.5 使用深度图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.6" data-path="16-特定平台的渲染差异.html">
+            
+                <a href="16-特定平台的渲染差异.html">
+            
+                    
+                    1.6 特定平台的渲染差异
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.7" data-path="17-着色器细节等级.html">
+            
+                <a href="17-着色器细节等级.html">
+            
+                    
+                    1.7 着色器细节等级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.8" data-path="18-纹理数组.html">
+            
+                <a href="18-纹理数组.html">
+            
+                    
+                    1.8 纹理数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.9" data-path="19-使用-visual-studio-调试-directx11-着色器.html">
+            
+                <a href="19-使用-visual-studio-调试-directx11-着色器.html">
+            
+                    
+                    1.9 使用 Visual Studio 调试 DirectX11 着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.10" data-path="110-固定功能着色器示例.html">
+            
+                <a href="110-固定功能着色器示例.html">
+            
+                    
+                    1.10 固定功能着色器示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2. Cg 语法/2.0 Cg 语法.html">
+            
+                <a href="../2. Cg 语法/2.0 Cg 语法.html">
+            
+                    
+                    2. Cg 语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2. Cg 语法/第1章-简介.html">
+            
+                <a href="../2. Cg 语法/第1章-简介.html">
+            
+                    
+                    第1章 简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../2. Cg 语法/11-什么是-cg.html">
+            
+                <a href="../2. Cg 语法/11-什么是-cg.html">
+            
+                    
+                    1.1 什么是 Cg
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../2. Cg 语法/12-顶点、片段和图形流水线.html">
+            
+                <a href="../2. Cg 语法/12-顶点、片段和图形流水线.html">
+            
+                    
+                    1.2 顶点、片段和图形流水线
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    第2章 最简单的程序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    第3章 参数、纹理和表达式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    第4章 变换
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    第5章 光照
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    第6章 动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" >
+            
+                <span>
+            
+                    
+                    第7章 环境映射技术
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" >
+            
+                <span>
+            
+                    
+                    第8章 凹凸映射
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" >
+            
+                <span>
+            
+                    
+                    第9章 高级论题
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" >
+            
+                <span>
+            
+                    
+                    第10章 Profile 和性能
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../3. ShaderLab 开发实战/3.0 ShaderLab 开发实战.html">
+            
+                <a href="../3. ShaderLab 开发实战/3.0 ShaderLab 开发实战.html">
+            
+                    
+                    3. ShaderLab 开发实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.2.1.10 Legacy BindChannels</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x4F20;&#x7EDF;&#x7684;-bindchannels">&#x4F20;&#x7EDF;&#x7684; BindChannels</h2>
+<p>bindchannels&#x547D;&#x4EE4;&#x5141;&#x8BB8;&#x60A8;&#x6307;&#x5B9A;&#x9876;&#x70B9;&#x6570;&#x636E;&#x6620;&#x5C04;&#x5230;&#x56FE;&#x5F62;&#x786C;&#x4EF6;&#x3002;</p>
+<p>&#x6CE8;&#xFF1A;&#x5F53;&#x4F7F;&#x7528;&#x9876;&#x70B9;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;_bindchannels&#x6CA1;&#x6709;&#x6548;&#x679C;&#x7684;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7ED1;&#x5B9A;&#x662F;&#x7531;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x7684;&#x8F93;&#x5165;&#x63A7;&#x5236;&#x3002;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x53EF;&#x7F16;&#x7A0B;&#x7740;&#x8272;&#x5668;&#x800C;&#x4E0D;&#x662F;&#x56FA;&#x5B9A;&#x529F;&#x80FD;&#x9876;&#x70B9;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Unity&#x4E3A;&#x4F60;&#x7ED8;&#x5236;&#x7ED1;&#x5B9A;&#xFF0C;&#x4F46;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x5E0C;&#x671B;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7ED1;&#x5B9A;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x7EB9;&#x7406;&#x9636;&#x6BB5;&#x548C;&#x5728;&#x7B2C;&#x4E8C;&#x4E2A;&#x7EB9;&#x7406;&#x9636;&#x6BB5;&#x4F7F;&#x7528;&#x7684;&#x4E8C;&#x6B21;UV&#x96C6;&#x7ED8;&#x5236;&#x4E3B;UV&#x96C6;&#xFF0C;&#x6216;&#x8005;&#x544A;&#x8BC9;&#x786C;&#x4EF6;&#x9876;&#x70B9;&#x989C;&#x8272;&#x5E94;&#x8BE5;&#x88AB;&#x8003;&#x8651;&#x5728;&#x5185;&#x3002;</p>
+<p>&#x8BED;&#x6CD5;&#xFF1A;</p>
+<pre><code>        BindChannels { Bind &quot;source&quot;, target }
+</code></pre><p>&#x6307;&#x5B9A;&#x9876;&#x70B9;&#x6570;&#x636E;&#x6E90;&#x6620;&#x5C04;&#x5230;&#x786C;&#x4EF6;&#x76EE;&#x6807;&#x3002;</p>
+<pre><code>Source can be one of:
+        Vertex: vertex position
+        Normal: vertex normal
+        Tangent: vertex tangent
+        Texcoord: primary UV coordinate
+        Texcoord1: secondary UV coordinate
+        Color: per-vertex color
+
+Target can be one of:
+        Vertex: vertex position
+        Normal: vertex normal
+        Tangent: vertex tangent
+        Texcoord0, Texcoord1, &#x2026;: texture coordinates for corresponding texture stage
+        Texcoord: texture coordinates for all texture stages
+        Color: vertex color
+</code></pre><h4 id="&#x7EC6;&#x8282;&#xFF1A;">&#x7EC6;&#x8282;&#xFF1A;</h4>
+<p>Unity&#x653E;&#x7F6E;&#x4E00;&#x4E9B;&#x9650;&#x5236;&#xFF0C;&#x54EA;&#x4E9B;&#x6E90;&#x53EF;&#x4EE5;&#x6620;&#x5C04;&#x5230;&#x54EA;&#x4E2A;&#x76EE;&#x6807;&#x3002;&#x6E90;&#x548C;&#x76EE;&#x6807;&#x5FC5;&#x987B;&#x5339;&#x914D;&#x9876;&#x70B9;&#xFF0C;&#x6CD5;&#x7EBF;&#xFF0C;&#x5207;&#x7EBF;&#x548C;&#x989C;&#x8272;&#x3002;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x7F51;&#x683C;&#xFF08;Texcoord&#x548C;Texcoord1&#xFF09;&#x53EF;&#x4EE5;&#x6620;&#x5C04;&#x5230;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x7684;&#x76EE;&#x6807;&#xFF08;Texcoord&#x6240;&#x6709;&#x7EB9;&#x7406;&#x9636;&#x6BB5;&#xFF0C;&#x6216;texcoordn&#x4E3A;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x9636;&#x6BB5;&#xFF09;&#x3002;</p>
+<p>BindChannels&#x6709;&#x4E24;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x7528;&#x4F8B;&#xFF1A;</p>
+<pre><code>    Shaders that take vertex colors into account.
+    Shaders that use two UV sets.
+</code></pre><p>Examples</p>
+<pre><code>// Maps the first UV set to the first texture stage
+// and the second UV set to the second texture stage
+BindChannels {
+   Bind &quot;Vertex&quot;, vertex
+   Bind &quot;texcoord&quot;, texcoord0
+   Bind &quot;texcoord1&quot;, texcoord1
+}
+
+// Maps the first UV set to all texture stages
+// and uses vertex colors
+BindChannels {
+   Bind &quot;Vertex&quot;, vertex
+   Bind &quot;texcoord&quot;, texcoord
+   Bind &quot;Color&quot;, color
+}
+</code></pre><p>&#x1F51A;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1219-legacy-fog.html" class="navigation navigation-prev " aria-label="Previous page: 1.2.1.9 Legacy Fog">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="122-usepass.html" class="navigation navigation-next " aria-label="Next page: 1.2.2 UsePass">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.2.1.10 Legacy BindChannels","level":"1.2.1.2.1.10","depth":5,"next":{"title":"1.2.2 UsePass","level":"1.2.1.2.2","depth":4,"path":"1. ShaderLab 框架/122-usepass.md","ref":"1. ShaderLab 框架/122-usepass.md","articles":[]},"previous":{"title":"1.2.1.9 Legacy Fog","level":"1.2.1.2.1.9","depth":5,"path":"1. ShaderLab 框架/1219-legacy-fog.md","ref":"1. ShaderLab 框架/1219-legacy-fog.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/12110-legacy-bindchannels.md","mtime":"2016-12-24T04:08:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-24T15:12:46.163Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
