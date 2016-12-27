@@ -997,14 +997,27 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1.1" >
+        <li class="chapter " data-level="1.4.1.1" data-path="../3. ShaderLab 开发实战/181-computeshader介绍.html">
             
-                <span>
+                <a href="../3. ShaderLab 开发实战/181-computeshader介绍.html">
             
                     
                     18.1 ComputeShader介绍
             
-                </span>
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../3. ShaderLab 开发实战/182-轮廓.html">
+            
+                <a href="../3. ShaderLab 开发实战/182-轮廓.html">
+            
+                    
+                    18.2 轮廓
+            
+                </a>
             
 
             
@@ -1089,8 +1102,140 @@
     }
 }
 </code></pre><p>&#x8FD9;&#x4E2A;&#x7740;&#x8272;&#x5668;&#x6709;&#x4E24;&#x4E2A;&#x901A;&#x9053;&#xFF1A;&#x7B2C;&#x4E00;&#x6B21;&#x6355;&#x83B7;&#x5728;&#x6E32;&#x67D3;&#x65F6;&#x540E;&#x9762;&#x7684;&#x7269;&#x4F53;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x7B2C;&#x4E8C;&#x904D;&#x4E2D;&#x5E94;&#x7528;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x540C;&#x6837;&#x7684;&#x6548;&#x679C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x53CD;&#x5411;&#x6DF7;&#x5408;&#x6A21;&#x5F0F;&#x4FBF;&#x5B9C;&#x5F97;&#x591A;&#x3002;</p>
-<p>&#x53C2;&#x89C1;&#xFF1A;
-Regular Pass command</p>
+<p>&#x53C2;&#x89C1;&#xFF1A;<br>Regular Pass command</p>
+<hr>
+<pre><code class="lang-javascript">Shader &quot;Custom/GrabShader&quot;
+{
+    SubShader
+    {
+        Tags {&quot;Queue&quot;=&quot;Transparent&quot; &quot;IgnoreProjector&quot;=&quot;True&quot; &quot;RenderType&quot;=&quot;Opaque&quot;}
+        ZWrite On Lighting Off Cull Off Fog { Mode Off } Blend One Zero
+
+        GrabPass { &quot;_GrabTexture&quot; }
+
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include &quot;UnityCG.cginc&quot;
+
+            sampler2D _GrabTexture;
+
+            struct vin_vct
+            {
+                float4 vertex : POSITION;
+            };
+
+            struct v2f_vct
+            {
+                float4 vertex : POSITION;
+                float4 uvgrab : TEXCOORD1;
+            };
+
+            // Vertex function
+            v2f_vct vert (vin_vct v)
+            {
+                v2f_vct o;
+                o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.uvgrab = ComputeGrabScreenPos(o.vertex);
+                return o;
+            }
+
+            // Fragment function
+            half4 frag (v2f_vct i) : COLOR
+            {
+                fixed4 col = tex2Dproj( _GrabTexture, UNITY_PROJ_COORD(i.uvgrab));
+                return col;
+            }
+            ENDCG
+        }
+    }
+}
+</code></pre>
+<h3 id="&#x73BB;&#x7483;&#x7740;&#x8272;">&#x73BB;&#x7483;&#x7740;&#x8272;</h3>
+<pre><code class="lang-javascript">Shader &quot;Custom/GlassShader&quot;
+{
+    Properties
+    {
+        _MainTex (&quot;Base (RGB) Trans (A)&quot;, 2D) = &quot;white&quot; {}
+        _Colour (&quot;Colour&quot;, Color) = (1,1,1,1)
+
+        _BumpMap (&quot;Noise text&quot;, 2D) = &quot;bump&quot; {}
+        _Magnitude (&quot;Magnitude&quot;, Range(0,1)) = 0.05
+    }
+
+    SubShader
+    {
+        Tags {&quot;Queue&quot;=&quot;Transparent&quot; &quot;IgnoreProjector&quot;=&quot;True&quot; &quot;RenderType&quot;=&quot;Opaque&quot;}
+        ZWrite On Lighting Off Cull Off Fog { Mode Off } Blend One Zero
+
+        GrabPass { &quot;_GrabTexture&quot; }
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include &quot;UnityCG.cginc&quot;
+
+            sampler2D _GrabTexture;
+
+            sampler2D _MainTex;
+            fixed4 _Colour;
+
+            sampler2D _BumpMap;
+            float _Magnitude;
+
+            struct vin_vct
+            {
+                float4 vertex : POSITION;
+                float4 color : COLOR;
+                float2 texcoord : TEXCOORD0;
+            };
+
+            struct v2f_vct
+            {
+                float4 vertex : POSITION;
+                fixed4 color : COLOR;
+                float2 texcoord : TEXCOORD0;
+
+                float4 uvgrab : TEXCOORD1;
+            };
+
+            // Vertex function
+            v2f_vct vert (vin_vct v)
+            {
+                v2f_vct o;
+                o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.color = v.color;
+
+                o.texcoord = v.texcoord;
+
+                o.uvgrab = ComputeGrabScreenPos(o.vertex);
+                return o;
+            }
+
+            // Fragment function
+            half4 frag (v2f_vct i) : COLOR
+            {
+                half4 mainColour = tex2D(_MainTex, i.texcoord);
+                half4 bump = tex2D(_BumpMap, i.texcoord);
+                half2 distortion = UnpackNormal(bump).rg;
+
+                i.uvgrab.xy += distortion * _Magnitude;
+
+                // tex*proj()&#x5185;&#x7F6E;&#x51FD;&#x6570;&#x88AB;&#x7528;&#x6765;&#x6267;&#x884C;&#x6295;&#x5F71;&#x7EB9;&#x7406;&#x8BFB;&#x53D6;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x7528;&#x6765;&#x91C7;&#x6837;&#x7684;&#x7EB9;&#x7406;&#x5750;&#x6807; 
+                // &#x5728;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x4F1A;&#x9664;&#x4EE5;&#x7B2C;&#x56DB;&#x4E2A;&#x5206;&#x91CF;&#x3002;
+
+                //UNITY_PROJ_COORD&#x4F20;&#x5165;&#x56DB;&#x5143;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x7528;&#x4E8E;&#x7ED9;tex2Dproj&#x8BFB;&#x53D6;,&#x4F46;&#x662F;&#x591A;&#x6570;&#x5E73;&#x53F0;&#x4E0A;,&#x8FD4;&#x56DE;&#x4E00;&#x6837;&#x7684;&#x503C;&#x3002;
+                fixed4 col = tex2Dproj( _GrabTexture, UNITY_PROJ_COORD(i.uvgrab));
+                return col * mainColour * _Colour;
+            }
+            ENDCG
+        }
+    }
+}
+</code></pre>
 <p>&#x1F51A;</p>
 
                                 
@@ -1119,7 +1264,7 @@ Regular Pass command</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2.3 GrabPass","level":"1.2.1.2.3","depth":4,"next":{"title":"1.2.4 SubShader Tags","level":"1.2.1.2.4","depth":4,"path":"1. ShaderLab 框架/124-subshader-tags.md","ref":"1. ShaderLab 框架/124-subshader-tags.md","articles":[]},"previous":{"title":"1.2.2 UsePass","level":"1.2.1.2.2","depth":4,"path":"1. ShaderLab 框架/122-usepass.md","ref":"1. ShaderLab 框架/122-usepass.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/123-grabpass.md","mtime":"2016-12-24T04:42:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-25T16:14:34.193Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2.3 GrabPass","level":"1.2.1.2.3","depth":4,"next":{"title":"1.2.4 SubShader Tags","level":"1.2.1.2.4","depth":4,"path":"1. ShaderLab 框架/124-subshader-tags.md","ref":"1. ShaderLab 框架/124-subshader-tags.md","articles":[]},"previous":{"title":"1.2.2 UsePass","level":"1.2.1.2.2","depth":4,"path":"1. ShaderLab 框架/122-usepass.md","ref":"1. ShaderLab 框架/122-usepass.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/123-grabpass.md","mtime":"2016-12-27T07:36:19.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-27T15:19:41.227Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
