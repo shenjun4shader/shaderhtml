@@ -1184,6 +1184,88 @@
         FallBack &quot;Diffuse&quot;
     }
 </code></pre>
+<h3 id="&#x9634;&#x5F71;&#x6E32;&#x67D3;">&#x9634;&#x5F71;&#x6E32;&#x67D3;</h3>
+<pre><code class="lang-javascript">
+Shader &quot;Shenjun/Diffuse&quot; 
+{
+    Properties 
+    {
+        _DiffuseTexture (&quot;Diffuse Texture&quot;, 2D) = &quot;white&quot; {}
+        _DiffuseTint ( &quot;Diffuse Tint&quot;, Color) = (1, 1, 1, 1)
+    }
+
+    SubShader 
+    {
+        Tags { &quot;RenderType&quot;=&quot;Opaque&quot; }
+
+        pass
+        {        
+            Tags { &quot;LightMode&quot;=&quot;ForwardBase&quot;}
+
+            CGPROGRAM
+
+            #pragma target 3.0
+            #pragma fragmentoption ARB_precision_hint_fastest
+
+            #pragma vertex vertShadow
+            #pragma fragment fragShadow
+            #pragma multi_compile_fwdbase
+
+            #include &quot;UnityCG.cginc&quot;
+            #include &quot;AutoLight.cginc&quot;
+
+            sampler2D _DiffuseTexture;
+            float4 _DiffuseTint;
+            float4 _LightColor0;
+
+            struct v2f
+            {
+                float4 pos : SV_POSITION;
+                float3 lightDir : TEXCOORD0;
+                float3 normal : TEXCOORD1;
+                float2 uv : TEXCOORD2;
+                LIGHTING_COORDS(3, 4)
+            };
+
+            v2f vertShadow(appdata_base v)
+            {
+                v2f o;
+
+                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.uv = v.texcoord;
+                o.lightDir = normalize(ObjSpaceLightDir(v.vertex));
+                o.normal = normalize(v.normal).xyz;
+
+                TRANSFER_VERTEX_TO_FRAGMENT(o);
+
+                return o; 
+            }
+
+            float4 fragShadow(v2f i) : COLOR
+            {                    
+                float3 L = normalize(i.lightDir);
+                float3 N = normalize(i.normal);     
+
+                float attenuation = LIGHT_ATTENUATION(i) * 2;
+                float4 ambient = UNITY_LIGHTMODEL_AMBIENT * 2;
+
+                float NdotL = saturate(dot(N, L));
+                float4 diffuseTerm = NdotL * _LightColor0 * _DiffuseTint * attenuation;
+
+                float4 diffuse = tex2D(_DiffuseTexture, i.uv);
+
+                float4 finalColor = (ambient + diffuseTerm) * diffuse;
+
+                return finalColor;
+            }
+
+            ENDCG
+        }        
+
+    } 
+    FallBack &quot;Diffuse&quot;
+}
+</code></pre>
 
                                 
                                 </section>
@@ -1207,7 +1289,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"18.3 顶点和片段处理光照","level":"1.4.1.3","depth":3,"previous":{"title":"18.2 轮廓","level":"1.4.1.2","depth":3,"path":"3. ShaderLab 开发实战/182-轮廓.md","ref":"3. ShaderLab 开发实战/182-轮廓.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"3. ShaderLab 开发实战/183-顶点和片段处理光照.md","mtime":"2016-12-29T16:58:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-29T16:58:45.850Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"18.3 顶点和片段处理光照","level":"1.4.1.3","depth":3,"previous":{"title":"18.2 轮廓","level":"1.4.1.2","depth":3,"path":"3. ShaderLab 开发实战/182-轮廓.md","ref":"3. ShaderLab 开发实战/182-轮廓.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"3. ShaderLab 开发实战/183-顶点和片段处理光照.md","mtime":"2016-12-30T09:55:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-30T17:15:32.385Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
