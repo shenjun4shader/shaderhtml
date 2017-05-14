@@ -235,7 +235,7 @@
                 <a href="1216-legacy-lightiing.html">
             
                     
-                    1.2.1.6 Legacy Lightiing
+                    1.2.1.6 Legacy Lighting
             
                 </a>
             
@@ -433,7 +433,7 @@
                 <a href="13-在-cghlsl-中访问-shader-属性.html">
             
                     
-                    1.3 在 Cg\/HLSL 中访问着色器属性
+                    1.3 在 Cg/HLSL 中访问着色器属性
             
                 </a>
             
@@ -847,14 +847,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" >
+        <li class="chapter " data-level="1.3.2" data-path="../2. Cg 语法/2.html">
             
-                <span>
+                <a href="../2. Cg 语法/2.html">
             
                     
                     第2章 最简单的程序
             
-                </span>
+                </a>
             
 
             
@@ -1036,6 +1036,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.1.4" data-path="../3. ShaderLab 开发实战/18.4.html">
+            
+                <a href="../3. ShaderLab 开发实战/18.4.html">
+            
+                    
+                    18.4 镜面反射
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1089,9 +1102,12 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="using-depth-textures">Using Depth Textures</h2>
-<p>It is possible to create Render Textures where each pixel contains a high-precision Depth value. This is mostly used when some effects need the Scene&#x2019;s Depth to be available (for example, soft particles, screen space ambient occlusion and translucency would all need the Scene&#x2019;s Depth). Image Effects often use Depth Textures too.</p>
-<p>Pixel values in the Depth Texture range between 0 and 1, with a non-linear distribution. Precision is usually 32 or 16 bits, depending on configuration and platform used. When reading from the Depth Texture, a high precision value in a range between 0 and 1 is returned. If you need to get distance from the Camera, or an otherwise linear 0&#x2013;1 value, compute that manually using helper macros (see below).</p>
-<p>Depth Textures are supported on most modern hardware and graphics APIs. Special requirements are listed below:</p>
+<p>It is possible to create Render Textures where each pixel contains a high-precision Depth value. This is mostly used when some effects need the Scene&#x2019;s Depth to be available (for example, soft particles, screen space ambient occlusion and translucency would all need the Scene&#x2019;s Depth). Image Effects often use Depth Textures too.
+&#x5B83;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x6E32;&#x67D3;&#x7EB9;&#x7406;&#xFF0C;&#x5176;&#x4E2D;&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x9AD8;&#x7CBE;&#x5EA6;&#x7684;&#x6DF1;&#x5EA6;&#x503C;&#x3002;&#x8FD9;&#x662F;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5F53;&#x6709;&#x4E9B;&#x5F71;&#x54CD;&#x9700;&#x8981;&#x573A;&#x666F;&#x7684;&#x6DF1;&#x5EA6;&#x53EF;&#x7528;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x8F6F;&#x9897;&#x7C92;&#xFF0C;&#x5C4F;&#x5E55;&#x7A7A;&#x95F4;&#x73AF;&#x5883;&#x5149;&#x906E;&#x853D;&#x548C;&#x900F;&#x660E;&#x5EA6;&#x90FD;&#x9700;&#x8981;&#x573A;&#x666F;&#x7684;&#x6DF1;&#x5EA6;&#xFF09;&#x3002;&#x56FE;&#x50CF;&#x6548;&#x679C;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x6DF1;&#x5EA6;&#x7EB9;&#x7406;&#x3002;</p>
+<p>Pixel values in the Depth Texture range between 0 and 1, with a non-linear distribution. Precision is usually 32 or 16 bits, depending on configuration and platform used. When reading from the Depth Texture, a high precision value in a range between 0 and 1 is returned. If you need to get distance from the Camera, or an otherwise linear 0&#x2013;1 value, compute that manually using helper macros (see below).
+&#x50CF;&#x7D20;&#x503C;&#x5728;&#x6DF1;&#x5EA6;&#x7EB9;&#x7406;&#x8303;&#x56F4;&#x5728;0&#x548C;1&#x4E4B;&#x95F4;&#xFF0C;&#x5177;&#x6709;&#x975E;&#x7EBF;&#x6027;&#x5206;&#x5E03;&#x3002;&#x7CBE;&#x5EA6;&#x901A;&#x5E38;&#x662F;32&#x6216;16&#x4F4D;&#xFF0C;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x914D;&#x7F6E;&#x548C;&#x4F7F;&#x7528;&#x7684;&#x5E73;&#x53F0;&#x3002;&#x5F53;&#x4ECE;&#x6DF1;&#x5EA6;&#x7EB9;&#x7406;&#x8BFB;&#x53D6;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x5728;0&#x548C;1&#x4E4B;&#x95F4;&#x7684;&#x8303;&#x56F4;&#x5185;&#x7684;&#x9AD8;&#x7CBE;&#x5EA6;&#x503C;&#x3002;&#x5982;&#x679C;&#x60A8;&#x9700;&#x8981;&#x4ECE;&#x76F8;&#x673A;&#xFF0C;&#x6216;&#x5176;&#x4ED6;&#x7EBF;&#x6027;0 - 1&#x503C;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x8BA1;&#x7B97;&#x624B;&#x52A8;&#x4F7F;&#x7528;&#x8F85;&#x52A9;&#x5B8F;&#xFF08;&#x89C1;&#x4E0B;&#x6587;&#xFF09;&#x3002;</p>
+<p>Depth Textures are supported on most modern hardware and graphics APIs. Special requirements are listed below:
+&#x6DF1;&#x5EA6;&#x7EB9;&#x7406;&#x652F;&#x6301;&#x6700;&#x73B0;&#x4EE3;&#x7684;&#x786C;&#x4EF6;&#x548C;&#x56FE;&#x5F62;API&#x3002;&#x7279;&#x6B8A;&#x8981;&#x6C42;&#x5982;&#x4E0B;&#x6240;&#x5217;&#xFF1A;</p>
 <p>Direct3D 11+ (Windows), OpenGL 3+ (Mac/Linux), OpenGL ES 3.0+ (Android/iOS), Metal (iOS) and consoles like PS4/Xbox One all support depth textures.
 Direct3D 9 (Windows) requires a graphics driver to support &#x201C;INTZ&#x201D; texture format to get depth textures.
 OpenGL ES 2.0 (iOS/Android) requires GL_OES_depth_texture extension to be present.
@@ -1105,36 +1121,37 @@ WebGL requires WEBGL_depth_texture extension.</p>
 <p><strong>Linear01Depth(i):</strong> given high precision value from depth texture i, returns corresponding linear depth in range between 0 and 1.</p>
 <p>Note: On DX11/12, PS4, XboxOne and Metal, the Z buffer range is 1&#x2013;0 and UNITY_REVERSED_Z is defined. On other platforms, the range is 0&#x2013;1.</p>
 <p>For example, this shader would render depth of its GameObjects:</p>
-<pre><code>Shader &quot;Render Depth&quot; {
+<pre><code class="lang-csharp">Shader <span class="hljs-string">&quot;Render Depth&quot;</span> {
     SubShader {
-        Tags { &quot;RenderType&quot;=&quot;Opaque&quot; }
+        Tags { <span class="hljs-string">&quot;RenderType&quot;</span>=<span class="hljs-string">&quot;Opaque&quot;</span> }
         Pass {
             CGPROGRAM
 
-            #pragma vertex vert
-            #pragma fragment frag
-            #include &quot;UnityCG.cginc&quot;
+            <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> vertex vert</span>
+            <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> fragment frag</span>
+            <span class="hljs-meta">#include &quot;UnityCG.cginc&quot;</span>
 
-            struct v2f {
+            <span class="hljs-keyword">struct</span> v2f {
                 float4 pos : SV_POSITION;
                 float2 depth : TEXCOORD0;
             };
 
-            v2f vert (appdata_base v) {
+            <span class="hljs-function">v2f <span class="hljs-title">vert</span> (<span class="hljs-params">appdata_base v</span>) </span>{
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
                 UNITY_TRANSFER_DEPTH(o.depth);
-                return o;
+                <span class="hljs-keyword">return</span> o;
             }
 
-            half4 frag(v2f i) : SV_Target {
+            <span class="hljs-function">half4 <span class="hljs-title">frag</span>(<span class="hljs-params">v2f i</span>) : SV_Target </span>{
                 UNITY_OUTPUT_DEPTH(i.depth);
             }
             ENDCG
         }
     }
 }
-</code></pre><hr>
+</code></pre>
+<hr>
 <h2 id="cameras-depth-texture">Camera&#x2019;s Depth Texture</h2>
 <p>A Camera can generate a depth, depth+normals, or motion vector Texture. This is a minimalistic G-buffer Texture that can be used for post-processing effects or to implement custom lighting models (e.g. light pre-pass). It is also possible to build similar textures yourself, using Shader Replacement feature.</p>
 <p>The Camera&#x2019;s depth Texture mode can be enabled using Camera.depthTextureMode variable from script.</p>
@@ -1196,7 +1213,7 @@ Note that only &#x201C;opaque&#x201D; objects (that which have their materials a
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.5 使用深度图","level":"1.2.4.5","depth":3,"next":{"title":"1.6 特定平台的渲染差异","level":"1.2.4.6","depth":3,"path":"1. ShaderLab 框架/16-特定平台的渲染差异.md","ref":"1. ShaderLab 框架/16-特定平台的渲染差异.md","articles":[]},"previous":{"title":"1.4 自定义着色器GUI","level":"1.2.4.4","depth":3,"path":"1. ShaderLab 框架/14-自定义着色器gui.md","ref":"1. ShaderLab 框架/14-自定义着色器gui.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/15-使用深度图.md","mtime":"2016-12-24T14:45:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-30T17:15:32.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.5 使用深度图","level":"1.2.4.5","depth":3,"next":{"title":"1.6 特定平台的渲染差异","level":"1.2.4.6","depth":3,"path":"1. ShaderLab 框架/16-特定平台的渲染差异.md","ref":"1. ShaderLab 框架/16-特定平台的渲染差异.md","articles":[]},"previous":{"title":"1.4 自定义着色器GUI","level":"1.2.4.4","depth":3,"path":"1. ShaderLab 框架/14-自定义着色器gui.md","ref":"1. ShaderLab 框架/14-自定义着色器gui.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/15-使用深度图.md","mtime":"2017-02-15T06:07:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-14T15:39:15.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

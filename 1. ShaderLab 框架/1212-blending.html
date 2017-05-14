@@ -235,7 +235,7 @@
                 <a href="1216-legacy-lightiing.html">
             
                     
-                    1.2.1.6 Legacy Lightiing
+                    1.2.1.6 Legacy Lighting
             
                 </a>
             
@@ -433,7 +433,7 @@
                 <a href="13-在-cghlsl-中访问-shader-属性.html">
             
                     
-                    1.3 在 Cg\/HLSL 中访问着色器属性
+                    1.3 在 Cg/HLSL 中访问着色器属性
             
                 </a>
             
@@ -847,14 +847,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" >
+        <li class="chapter " data-level="1.3.2" data-path="../2. Cg 语法/2.html">
             
-                <span>
+                <a href="../2. Cg 语法/2.html">
             
                     
                     第2章 最简单的程序
             
-                </span>
+                </a>
             
 
             
@@ -1036,6 +1036,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.1.4" data-path="../3. ShaderLab 开发实战/18.4.html">
+            
+                <a href="../3. ShaderLab 开发实战/18.4.html">
+            
+                    
+                    18.4 镜面反射
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1088,12 +1101,12 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x6DF7;&#x5408;&#xFF08;blending&#xFF09;">&#x6DF7;&#x5408;&#xFF08;Blending&#xFF09;</h2>
+                                <hr>
+<h2 id="&#x6DF7;&#x5408;&#xFF08;blending&#xFF09;">&#x6DF7;&#x5408;&#xFF08;Blending&#xFF09;</h2>
 <p>&#x6DF7;&#x5408;&#x7528;&#x4E8E;&#x900F;&#x660E;&#x6216;&#x534A;&#x900F;&#x660E;&#x7269;&#x4F53;</p>
 <p><img src="../assets/PipelineBlend.png" alt=""></p>
 <p>&#x5F53;&#x56FE;&#x5F62;&#x5448;&#x73B0;&#x4E4B;&#x540E;&#xFF0C;&#x6240;&#x6709;&#x7740;&#x8272;&#x5668;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x5E76;&#x5E94;&#x7528;&#x5230;&#x6240;&#x6709;&#x7EB9;&#x7406;&#x65F6;&#xFF0C;&#x50CF;&#x7D20;&#x88AB;&#x7ED8;&#x5236;&#x5230;&#x5C4F;&#x5E55;&#x3002;&#x4ED6;&#x4EEC;&#x5982;&#x4F55;&#x7ED3;&#x5408;&#x7531;&#x6DF7;&#x5408;&#x547D;&#x4EE4;&#x63A7;&#x5236;&#x3002;</p>
 <h3 id="&#x8BED;&#x6CD5;&#xFF1A;">&#x8BED;&#x6CD5;&#xFF1A;</h3>
-<hr>
 <pre><code class="lang-javascript">    Blend Off: &#x5173;&#x95ED;&#x6DF7;&#x5408;
     Blend SrcFactor DstFactor: &#x542F;&#x7528;&#x6DF7;&#x5408;&#x3002;&#x751F;&#x6210;&#x7684;&#x989C;&#x8272;&#x4E58;&#x4EE5; SrcFactor&#x3002;&#x5DF2;&#x7ECF;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x989C;&#x8272;&#x4E58;&#x4EE5; DstFactor &#x548C;&#x4E24;&#x4E2A;&#x52A0;&#x5728;&#x4E00;&#x8D77;&#x3002;
 </code></pre>
@@ -1101,8 +1114,9 @@
 </code></pre>
 <pre><code class="lang-javascript">    BlendOp BlendOp: &#x975E;&#x989C;&#x8272;&#x6DF7;&#x5408;&#x64CD;&#x4F5C;
 </code></pre>
-<h4 id="&#x6DF7;&#x5408;&#x64CD;&#x4F5C;">&#x6DF7;&#x5408;&#x64CD;&#x4F5C;</h4>
-<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x7684;&#x6DF7;&#x5408;&#x8FD0;&#x7B97;</p>
+<p><br></p>
+<h4 id="&#x2003;&#x2003;&#x6DF7;&#x5408;&#x64CD;&#x4F5C;">&#x2003;&#x2003;&#x6DF7;&#x5408;&#x64CD;&#x4F5C;</h4>
+<p>&#x2003;&#x2003;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x7684;&#x6DF7;&#x5408;&#x8FD0;&#x7B97;</p>
 <table>
 <thead>
 <tr>
@@ -1133,8 +1147,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x6DF7;&#x5408;&#x56E0;&#x5B50;">&#x6DF7;&#x5408;&#x56E0;&#x5B50;</h4>
-<p>&#x6240;&#x6709;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#x90FD;&#x662F;&#x6709;&#x6548;&#x7684;&#x6DF7;&#x5408;&#x547D;&#x4EE4;&#x5728;&#x4E24;&#x4E2A; SrcFactor &amp; DstFactor&#x3002;&#x6E90;&#x662F;&#x6307;&#x8BA1;&#x7B97;&#x989C;&#x8272;&#xFF0C;&#x76EE;&#x7684;&#x5730;&#x662F;&#x5DF2;&#x7ECF;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x989C;&#x8272;&#x3002;&#x5982;&#x679C; BlendOp &#x7528;&#x903B;&#x8F91;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x5C06;&#x5FFD;&#x7565;&#x6DF7;&#x5408;&#x56E0;&#x5B50;&#x3002;</p>
+<h4 id="&#x2003;&#x2003;&#x6DF7;&#x5408;&#x56E0;&#x5B50;">&#x2003;&#x2003;&#x6DF7;&#x5408;&#x56E0;&#x5B50;</h4>
+<p>&#x2003;&#x2003;&#x6240;&#x6709;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#x90FD;&#x662F;&#x6709;&#x6548;&#x7684;&#x6DF7;&#x5408;&#x547D;&#x4EE4;&#x5728;&#x4E24;&#x4E2A; SrcFactor &amp; DstFactor&#x3002;&#x6E90;&#x662F;&#x6307;&#x8BA1;&#x7B97;&#x989C;&#x8272;&#xFF0C;&#x76EE;&#x7684;&#x5730;&#x662F;&#x5DF2;&#x7ECF;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x989C;&#x8272;&#x3002;&#x5982;&#x679C; BlendOp &#x7528;&#x903B;&#x8F91;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x5C06;&#x5FFD;&#x7565;&#x6DF7;&#x5408;&#x56E0;&#x5B50;&#x3002;</p>
 <table>
 <thead>
 <tr>
@@ -1185,14 +1199,15 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x7EC6;&#x8282;">&#x7EC6;&#x8282;</h4>
-<p>&#x4E0B;&#x9762;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x6DF7;&#x5408;&#x7C7B;&#x578B;&#xFF1A;</p>
+<h4 id="&#x2003;&#x2003;&#x7EC6;&#x8282;">&#x2003;&#x2003;&#x7EC6;&#x8282;</h4>
+<p>&#x2003;&#x2003;&#x4E0B;&#x9762;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x6DF7;&#x5408;&#x7C7B;&#x578B;&#xFF1A;</p>
 <pre><code class="lang-javascript">    Blend SrcAlpha OneMinusSrcAlpha        <span class="hljs-comment">// Alpha &#x6DF7;&#x5408;</span>
     Blend One One                          <span class="hljs-comment">// &#x53E0;&#x52A0;</span>
     Blend OneMinusDstColor One             <span class="hljs-comment">// &#x8F6F;&#x53E0;&#x52A0;</span>
     Blend DstColor Zero                    <span class="hljs-comment">// &#x4E58;&#x6CD5;</span>
     Blend DstColor SrcColor                <span class="hljs-comment">// 2 &#x500D;&#x4E58;&#x6CD5;</span>
 </code></pre>
+<p><br></p>
 <h4 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h4>
 <p>&#x53E0;&#x52A0;&#x4E00;&#x4E2A;&#x7EB9;&#x7406;&#x5230;&#x5C4F;&#x5E55;</p>
 <pre><code class="lang-javascript">    Shader <span class="hljs-string">&quot;Simple Additive&quot;</span> 
@@ -1240,7 +1255,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2.1.2 Blending","level":"1.2.1.2.1.2","depth":5,"next":{"title":"1.2.1.3 Pass Tags","level":"1.2.1.2.1.3","depth":5,"path":"1. ShaderLab 框架/1213-pass-tags.md","ref":"1. ShaderLab 框架/1213-pass-tags.md","articles":[]},"previous":{"title":"1.2.1.1 Culling & Depth Testing","level":"1.2.1.2.1.1","depth":5,"path":"1. ShaderLab 框架/1211-culling--depth-testing.md","ref":"1. ShaderLab 框架/1211-culling--depth-testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/1212-blending.md","mtime":"2016-12-25T05:40:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-30T17:15:32.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2.1.2 Blending","level":"1.2.1.2.1.2","depth":5,"next":{"title":"1.2.1.3 Pass Tags","level":"1.2.1.2.1.3","depth":5,"path":"1. ShaderLab 框架/1213-pass-tags.md","ref":"1. ShaderLab 框架/1213-pass-tags.md","articles":[]},"previous":{"title":"1.2.1.1 Culling & Depth Testing","level":"1.2.1.2.1.1","depth":5,"path":"1. ShaderLab 框架/1211-culling--depth-testing.md","ref":"1. ShaderLab 框架/1211-culling--depth-testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/1212-blending.md","mtime":"2017-05-14T15:34:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-14T15:39:15.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

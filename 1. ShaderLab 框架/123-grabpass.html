@@ -235,7 +235,7 @@
                 <a href="1216-legacy-lightiing.html">
             
                     
-                    1.2.1.6 Legacy Lightiing
+                    1.2.1.6 Legacy Lighting
             
                 </a>
             
@@ -433,7 +433,7 @@
                 <a href="13-在-cghlsl-中访问-shader-属性.html">
             
                     
-                    1.3 在 Cg\/HLSL 中访问着色器属性
+                    1.3 在 Cg/HLSL 中访问着色器属性
             
                 </a>
             
@@ -847,14 +847,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" >
+        <li class="chapter " data-level="1.3.2" data-path="../2. Cg 语法/2.html">
             
-                <span>
+                <a href="../2. Cg 语法/2.html">
             
                     
                     第2章 最简单的程序
             
-                </span>
+                </a>
             
 
             
@@ -1036,6 +1036,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.1.4" data-path="../3. ShaderLab 开发实战/18.4.html">
+            
+                <a href="../3. ShaderLab 开发实战/18.4.html">
+            
+                    
+                    18.4 镜面反射
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1089,165 +1102,166 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="grabpass">GrabPass</h2>
-<p>GrabPass&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;passtype -&#x5B83;&#x6293;&#x4F4F;&#x5BF9;&#x8C61;&#x6240;&#x5728;&#x7684;&#x5C4F;&#x5E55;&#x5373;&#x5C06;&#x8FDB;&#x5165;&#x4E00;&#x4E2A;&#x7EB9;&#x7406;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x8FD9;&#x79CD;&#x7EB9;&#x7406;&#x53EF;&#x4EE5;&#x5728;&#x540E;&#x7EED;&#x7684;&#x4F20;&#x9012;&#x4E2D;&#x4F7F;&#x7528;&#x5148;&#x8FDB;&#x7684;&#x57FA;&#x4E8E;&#x56FE;&#x50CF;&#x7684;&#x6548;&#x679C;&#x3002;</p>
-<h4 id="&#x8BED;&#x6CD5;&#xFF1A;">&#x8BED;&#x6CD5;&#xFF1A;</h4>
-<p>GrabPass&#x6240;&#x5C5E;subshader&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x91C7;&#x53D6;&#x4E24;&#x79CD;&#x5F62;&#x5F0F;:</p>
-<p>&#x53EA;&#x662F;GrabPass {}&#x5C06;&#x6293;&#x53D6;&#x5F53;&#x524D;&#x5C4F;&#x5E55;&#x5185;&#x5BB9;&#x5230;&#x4E00;&#x4E2A;&#x7EB9;&#x7406;&#x3002;&#x7EB9;&#x7406;&#x53EF;&#x4EE5;&#x5728;&#x4E4B;&#x540E;&#x7684;Pass&#x4E2D;&#x901A;&#x8FC7;_grabtexture&#x540D;&#x79F0;&#x4F7F;&#x7528;&#x3002;&#x6CE8;&#xFF1A;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x6293;&#x53D6;&#x7684;pass&#x5C06;&#x5BF9;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x505A;&#x6602;&#x8D35;&#x7684;&#x5C4F;&#x5E55;&#x6293;&#x53D6;&#x64CD;&#x4F5C;&#xFF01;</p>
-<p>GrabPass {&#x201C;TextureName&#x201D;}&#x5C06;&#x6293;&#x53D6;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x6210;&#x7EB9;&#x7406;&#xFF0C;&#x4F46;&#x53EA;&#x4F1A;&#x505A;&#x5BF9;&#x6BCF;&#x5E27;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x7ED9;&#x5B9A;&#x7EB9;&#x7406;&#x540D;&#x5B57;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x7EB9;&#x7406;&#x53EF;&#x4EE5;&#x88AB;&#x8FDB;&#x4E00;&#x6B65;&#x8BBF;&#x95EE;&#x901A;&#x8FC7;&#x7ED9;&#x5B9A;&#x7684;&#x7EB9;&#x7406;&#x540D;&#x79F0;&#x3002;&#x5F53;&#x4F60;&#x6709;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#x5728;&#x573A;&#x666F;&#x4E2D;&#x4F7F;&#x7528;grab pass&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x9AD8;&#x6548;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
-<p>&#x6B64;&#x5916;,GrabPass&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Name&#x548C;Tags&#x547D;&#x4EE4;&#x3002;</p>
-<p>&#x4F8B;&#x5982;&#xFF1A;</p>
-<p>&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x6602;&#x8D35;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x53CD;&#x8F6C;&#x6E32;&#x67D3;&#x4E4B;&#x524D;&#x7684;&#x989C;&#x8272;&#xFF1A;</p>
-<pre><code>Shader &quot;GrabPassInvert&quot;
-{
-    SubShader
-    {
-        // Draw ourselves after all opaque geometry
-        Tags { &quot;Queue&quot; = &quot;Transparent&quot; }
-
-        // Grab the screen behind the object into _GrabTexture
-        GrabPass { }
-
-        // Render the object with the texture generated above, and invert the colors
-        Pass
-        {
-            SetTexture [_GrabTexture] { combine one-texture }
-        }
-    }
-}
-</code></pre><p>&#x8FD9;&#x4E2A;&#x7740;&#x8272;&#x5668;&#x6709;&#x4E24;&#x4E2A;&#x901A;&#x9053;&#xFF1A;&#x7B2C;&#x4E00;&#x6B21;&#x6355;&#x83B7;&#x5728;&#x6E32;&#x67D3;&#x65F6;&#x540E;&#x9762;&#x7684;&#x7269;&#x4F53;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x7B2C;&#x4E8C;&#x904D;&#x4E2D;&#x5E94;&#x7528;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x540C;&#x6837;&#x7684;&#x6548;&#x679C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x53CD;&#x5411;&#x6DF7;&#x5408;&#x6A21;&#x5F0F;&#x4FBF;&#x5B9C;&#x5F97;&#x591A;&#x3002;</p>
-<p>&#x53C2;&#x89C1;&#xFF1A;<br>Regular Pass command</p>
+<p>&#x2003;&#x2003;GrabPass&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;passtype -&#x5B83;&#x6293;&#x4F4F;&#x5BF9;&#x8C61;&#x6240;&#x5728;&#x7684;&#x5C4F;&#x5E55;&#x5373;&#x5C06;&#x8FDB;&#x5165;&#x4E00;&#x4E2A;&#x7EB9;&#x7406;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x8FD9;&#x79CD;&#x7EB9;&#x7406;&#x53EF;&#x4EE5;&#x5728;&#x540E;&#x7EED;&#x7684;&#x4F20;&#x9012;&#x4E2D;&#x4F7F;&#x7528;&#x5148;&#x8FDB;&#x7684;&#x57FA;&#x4E8E;&#x56FE;&#x50CF;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+<h4 id="&#x2003;&#x2003;-&#x8BED;&#x6CD5;&#xFF1A;">&#x2003;&#x2003; &#x8BED;&#x6CD5;&#xFF1A;</h4>
+<p>&#x2003;&#x2003;GrabPass&#x6240;&#x5C5E;subshader&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x91C7;&#x53D6;&#x4E24;&#x79CD;&#x5F62;&#x5F0F;:</p>
+<p>&#x2003;&#x2003;&#x53EA;&#x662F;GrabPass {}&#x5C06;&#x6293;&#x53D6;&#x5F53;&#x524D;&#x5C4F;&#x5E55;&#x5185;&#x5BB9;&#x5230;&#x4E00;&#x4E2A;&#x7EB9;&#x7406;&#x3002;&#x7EB9;&#x7406;&#x53EF;&#x4EE5;&#x5728;&#x4E4B;&#x540E;&#x7684;Pass&#x4E2D;&#x901A;&#x8FC7;_grabtexture&#x540D;&#x79F0;&#x4F7F;&#x7528;&#x3002;&#x6CE8;&#xFF1A;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x6293;&#x53D6;&#x7684;pass&#x5C06;&#x5BF9;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x505A;&#x6602;&#x8D35;&#x7684;&#x5C4F;&#x5E55;&#x6293;&#x53D6;&#x64CD;&#x4F5C;&#xFF01;</p>
+<p>&#x2003;&#x2003;GrabPass {&#x201C;TextureName&#x201D;}&#x5C06;&#x6293;&#x53D6;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x6210;&#x7EB9;&#x7406;&#xFF0C;&#x4F46;&#x53EA;&#x4F1A;&#x505A;&#x5BF9;&#x6BCF;&#x5E27;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x7ED9;&#x5B9A;&#x7EB9;&#x7406;&#x540D;&#x5B57;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x7EB9;&#x7406;&#x53EF;&#x4EE5;&#x88AB;&#x8FDB;&#x4E00;&#x6B65;&#x8BBF;&#x95EE;&#x901A;&#x8FC7;&#x7ED9;&#x5B9A;&#x7684;&#x7EB9;&#x7406;&#x540D;&#x79F0;&#x3002;&#x5F53;&#x4F60;&#x6709;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#x5728;&#x573A;&#x666F;&#x4E2D;&#x4F7F;&#x7528;grab pass&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x9AD8;&#x6548;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x2003;&#x2003;&#x6B64;&#x5916;,GrabPass&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Name&#x548C;Tags&#x547D;&#x4EE4;&#x3002;</p>
 <hr>
-<pre><code class="lang-javascript">Shader &quot;Custom/GrabShader&quot;
-{
-    SubShader
+<h4 id="&#x4F8B;&#x5982;&#xFF1A;">&#x4F8B;&#x5982;&#xFF1A;</h4>
+<p>&#x2003;&#x2003;&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x6602;&#x8D35;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x53CD;&#x8F6C;&#x6E32;&#x67D3;&#x4E4B;&#x524D;&#x7684;&#x989C;&#x8272;&#xFF1A;</p>
+<pre><code class="lang-csharp">    Shader <span class="hljs-string">&quot;GrabPassInvert&quot;</span>
     {
-        Tags {&quot;Queue&quot;=&quot;Transparent&quot; &quot;IgnoreProjector&quot;=&quot;True&quot; &quot;RenderType&quot;=&quot;Opaque&quot;}
-        ZWrite On Lighting Off Cull Off Fog { Mode Off } Blend One Zero
-
-        GrabPass { &quot;_GrabTexture&quot; }
-
-        Pass
+        SubShader
         {
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            #include &quot;UnityCG.cginc&quot;
+            <span class="hljs-comment">// Draw ourselves after all opaque geometry</span>
+            Tags { <span class="hljs-string">&quot;Queue&quot;</span> = <span class="hljs-string">&quot;Transparent&quot;</span> }
 
-            sampler2D _GrabTexture;
+            <span class="hljs-comment">// Grab the screen behind the object into _GrabTexture</span>
+            GrabPass { }
 
-            struct vin_vct
+            <span class="hljs-comment">// Render the object with the texture generated above, and invert the colors</span>
+            Pass
             {
-                float4 vertex : POSITION;
-            };
-
-            struct v2f_vct
-            {
-                float4 vertex : POSITION;
-                float4 uvgrab : TEXCOORD1;
-            };
-
-            // Vertex function
-            v2f_vct vert (vin_vct v)
-            {
-                v2f_vct o;
-                o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
-                o.uvgrab = ComputeGrabScreenPos(o.vertex);
-                return o;
+                SetTexture [_GrabTexture] { combine one-texture }
             }
-
-            // Fragment function
-            half4 frag (v2f_vct i) : COLOR
-            {
-                fixed4 col = tex2Dproj( _GrabTexture, UNITY_PROJ_COORD(i.uvgrab));
-                return col;
-            }
-            ENDCG
         }
     }
-}
 </code></pre>
-<h3 id="&#x73BB;&#x7483;&#x7740;&#x8272;">&#x73BB;&#x7483;&#x7740;&#x8272;</h3>
-<pre><code class="lang-javascript">Shader &quot;Custom/GlassShader&quot;
-{
-    Properties
+<p>&#x2003;&#x2003;&#x8FD9;&#x4E2A;&#x7740;&#x8272;&#x5668;&#x6709;&#x4E24;&#x4E2A;&#x901A;&#x9053;&#xFF1A;&#x7B2C;&#x4E00;&#x6B21;&#x6355;&#x83B7;&#x5728;&#x6E32;&#x67D3;&#x65F6;&#x540E;&#x9762;&#x7684;&#x7269;&#x4F53;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x7B2C;&#x4E8C;&#x904D;&#x4E2D;&#x5E94;&#x7528;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x540C;&#x6837;&#x7684;&#x6548;&#x679C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x53CD;&#x5411;&#x6DF7;&#x5408;&#x6A21;&#x5F0F;&#x4FBF;&#x5B9C;&#x5F97;&#x591A;&#x3002;</p>
+<hr>
+<pre><code class="lang-csharp">    Shader <span class="hljs-string">&quot;Custom/GrabShader&quot;</span>
     {
-        _MainTex (&quot;Base (RGB) Trans (A)&quot;, 2D) = &quot;white&quot; {}
-        _Colour (&quot;Colour&quot;, Color) = (1,1,1,1)
-
-        _BumpMap (&quot;Noise text&quot;, 2D) = &quot;bump&quot; {}
-        _Magnitude (&quot;Magnitude&quot;, Range(0,1)) = 0.05
-    }
-
-    SubShader
-    {
-        Tags {&quot;Queue&quot;=&quot;Transparent&quot; &quot;IgnoreProjector&quot;=&quot;True&quot; &quot;RenderType&quot;=&quot;Opaque&quot;}
-        ZWrite On Lighting Off Cull Off Fog { Mode Off } Blend One Zero
-
-        GrabPass { &quot;_GrabTexture&quot; }
-        Pass
+        SubShader
         {
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            #include &quot;UnityCG.cginc&quot;
+            Tags {<span class="hljs-string">&quot;Queue&quot;</span>=<span class="hljs-string">&quot;Transparent&quot;</span> <span class="hljs-string">&quot;IgnoreProjector&quot;</span>=<span class="hljs-string">&quot;True&quot;</span> <span class="hljs-string">&quot;RenderType&quot;</span>=<span class="hljs-string">&quot;Opaque&quot;</span>}
+            ZWrite On Lighting Off Cull Off Fog { Mode Off } Blend One Zero
 
-            sampler2D _GrabTexture;
+            GrabPass { <span class="hljs-string">&quot;_GrabTexture&quot;</span> }
 
-            sampler2D _MainTex;
-            fixed4 _Colour;
-
-            sampler2D _BumpMap;
-            float _Magnitude;
-
-            struct vin_vct
+            Pass
             {
-                float4 vertex : POSITION;
-                float4 color : COLOR;
-                float2 texcoord : TEXCOORD0;
-            };
+                CGPROGRAM
+                <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> vertex vert</span>
+                <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> fragment frag</span>
+                <span class="hljs-meta">#include &quot;UnityCG.cginc&quot;</span>
 
-            struct v2f_vct
-            {
-                float4 vertex : POSITION;
-                fixed4 color : COLOR;
-                float2 texcoord : TEXCOORD0;
+                sampler2D _GrabTexture;
 
-                float4 uvgrab : TEXCOORD1;
-            };
+                <span class="hljs-keyword">struct</span> vin_vct
+                {
+                    float4 vertex : POSITION;
+                };
 
-            // Vertex function
-            v2f_vct vert (vin_vct v)
-            {
-                v2f_vct o;
-                o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
-                o.color = v.color;
+                <span class="hljs-keyword">struct</span> v2f_vct
+                {
+                    float4 vertex : POSITION;
+                    float4 uvgrab : TEXCOORD1;
+                };
 
-                o.texcoord = v.texcoord;
+                <span class="hljs-comment">// Vertex function</span>
+                <span class="hljs-function">v2f_vct <span class="hljs-title">vert</span> (<span class="hljs-params">vin_vct v</span>)
+                </span>{
+                    v2f_vct o;
+                    o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+                    o.uvgrab = ComputeGrabScreenPos(o.vertex);
+                    <span class="hljs-keyword">return</span> o;
+                }
 
-                o.uvgrab = ComputeGrabScreenPos(o.vertex);
-                return o;
+                <span class="hljs-comment">// Fragment function</span>
+                <span class="hljs-function">half4 <span class="hljs-title">frag</span> (<span class="hljs-params">v2f_vct i</span>) : COLOR
+                </span>{
+                    fixed4 col = tex2Dproj( _GrabTexture, UNITY_PROJ_COORD(i.uvgrab));
+                    <span class="hljs-keyword">return</span> col;
+                }
+                ENDCG
             }
-
-            // Fragment function
-            half4 frag (v2f_vct i) : COLOR
-            {
-                half4 mainColour = tex2D(_MainTex, i.texcoord);
-                half4 bump = tex2D(_BumpMap, i.texcoord);
-                half2 distortion = UnpackNormal(bump).rg;
-
-                i.uvgrab.xy += distortion * _Magnitude;
-
-                // tex*proj()&#x5185;&#x7F6E;&#x51FD;&#x6570;&#x88AB;&#x7528;&#x6765;&#x6267;&#x884C;&#x6295;&#x5F71;&#x7EB9;&#x7406;&#x8BFB;&#x53D6;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x7528;&#x6765;&#x91C7;&#x6837;&#x7684;&#x7EB9;&#x7406;&#x5750;&#x6807; 
-                // &#x5728;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x4F1A;&#x9664;&#x4EE5;&#x7B2C;&#x56DB;&#x4E2A;&#x5206;&#x91CF;&#x3002;
-
-                //UNITY_PROJ_COORD&#x4F20;&#x5165;&#x56DB;&#x5143;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x7528;&#x4E8E;&#x7ED9;tex2Dproj&#x8BFB;&#x53D6;,&#x4F46;&#x662F;&#x591A;&#x6570;&#x5E73;&#x53F0;&#x4E0A;,&#x8FD4;&#x56DE;&#x4E00;&#x6837;&#x7684;&#x503C;&#x3002;
-                fixed4 col = tex2Dproj( _GrabTexture, UNITY_PROJ_COORD(i.uvgrab));
-                return col * mainColour * _Colour;
-            }
-            ENDCG
         }
     }
-}
+</code></pre>
+<h3 id="&#x2003;&#x2003;-&#x73BB;&#x7483;&#x7740;&#x8272;">&#x2003;&#x2003; &#x73BB;&#x7483;&#x7740;&#x8272;</h3>
+<pre><code class="lang-csharp">    Shader <span class="hljs-string">&quot;Custom/GlassShader&quot;</span>
+    {
+        Properties
+        {
+            _MainTex (<span class="hljs-string">&quot;Base (RGB) Trans (A)&quot;</span>, <span class="hljs-number">2</span>D) = <span class="hljs-string">&quot;white&quot;</span> {}
+            _Colour (<span class="hljs-string">&quot;Colour&quot;</span>, Color) = (<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)
+
+            _BumpMap (<span class="hljs-string">&quot;Noise text&quot;</span>, <span class="hljs-number">2</span>D) = <span class="hljs-string">&quot;bump&quot;</span> {}
+            _Magnitude (<span class="hljs-string">&quot;Magnitude&quot;</span>, Range(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)) = <span class="hljs-number">0.05</span>
+        }
+
+        SubShader
+        {
+            Tags {<span class="hljs-string">&quot;Queue&quot;</span>=<span class="hljs-string">&quot;Transparent&quot;</span> <span class="hljs-string">&quot;IgnoreProjector&quot;</span>=<span class="hljs-string">&quot;True&quot;</span> <span class="hljs-string">&quot;RenderType&quot;</span>=<span class="hljs-string">&quot;Opaque&quot;</span>}
+            ZWrite On Lighting Off Cull Off Fog { Mode Off } Blend One Zero
+
+            GrabPass { <span class="hljs-string">&quot;_GrabTexture&quot;</span> }
+            Pass
+            {
+                CGPROGRAM
+                <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> vertex vert</span>
+                <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> fragment frag</span>
+                <span class="hljs-meta">#include &quot;UnityCG.cginc&quot;</span>
+
+                sampler2D _GrabTexture;
+
+                sampler2D _MainTex;
+                fixed4 _Colour;
+
+                sampler2D _BumpMap;
+                <span class="hljs-keyword">float</span> _Magnitude;
+
+                <span class="hljs-keyword">struct</span> vin_vct
+                {
+                    float4 vertex : POSITION;
+                    float4 color : COLOR;
+                    float2 texcoord : TEXCOORD0;
+                };
+
+                <span class="hljs-keyword">struct</span> v2f_vct
+                {
+                    float4 vertex : POSITION;
+                    fixed4 color : COLOR;
+                    float2 texcoord : TEXCOORD0;
+
+                    float4 uvgrab : TEXCOORD1;
+                };
+
+                <span class="hljs-comment">// Vertex function</span>
+                <span class="hljs-function">v2f_vct <span class="hljs-title">vert</span> (<span class="hljs-params">vin_vct v</span>)
+                </span>{
+                    v2f_vct o;
+                    o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+                    o.color = v.color;
+
+                    o.texcoord = v.texcoord;
+
+                    o.uvgrab = ComputeGrabScreenPos(o.vertex);
+                    <span class="hljs-keyword">return</span> o;
+                }
+
+                <span class="hljs-comment">// Fragment function</span>
+                <span class="hljs-function">half4 <span class="hljs-title">frag</span> (<span class="hljs-params">v2f_vct i</span>) : COLOR
+                </span>{
+                    half4 mainColour = tex2D(_MainTex, i.texcoord);
+                    half4 bump = tex2D(_BumpMap, i.texcoord);
+                    half2 distortion = UnpackNormal(bump).rg;
+
+                    i.uvgrab.xy += distortion * _Magnitude;
+
+                    <span class="hljs-comment">// tex*proj()&#x5185;&#x7F6E;&#x51FD;&#x6570;&#x88AB;&#x7528;&#x6765;&#x6267;&#x884C;&#x6295;&#x5F71;&#x7EB9;&#x7406;&#x8BFB;&#x53D6;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x7528;&#x6765;&#x91C7;&#x6837;&#x7684;&#x7EB9;&#x7406;&#x5750;&#x6807; </span>
+                    <span class="hljs-comment">// &#x5728;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x4F1A;&#x9664;&#x4EE5;&#x7B2C;&#x56DB;&#x4E2A;&#x5206;&#x91CF;&#x3002;</span>
+
+                    <span class="hljs-comment">//UNITY_PROJ_COORD&#x4F20;&#x5165;&#x56DB;&#x5143;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x7528;&#x4E8E;&#x7ED9;tex2Dproj&#x8BFB;&#x53D6;,&#x4F46;&#x662F;&#x591A;&#x6570;&#x5E73;&#x53F0;&#x4E0A;,&#x8FD4;&#x56DE;&#x4E00;&#x6837;&#x7684;&#x503C;&#x3002;</span>
+                    fixed4 col = tex2Dproj( _GrabTexture, UNITY_PROJ_COORD(i.uvgrab));
+                    <span class="hljs-keyword">return</span> col * mainColour * _Colour;
+                }
+                ENDCG
+            }
+        }
+    }
 </code></pre>
 <p>&#x1F51A;</p>
 
@@ -1277,7 +1291,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2.3 GrabPass","level":"1.2.1.2.3","depth":4,"next":{"title":"1.2.4 SubShader Tags","level":"1.2.1.2.4","depth":4,"path":"1. ShaderLab 框架/124-subshader-tags.md","ref":"1. ShaderLab 框架/124-subshader-tags.md","articles":[]},"previous":{"title":"1.2.2 UsePass","level":"1.2.1.2.2","depth":4,"path":"1. ShaderLab 框架/122-usepass.md","ref":"1. ShaderLab 框架/122-usepass.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/123-grabpass.md","mtime":"2016-12-27T07:36:19.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-30T17:15:32.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2.3 GrabPass","level":"1.2.1.2.3","depth":4,"next":{"title":"1.2.4 SubShader Tags","level":"1.2.1.2.4","depth":4,"path":"1. ShaderLab 框架/124-subshader-tags.md","ref":"1. ShaderLab 框架/124-subshader-tags.md","articles":[]},"previous":{"title":"1.2.2 UsePass","level":"1.2.1.2.2","depth":4,"path":"1. ShaderLab 框架/122-usepass.md","ref":"1. ShaderLab 框架/122-usepass.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/123-grabpass.md","mtime":"2017-05-14T15:39:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-14T15:39:15.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

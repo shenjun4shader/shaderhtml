@@ -235,7 +235,7 @@
                 <a href="1216-legacy-lightiing.html">
             
                     
-                    1.2.1.6 Legacy Lightiing
+                    1.2.1.6 Legacy Lighting
             
                 </a>
             
@@ -433,7 +433,7 @@
                 <a href="13-在-cghlsl-中访问-shader-属性.html">
             
                     
-                    1.3 在 Cg\/HLSL 中访问着色器属性
+                    1.3 在 Cg/HLSL 中访问着色器属性
             
                 </a>
             
@@ -847,14 +847,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" >
+        <li class="chapter " data-level="1.3.2" data-path="../2. Cg 语法/2.html">
             
-                <span>
+                <a href="../2. Cg 语法/2.html">
             
                     
                     第2章 最简单的程序
             
-                </span>
+                </a>
             
 
             
@@ -1036,6 +1036,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.1.4" data-path="../3. ShaderLab 开发实战/18.4.html">
+            
+                <a href="../3. ShaderLab 开发实战/18.4.html">
+            
+                    
+                    18.4 镜面反射
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1091,8 +1104,8 @@
                                 <h2 id="stencil-&#xFF08;&#x6A21;&#x7248;&#xFF09;">Stencil &#xFF08;&#x6A21;&#x7248;&#xFF09;</h2>
 <p><strong>&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;</strong>&#x5177;&#x6709;&#x4F5C;&#x4E3A;&#x4FDD;&#x5B58;&#x6216;&#x4E22;&#x5F03;&#x50CF;&#x7D20;&#x7684;&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x63A9;&#x7801;&#x7684;&#x901A;&#x7528;&#x4F5C;&#x7528;&#x3002;</p>
 <p><code>Stencil</code> &#x4E0E;&#x989C;&#x8272;&#x7F13;&#x51B2;&#x533A;&#x548C;&#x6DF1;&#x5EA6;&#x7F13;&#x51B2;&#x533A;&#x7C7B;&#x4F3C;&#xFF0C;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#x53EF;&#x4EE5;&#x4E3A;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x70B9;&#x4FDD;&#x5B58;&#x4E00;&#x4E2A;&#x65E0;&#x7B26;&#x53F7;&#x6574;&#x6570;&#x503C;(&#x901A;&#x5E38;&#x7684;&#x8BDD;&#x662F;&#x4E2A;8&#x4F4D;&#x6574;&#x6570;)&#x3002;&#x8FD9;&#x4E2A;&#x503C;&#x7684;&#x5177;&#x4F53;&#x610F;&#x4E49;&#x89C6;&#x7A0B;&#x5E8F;&#x7684;&#x5177;&#x4F53;&#x5E94;&#x7528;&#x800C;&#x5B9A;&#x3002;&#x5728;&#x6E32;&#x67D3;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x4E2A;&#x503C;&#x4E0E;&#x4E00;&#x4E2A;&#x9884;&#x5148;&#x8BBE;&#x5B9A;&#x7684;&#x53C2;&#x8003;&#x503C;&#x76F8;&#x6BD4;&#x8F83;&#xFF0C;&#x6839;&#x636E;&#x6BD4;&#x8F83;&#x7684;&#x7ED3;&#x679C;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x66F4;&#x65B0;&#x76F8;&#x5E94;&#x7684;&#x50CF;&#x7D20;&#x70B9;&#x7684;&#x989C;&#x8272;&#x503C;&#x3002;&#x8FD9;&#x4E2A;&#x6BD4;&#x8F83;&#x7684;&#x8FC7;&#x7A0B;&#x88AB;&#x79F0;&#x4E3A;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x3002;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x53D1;&#x751F;&#x5728;&#x900F;&#x660E;&#x5EA6;&#x6D4B;&#x8BD5;&#xFF08;<code>alpha test</code>&#xFF09;&#x4E4B;&#x540E;&#xFF0C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#xFF08;<code>depth test</code>&#xFF09;&#x4E4B;&#x524D;&#x3002;&#x5982;&#x679C;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#xFF0C;&#x5219;&#x76F8;&#x5E94;&#x7684;&#x50CF;&#x7D20;&#x70B9;&#x66F4;&#x65B0;&#xFF0C;&#x5426;&#x5219;&#x4E0D;&#x66F4;&#x65B0;&#x3002;</p>
-<h3 id="&#x8BED;&#x6CD5;">&#x8BED;&#x6CD5;</h3>
-<pre><code class="lang-javascript">    stencil 
+<h3 id="&#x2003;&#x2003;&#x8BED;&#x6CD5;&#xFF1A;">&#x2003;&#x2003;&#x8BED;&#x6CD5;&#xFF1A;</h3>
+<pre><code class="lang-csharp">    stencil 
     {
         Ref referenceValue
         ReadMask readMask
@@ -1103,51 +1116,51 @@
         ZFail stencilOperation
     }
 </code></pre>
-<hr>
-<h4 id="1-ref&#xFF08;&#x53C2;&#x8003;&#x503C;&#xFF09;">1. Ref&#xFF08;&#x53C2;&#x8003;&#x503C;&#xFF09;</h4>
+<p><br></p>
+<h4 id="&#x2003;&#x2003;1-ref&#xFF08;&#x53C2;&#x8003;&#x503C;&#xFF09;">&#x2003;&#x2003;1. Ref&#xFF08;&#x53C2;&#x8003;&#x503C;&#xFF09;</h4>
 <pre><code class="lang-javascript">    Ref referenceValue
 </code></pre>
-<p>Ref&#x7528;&#x6765;&#x8BBE;&#x5B9A;&#x53C2;&#x8003;&#x503C; <code>referenceValue</code>&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x5C06;&#x7528;&#x6765;&#x4E0E;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x4E2D;&#x7684;&#x503C;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;<code>referenceValue</code> &#x662F;&#x4E00;&#x4E2A;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x4F4D; 0~255 &#x7684;&#x6574;&#x6570;&#x3002;</p>
-<h4 id="2-readmask&#xFF08;&#x8BFB;&#x906E;&#x7F69;&#xFF09;">2. ReadMask&#xFF08;&#x8BFB;&#x906E;&#x7F69;&#xFF09;</h4>
+<p>&#x2003;&#x2003;Ref&#x7528;&#x6765;&#x8BBE;&#x5B9A;&#x53C2;&#x8003;&#x503C; <code>referenceValue</code>&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x5C06;&#x7528;&#x6765;&#x4E0E;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x4E2D;&#x7684;&#x503C;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;<code>referenceValue</code> &#x662F;&#x4E00;&#x4E2A;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x4F4D; 0~255 &#x7684;&#x6574;&#x6570;&#x3002;</p>
+<h4 id="&#x2003;&#x2003;2-readmask&#xFF08;&#x8BFB;&#x906E;&#x7F69;&#xFF09;">&#x2003;&#x2003;2. ReadMask&#xFF08;&#x8BFB;&#x906E;&#x7F69;&#xFF09;</h4>
 <pre><code class="lang-javascript">    ReadMask readMask
 </code></pre>
-<p><code>readMask</code> &#x5C06;&#x548C; <code>referenceValue</code> &#x4EE5;&#x53CA; <code>stencilBufferValue</code> &#x8FDB;&#x884C;&#x6309;&#x4F4D;&#x4E0E;&#xFF08;&amp;&#xFF09;&#x64CD;&#x4F5C;&#xFF0C;<code>readMask</code> &#x53D6;&#x503C;&#x8303;&#x56F4;&#x4E5F;&#x662F; 0&#xFF5E;255 &#x7684;&#x6574;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; 255&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D; 1111 1111&#xFF0C;&#x5373;&#x8BFB;&#x53D6;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x5BF9;<code>referenceValue</code> &#x548C; <code>stencilBufferValue</code> &#x4EA7;&#x751F;&#x6548;&#x679C;&#xFF0C;&#x8BFB;&#x53D6;&#x7684;&#x8FD8;&#x662F;&#x539F;&#x59CB;&#x503C;&#x3002;</p>
-<h4 id="3-writemask&#xFF08;&#x5199;&#x906E;&#x7F69;&#xFF09;">3. WriteMask&#xFF08;&#x5199;&#x906E;&#x7F69;&#xFF09;</h4>
+<p>&#x2003;&#x2003;<code>readMask</code> &#x5C06;&#x548C; <code>referenceValue</code> &#x4EE5;&#x53CA; <code>stencilBufferValue</code> &#x8FDB;&#x884C;&#x6309;&#x4F4D;&#x4E0E;&#xFF08;&amp;&#xFF09;&#x64CD;&#x4F5C;&#xFF0C;<code>readMask</code> &#x53D6;&#x503C;&#x8303;&#x56F4;&#x4E5F;&#x662F; 0&#xFF5E;255 &#x7684;&#x6574;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; 255&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D; 1111 1111&#xFF0C;&#x5373;&#x8BFB;&#x53D6;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x5BF9;<code>referenceValue</code> &#x548C; <code>stencilBufferValue</code> &#x4EA7;&#x751F;&#x6548;&#x679C;&#xFF0C;&#x8BFB;&#x53D6;&#x7684;&#x8FD8;&#x662F;&#x539F;&#x59CB;&#x503C;&#x3002;</p>
+<h4 id="&#x2003;&#x2003;3-writemask&#xFF08;&#x5199;&#x906E;&#x7F69;&#xFF09;">&#x2003;&#x2003;3. WriteMask&#xFF08;&#x5199;&#x906E;&#x7F69;&#xFF09;</h4>
 <pre><code class="lang-javascript">    WriteMask writeMask
 </code></pre>
-<p><code>WriteMask</code> &#x662F;&#x5F53;&#x5199;&#x5165;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x65F6;&#x8FDB;&#x884C;&#x63A9;&#x7801;&#x64CD;&#x4F5C;&#xFF08;&#x6309;&#x4F4D;&#x4E0E;&#x3010;&amp;&#x3011;&#xFF09;&#xFF0C;<code>writeMask</code> &#x53D6;&#x503C;&#x8303;&#x56F4;&#x662F; 0&#xFF5E;255 &#x7684;&#x6574;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E5F;&#x662F; 255&#xFF0C;&#x5373;&#x5F53;&#x4FEE;&#x6539; <code>stencilBufferValue</code> &#x503C;&#x65F6;&#xFF0C;&#x5199;&#x5165;&#x7684;&#x4ECD;&#x7136;&#x662F;&#x539F;&#x59CB;&#x503C;&#x3002;</p>
-<h4 id="4-comp&#xFF08;&#x6BD4;&#x8F83;&#xFF09;">4. Comp&#xFF08;&#x6BD4;&#x8F83;&#xFF09;</h4>
+<p>&#x2003;&#x2003;<code>WriteMask</code> &#x662F;&#x5F53;&#x5199;&#x5165;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x65F6;&#x8FDB;&#x884C;&#x63A9;&#x7801;&#x64CD;&#x4F5C;&#xFF08;&#x6309;&#x4F4D;&#x4E0E;&#x3010;&amp;&#x3011;&#xFF09;&#xFF0C;<code>writeMask</code> &#x53D6;&#x503C;&#x8303;&#x56F4;&#x662F; 0&#xFF5E;255 &#x7684;&#x6574;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E5F;&#x662F; 255&#xFF0C;&#x5373;&#x5F53;&#x4FEE;&#x6539; <code>stencilBufferValue</code> &#x503C;&#x65F6;&#xFF0C;&#x5199;&#x5165;&#x7684;&#x4ECD;&#x7136;&#x662F;&#x539F;&#x59CB;&#x503C;&#x3002;</p>
+<h4 id="&#x2003;&#x2003;4-comp&#xFF08;&#x6BD4;&#x8F83;&#xFF09;">&#x2003;&#x2003;4. Comp&#xFF08;&#x6BD4;&#x8F83;&#xFF09;</h4>
 <pre><code class="lang-javascript">    Comp comparisonFunction
 </code></pre>
-<p>Comp &#x662F;&#x5B9A;&#x4E49;&#x53C2;&#x8003;&#x503C;&#xFF08;<code>referenceValue</code>&#xFF09;&#x4E0E;&#x7F13;&#x51B2;&#x503C;&#xFF08;<code>stencilBufferValue</code>&#xFF09;&#x6BD4;&#x8F83;&#x7684;&#x64CD;&#x4F5C;&#x51FD;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;always&#x3002;</p>
-<h4 id="5-pass">5. Pass</h4>
+<p>&#x2003;&#x2003;Comp &#x662F;&#x5B9A;&#x4E49;&#x53C2;&#x8003;&#x503C;&#xFF08;<code>referenceValue</code>&#xFF09;&#x4E0E;&#x7F13;&#x51B2;&#x503C;&#xFF08;<code>stencilBufferValue</code>&#xFF09;&#x6BD4;&#x8F83;&#x7684;&#x64CD;&#x4F5C;&#x51FD;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;always&#x3002;</p>
+<h4 id="&#x2003;&#x2003;5-pass">&#x2003;&#x2003;5. Pass</h4>
 <pre><code class="lang-javascript">    Pass stencilOperation
 </code></pre>
-<p>Pass &#x662F;&#x5B9A;&#x4E49;&#x5F53;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#xFF08;&#x548C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#xFF09;&#x901A;&#x8FC7;&#x65F6;&#xFF0C;&#x5219;&#x6839;&#x636E;&#xFF08;<code>stencilOperation</code>&#x503C;&#xFF09;&#x5BF9;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x503C;&#xFF08;<code>stencilBufferValue</code>&#xFF09;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;keep&#x3002;</p>
-<h4 id="6-fail">6. Fail</h4>
+<p>&#x2003;&#x2003;Pass &#x662F;&#x5B9A;&#x4E49;&#x5F53;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#xFF08;&#x548C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#xFF09;&#x901A;&#x8FC7;&#x65F6;&#xFF0C;&#x5219;&#x6839;&#x636E;&#xFF08;<code>stencilOperation</code>&#x503C;&#xFF09;&#x5BF9;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x503C;&#xFF08;<code>stencilBufferValue</code>&#xFF09;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;keep&#x3002;</p>
+<h4 id="&#x2003;&#x2003;6-fail">&#x2003;&#x2003;6. Fail</h4>
 <pre><code class="lang-javascript">    Fail stencilOperation
 </code></pre>
-<p>Fail &#x662F;&#x5B9A;&#x4E49;&#x5F53;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#xFF08;&#x548C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#xFF09;&#x5931;&#x8D25;&#x65F6;&#xFF0C;&#x5219;&#x6839;&#x636E;&#xFF08;<code>stencilOperation</code>&#x503C;&#xFF09;&#x5BF9;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x503C;&#xFF08;<code>stencilBufferValue</code>&#xFF09;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;keep&#x3002;</p>
-<h4 id="7-zfail">7. ZFail</h4>
+<p>&#x2003;&#x2003;Fail &#x662F;&#x5B9A;&#x4E49;&#x5F53;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#xFF08;&#x548C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#xFF09;&#x5931;&#x8D25;&#x65F6;&#xFF0C;&#x5219;&#x6839;&#x636E;&#xFF08;<code>stencilOperation</code>&#x503C;&#xFF09;&#x5BF9;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x503C;&#xFF08;<code>stencilBufferValue</code>&#xFF09;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;keep&#x3002;</p>
+<h4 id="&#x2003;&#x2003;7-zfail">&#x2003;&#x2003;7. ZFail</h4>
 <pre><code class="lang-javascript">    ZFail stencilOperation
 </code></pre>
-<p>ZFail &#x662F;&#x5B9A;&#x4E49;&#x5F53;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x800C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x65F6;&#xFF0C;&#x5219;&#x6839;&#x636E;&#xFF08;<code>stencilOperation</code> &#x503C;&#xFF09;&#x5BF9;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x503C;&#xFF08;<code>stencilBufferValue</code>&#xFF09;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;keep&#x3002;</p>
+<p>&#x2003;&#x2003;ZFail &#x662F;&#x5B9A;&#x4E49;&#x5F53;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x800C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x65F6;&#xFF0C;&#x5219;&#x6839;&#x636E;&#xFF08;<code>stencilOperation</code> &#x503C;&#xFF09;&#x5BF9;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x503C;&#xFF08;<code>stencilBufferValue</code>&#xFF09;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;keep&#x3002;</p>
 <blockquote>
 <p>Comp&#x3001;Pass&#x3001;Fail &#x548C; ZFail &#x88AB;&#x5E94;&#x7528;&#x4E8E;&#x80CC;&#x9762;&#x6D88;&#x9690;&#x7684;&#x51E0;&#x4F55;&#x4F53;&#xFF08;&#x53EA;&#x6E32;&#x67D3;&#x6B63;&#x9762;&#x7684;&#x51E0;&#x4F55;&#x4F53;&#xFF09;&#xFF0C;&#x9664;&#x975E;&#x6307;&#x5B9A; Cull Front &#x65F6;&#x624D;&#x4F1A;&#x88AB;&#x5E94;&#x7528;&#x4E8E;&#x6B63;&#x9762;&#x6D88;&#x9690;&#x7684;&#x51E0;&#x4F55;&#x4F53;&#xFF08;&#x53EA;&#x6E32;&#x67D3;&#x51E0;&#x4F55;&#x4F53;&#x7684;&#x80CC;&#x9762;&#xFF09;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x660E;&#x786E;&#x6307;&#x5B9A;&#x53CC;&#x9762;&#x7684;&#x6A21;&#x677F;&#x72B6;&#x6001;&#x901A;&#x8FC7;&#x5B9A;&#x4E49; CompFront&#xFF0C;PassFront&#xFF0C;FailFront&#xFF0C;ZFailFront&#xFF08;&#x51E0;&#x4F55;&#x4F53;&#x6B63;&#x9762;&#xFF09;&#xFF0C;&#x548C; CompBack&#x3001;PassBack&#x3001;FailBack&#x3001;ZFailBack&#xFF08;&#x51E0;&#x4F55;&#x4F53;&#x80CC;&#x9762;&#xFF09;&#x3002;</p>
 </blockquote>
-<h4 id="&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x5224;&#x65AD;&#x4F9D;&#x636E;">&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x5224;&#x65AD;&#x4F9D;&#x636E;</h4>
-<p>&#x548C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x4E00;&#x6837;&#xFF0C;&#x5728; unity &#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x7684;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x4E5F;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x4E00;&#x5957;&#x72EC;&#x7ACB;&#x7684;&#x4F9D;&#x636E;&#xFF0C;&#x5177;&#x4F53;&#x516C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h4 id="&#x2003;&#x2003;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x5224;&#x65AD;&#x4F9D;&#x636E;">&#x2003;&#x2003;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x5224;&#x65AD;&#x4F9D;&#x636E;</h4>
+<p>&#x2003;&#x2003;&#x548C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x4E00;&#x6837;&#xFF0C;&#x5728; unity &#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x7684;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x4E5F;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x4E00;&#x5957;&#x72EC;&#x7ACB;&#x7684;&#x4F9D;&#x636E;&#xFF0C;&#x5177;&#x4F53;&#x516C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-javascript">    <span class="hljs-keyword">if</span>&#xFF08;referenceValue&amp;readMask comparisonFunction stencilBufferValue&amp;readMask&#xFF09;
         &#x901A;&#x8FC7;&#x50CF;&#x7D20;
     <span class="hljs-keyword">else</span>
         &#x629B;&#x5F03;&#x50CF;&#x7D20;
 </code></pre>
-<p>&#x5728;&#x8FD9;&#x4E2A;&#x516C;&#x5F0F;&#x4E2D;&#xFF0C;&#x4E3B;&#x8981;&#x5206; <code>comparisonFunction</code> &#x7684;&#x5DE6;&#x8FB9;&#x90E8;&#x5206;&#x548C;&#x53F3;&#x8FB9;&#x90E8;&#x5206;</p>
-<p><code>referenceValue</code> &#x662F;&#x6709; <code>Ref</code> &#x6765;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x7531;&#x7A0B;&#x5E8F;&#x5458;&#x6765;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;<code>readMask</code> &#x662F;&#x6A21;&#x677F;&#x503C;&#x8BFB;&#x53D6;&#x63A9;&#x7801;&#xFF0C;&#x5B83;&#x548C; <code>referenceValue</code> &#x8FDB;&#x884C;&#x6309;&#x4F4D;&#x4E0E;&#xFF08;&amp;&#xFF09;&#x64CD;&#x4F5C;&#x4F5C;&#x4E3A;&#x516C;&#x5F0F;&#x5DE6;&#x8FB9;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;255&#xFF0C;&#x5373;&#x6309;&#x4F4D;&#x4E0E;&#xFF08;&amp;&#xFF09;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x662F; <code>referenceValue</code> &#x672C;&#x8EAB;&#x3002;</p>
-<p><code>stencilBufferValue</code> &#x662F;&#x5BF9;&#x5E94;&#x4F4D;&#x7F6E;&#x5F53;&#x524D;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x503C;&#xFF0C;&#x540C;&#x6837;&#x4E0E;<code>readMask</code> &#x505A;&#x6309;&#x4F4D;&#x63A9;&#x7801;&#x4E0E;&#x64CD;&#x4F5C;&#xFF0C;&#x7ED3;&#x679C;&#x505A;&#x4E3A;&#x53F3;&#x8FB9;&#x7684;&#x90E8;&#x5206;&#x3002;</p>
-<p><code>comparisonFunction</code> &#x6BD4;&#x8F83;&#x64CD;&#x4F5C;&#x901A;&#x8FC7; <code>Comp</code> &#x547D;&#x4EE4;&#x5B9A;&#x4E49;&#xFF0C;&#x516C;&#x5F0F;&#x5DE6;&#x53F3;&#x4E24;&#x8FB9;&#x7684;&#x7ED3;&#x679C;&#x5C06;&#x901A;&#x8FC7;&#x5B83;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF0C;&#x5176;&#x53D6;&#x503C;&#x53CA;&#x5176;&#x610F;&#x4E49;&#x5982;&#x4E0B;&#x9762;&#x5217;&#x8868;&#x6240;&#x793A;&#x3002;</p>
-<h4 id="8-comparison-function&#xFF08;&#x6BD4;&#x8F83;&#x51FD;&#x6570;&#xFF09;">8. Comparison Function&#xFF08;&#x6BD4;&#x8F83;&#x51FD;&#x6570;&#xFF09;</h4>
-<p>&#x6BD4;&#x8F83;&#x51FD;&#x6570;&#x662F;&#x4E0B;&#x5217;&#x4E4B;&#x4E00;:</p>
+<p>&#x2003;&#x2003;&#x5728;&#x8FD9;&#x4E2A;&#x516C;&#x5F0F;&#x4E2D;&#xFF0C;&#x4E3B;&#x8981;&#x5206; <code>comparisonFunction</code> &#x7684;&#x5DE6;&#x8FB9;&#x90E8;&#x5206;&#x548C;&#x53F3;&#x8FB9;&#x90E8;&#x5206;</p>
+<p>&#x2003;&#x2003;<code>referenceValue</code> &#x662F;&#x6709; <code>Ref</code> &#x6765;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x7531;&#x7A0B;&#x5E8F;&#x5458;&#x6765;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;<code>readMask</code> &#x662F;&#x6A21;&#x677F;&#x503C;&#x8BFB;&#x53D6;&#x63A9;&#x7801;&#xFF0C;&#x5B83;&#x548C; <code>referenceValue</code> &#x8FDB;&#x884C;&#x6309;&#x4F4D;&#x4E0E;&#xFF08;&amp;&#xFF09;&#x64CD;&#x4F5C;&#x4F5C;&#x4E3A;&#x516C;&#x5F0F;&#x5DE6;&#x8FB9;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;255&#xFF0C;&#x5373;&#x6309;&#x4F4D;&#x4E0E;&#xFF08;&amp;&#xFF09;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x662F; <code>referenceValue</code> &#x672C;&#x8EAB;&#x3002;</p>
+<p>&#x2003;&#x2003;<code>stencilBufferValue</code> &#x662F;&#x5BF9;&#x5E94;&#x4F4D;&#x7F6E;&#x5F53;&#x524D;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x503C;&#xFF0C;&#x540C;&#x6837;&#x4E0E;<code>readMask</code> &#x505A;&#x6309;&#x4F4D;&#x63A9;&#x7801;&#x4E0E;&#x64CD;&#x4F5C;&#xFF0C;&#x7ED3;&#x679C;&#x505A;&#x4E3A;&#x53F3;&#x8FB9;&#x7684;&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x2003;&#x2003;<code>comparisonFunction</code> &#x6BD4;&#x8F83;&#x64CD;&#x4F5C;&#x901A;&#x8FC7; <code>Comp</code> &#x547D;&#x4EE4;&#x5B9A;&#x4E49;&#xFF0C;&#x516C;&#x5F0F;&#x5DE6;&#x53F3;&#x4E24;&#x8FB9;&#x7684;&#x7ED3;&#x679C;&#x5C06;&#x901A;&#x8FC7;&#x5B83;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF0C;&#x5176;&#x53D6;&#x503C;&#x53CA;&#x5176;&#x610F;&#x4E49;&#x5982;&#x4E0B;&#x9762;&#x5217;&#x8868;&#x6240;&#x793A;&#x3002;</p>
+<h4 id="&#x2003;&#x2003;8-comparison-function&#xFF08;&#x6BD4;&#x8F83;&#x51FD;&#x6570;&#xFF09;">&#x2003;&#x2003;8. Comparison Function&#xFF08;&#x6BD4;&#x8F83;&#x51FD;&#x6570;&#xFF09;</h4>
+<p>&#x2003;&#x2003;&#x6BD4;&#x8F83;&#x51FD;&#x6570;&#x662F;&#x4E0B;&#x5217;&#x4E4B;&#x4E00;:</p>
 <table>
 <thead>
 <tr>
@@ -1186,8 +1199,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="9-stencil-operation&#xFF08;&#x6A21;&#x7248;&#x64CD;&#x4F5C;&#xFF09;">9. Stencil Operation&#xFF08;&#x6A21;&#x7248;&#x64CD;&#x4F5C;&#xFF09;</h4>
-<p>&#x5728;&#x4E0A;&#x4E00;&#x6B65;&#x7684;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x4E4B;&#x540E;&#xFF0C;&#x65E0;&#x8BBA;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x4E0E;&#x5426;&#xFF0C;&#x90FD;&#x8981;&#x5BF9;&#x6A21;&#x677F;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x66F4;&#x65B0;&#x3002;&#x5177;&#x4F53;&#x600E;&#x4E48;&#x66F4;&#x65B0;&#xFF0C;&#x5219;&#x7531;&#x7A0B;&#x5E8F;&#x5458;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x3002;&#x4E0A;&#x9762;&#x5173;&#x4E8E;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x8BED;&#x6CD5;&#x4E2D;&#xFF0C;<code>Pass</code>&#xFF0C;<code>Fail</code>&#xFF0C;<code>ZFail</code>&#x7B49;&#x547D;&#x4EE4;&#x5C31;&#x662F;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x5224;&#x65AD;&#x6761;&#x4EF6;&#x5BF9;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x503C;&#xFF08;<code>stencilBufferValue</code>&#xFF09;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x53D6;&#x503C;&#xFF08;<code>stencilOperation</code>&#xFF09;&#x7684;&#x7C7B;&#x578B;&#x53CA;&#x610F;&#x4E49;&#x5982;&#x4E0B;&#x9762;&#x5217;&#x8868;&#x6240;&#x793A;&#xFF1A;</p>
+<h4 id="&#x2003;&#x2003;9-stencil-operation&#xFF08;&#x6A21;&#x7248;&#x64CD;&#x4F5C;&#xFF09;">&#x2003;&#x2003;9. Stencil Operation&#xFF08;&#x6A21;&#x7248;&#x64CD;&#x4F5C;&#xFF09;</h4>
+<p>&#x2003;&#x2003;&#x5728;&#x4E0A;&#x4E00;&#x6B65;&#x7684;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x4E4B;&#x540E;&#xFF0C;&#x65E0;&#x8BBA;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x4E0E;&#x5426;&#xFF0C;&#x90FD;&#x8981;&#x5BF9;&#x6A21;&#x677F;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x66F4;&#x65B0;&#x3002;&#x5177;&#x4F53;&#x600E;&#x4E48;&#x66F4;&#x65B0;&#xFF0C;&#x5219;&#x7531;&#x7A0B;&#x5E8F;&#x5458;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x3002;&#x4E0A;&#x9762;&#x5173;&#x4E8E;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x8BED;&#x6CD5;&#x4E2D;&#xFF0C;<code>Pass</code>&#xFF0C;<code>Fail</code>&#xFF0C;<code>ZFail</code>&#x7B49;&#x547D;&#x4EE4;&#x5C31;&#x662F;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x5224;&#x65AD;&#x6761;&#x4EF6;&#x5BF9;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x503C;&#xFF08;<code>stencilBufferValue</code>&#xFF09;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x53D6;&#x503C;&#xFF08;<code>stencilOperation</code>&#xFF09;&#x7684;&#x7C7B;&#x578B;&#x53CA;&#x610F;&#x4E49;&#x5982;&#x4E0B;&#x9762;&#x5217;&#x8868;&#x6240;&#x793A;&#xFF1A;</p>
 <table>
 <thead>
 <tr>
@@ -1230,60 +1243,61 @@
 </tr>
 </tbody>
 </table>
-<h4 id="10-deferred-rendering-path&#xFF08;&#x5EF6;&#x8FDF;&#x6E32;&#x67D3;&#xFF09;">10. Deferred rendering path&#xFF08;&#x5EF6;&#x8FDF;&#x6E32;&#x67D3;&#xFF09;</h4>
-<p>&#x5728;&#x5EF6;&#x8FDF;&#x6E32;&#x67D3;&#x8DEF;&#x5F84;&#x4E2D;&#x6E32;&#x67D3;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x6A21;&#x677F;&#x529F;&#x80FD;&#x662F;&#x6709;&#x9650;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x57FA;&#x672C;&#x901A;&#x9053;&#x548C;&#x7167;&#x660E;&#x901A;&#x9053;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#x7528;&#x4E8E;&#x5176;&#x4ED6;&#x7528;&#x9014;&#x3002;&#x5728;&#x8FD9;&#x4E24;&#x4E2A;&#x9636;&#x6BB5;&#x4E2D;&#xFF0C;&#x5728;&#x7740;&#x8272;&#x5668;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x6A21;&#x677F;&#x72B6;&#x6001;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x5E76;&#x53EA;&#x5728;&#x6700;&#x7EC8; Pass &#x65F6;&#x8003;&#x8651;&#x3002;&#x56E0;&#x4E3A;&#x906E;&#x7F69;&#x57FA;&#x4E8E;&#x6A21;&#x7248;&#x6D4B;&#x8BD5;&#x7684;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x7684;&#xFF0C;&#x4F46;&#x4ED6;&#x4EEC;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x7F13;&#x51B2;&#x533A;&#x5185;&#x5BB9;&#xFF0C;&#x88AB;&#x4E4B;&#x540E;&#x6E32;&#x67D3;&#x5728;&#x5E27;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x4F7F;&#x7528;&#x3002;&#x5BF9;&#x8C61;&#x5728;&#x524D;&#x5411;&#x6E32;&#x67D3;&#x8DEF;&#x5F84;&#x4E0B;&#x7684;&#x6E32;&#x67D3;&#x9075;&#x5FAA;&#x5EF6;&#x8FDF;&#x8DEF;&#x5F84;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x900F;&#x660E;&#x5BF9;&#x8C61;&#x6216;&#x6CA1;&#x6709;&#x8868;&#x9762;&#x7740;&#x8272;&#x7684;&#x5BF9;&#x8C61;&#xFF09; &#x5C06;&#x6A21;&#x7248;&#x72B6;&#x6001;&#x6062;&#x590D;&#x6B63;&#x5E38;&#x3002;</p>
+<h4 id="&#x2003;&#x2003;10-deferred-rendering-path&#xFF08;&#x5EF6;&#x8FDF;&#x6E32;&#x67D3;&#xFF09;">&#x2003;&#x2003;10. Deferred rendering path&#xFF08;&#x5EF6;&#x8FDF;&#x6E32;&#x67D3;&#xFF09;</h4>
+<p>&#x2003;&#x2003;&#x5728;&#x5EF6;&#x8FDF;&#x6E32;&#x67D3;&#x8DEF;&#x5F84;&#x4E2D;&#x6E32;&#x67D3;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x6A21;&#x677F;&#x529F;&#x80FD;&#x662F;&#x6709;&#x9650;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x57FA;&#x672C;&#x901A;&#x9053;&#x548C;&#x7167;&#x660E;&#x901A;&#x9053;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#x7528;&#x4E8E;&#x5176;&#x4ED6;&#x7528;&#x9014;&#x3002;&#x5728;&#x8FD9;&#x4E24;&#x4E2A;&#x9636;&#x6BB5;&#x4E2D;&#xFF0C;&#x5728;&#x7740;&#x8272;&#x5668;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x6A21;&#x677F;&#x72B6;&#x6001;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x5E76;&#x53EA;&#x5728;&#x6700;&#x7EC8; Pass &#x65F6;&#x8003;&#x8651;&#x3002;&#x56E0;&#x4E3A;&#x906E;&#x7F69;&#x57FA;&#x4E8E;&#x6A21;&#x7248;&#x6D4B;&#x8BD5;&#x7684;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x7684;&#xFF0C;&#x4F46;&#x4ED6;&#x4EEC;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x7F13;&#x51B2;&#x533A;&#x5185;&#x5BB9;&#xFF0C;&#x88AB;&#x4E4B;&#x540E;&#x6E32;&#x67D3;&#x5728;&#x5E27;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x4F7F;&#x7528;&#x3002;&#x5BF9;&#x8C61;&#x5728;&#x524D;&#x5411;&#x6E32;&#x67D3;&#x8DEF;&#x5F84;&#x4E0B;&#x7684;&#x6E32;&#x67D3;&#x9075;&#x5FAA;&#x5EF6;&#x8FDF;&#x8DEF;&#x5F84;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x900F;&#x660E;&#x5BF9;&#x8C61;&#x6216;&#x6CA1;&#x6709;&#x8868;&#x9762;&#x7740;&#x8272;&#x7684;&#x5BF9;&#x8C61;&#xFF09; &#x5C06;&#x6A21;&#x7248;&#x72B6;&#x6001;&#x6062;&#x590D;&#x6B63;&#x5E38;&#x3002;</p>
 <p>&#x5EF6;&#x8FDF;&#x6E32;&#x67D3;&#x8DEF;&#x5F84;&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4E09;&#x4E2A;&#x6700;&#x9AD8;&#x4F4D;&#xFF0C;&#x518D;&#x52A0;&#x4E0A;&#x56DB;&#x4E2A;&#x6700;&#x9AD8;&#x4F4D;-&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x5728;&#x573A;&#x666F;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;&#x591A;&#x5C11;&#x5149;&#x906E;&#x7F69;&#x5C42;&#x3002;&#x53EF;&#x4EE5;&#x5728;&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x7684;&#x8BFB;&#x5199;&#x906E;&#x7F69;&#x7684; &#x201C;&#x5E72;&#x51C0;&#x201D; &#x7684;&#x4F4D;&#x8303;&#x56F4;&#x5185;&#x5DE5;&#x4F5C;&#xFF0C;&#x6216;&#x8005;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x7167;&#x660E; Pass &#x540E;&#x8FEB;&#x4F7F; Camera &#x4F7F;&#x7528; camera.clearstencilafterlightingpass &#x6E05;&#x6D01;&#x6A21;&#x7248;&#x7F13;&#x51B2;&#x533A;&#x3002;</p>
-<h4 id="&#x793A;&#x4F8B;-1&#xFF1A;">&#x793A;&#x4F8B; 1&#xFF1A;</h4>
-<p>&#x7740;&#x8272;&#x5668;&#x8BBE;&#x7F6E;&#x53C2;&#x8003;&#x503C;&#x4E3A; 2&#xFF0C;&#x65E0;&#x8BBA;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x901A;&#x8FC7;&#xFF08;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x8BBE;&#x7F6E;&#x4E3A;&#x603B;&#x662F;&#x901A;&#x8FC7;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x5C06;&#x51CF;&#x91CF;&#xFF08;&#x548C; wrap&#xFF09;&#x5F53;&#x524D;&#x503C;&#x4E3A;255&#xFF08;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x7528;&#x4E00;&#x4E2A;&#x5E72;&#x51C0;&#x7684;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#xFF09;&#x3002;</p>
-<pre><code class="lang-javascript">    Shader &quot;Red&quot; 
+<hr>
+<h4 id="&#x2003;&#x2003;&#x793A;&#x4F8B;-1&#xFF1A;">&#x2003;&#x2003;&#x793A;&#x4F8B; 1&#xFF1A;</h4>
+<p>&#x2003;&#x2003;&#x7740;&#x8272;&#x5668;&#x8BBE;&#x7F6E;&#x53C2;&#x8003;&#x503C;&#x4E3A; 2&#xFF0C;&#x65E0;&#x8BBA;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x901A;&#x8FC7;&#xFF08;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x8BBE;&#x7F6E;&#x4E3A;&#x603B;&#x662F;&#x901A;&#x8FC7;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x5C06;&#x51CF;&#x91CF;&#xFF08;&#x548C; wrap&#xFF09;&#x5F53;&#x524D;&#x503C;&#x4E3A;255&#xFF08;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x7528;&#x4E00;&#x4E2A;&#x5E72;&#x51C0;&#x7684;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#xFF09;&#x3002;</p>
+<pre><code class="lang-csharp">    Shader <span class="hljs-string">&quot;Red&quot;</span> 
     { 
         SubShader 
         { 
-            Tags { &quot;RenderType&quot;=&quot;Opaque&quot; &quot;Queue&quot;=&quot;Geometry&quot; }  
+            Tags { <span class="hljs-string">&quot;RenderType&quot;</span>=<span class="hljs-string">&quot;Opaque&quot;</span> <span class="hljs-string">&quot;Queue&quot;</span>=<span class="hljs-string">&quot;Geometry&quot;</span> }  
             Pass 
             { 
                 Stencil 
                 { 
-                    // &#x53C2;&#x8003;&#x503C;&#x4E3A; 2&#xFF0C;stencilBuffer &#x503C;&#x9ED8;&#x8BA4;&#x4E3A; 0&#x3002;
-                    Ref 2    
-                    // stencil &#x6BD4;&#x8F83;&#x65B9;&#x5F0F;&#x662F;&#x6C38;&#x8FDC;&#x901A;&#x8FC7;&#xFF0C;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x4E0D;&#x7BA1; stencilBufferValue &#x662F;&#x591A;&#x5C11;&#xFF0C;&#x6A21;&#x7248;&#x6D4B;&#x8BD5;&#x90FD;&#x662F;&#x6210;&#x529F;&#x901A;&#x8FC7;&#x7684;&#x3002;        
+                    <span class="hljs-comment">// &#x53C2;&#x8003;&#x503C;&#x4E3A; 2&#xFF0C;stencilBuffer &#x503C;&#x9ED8;&#x8BA4;&#x4E3A; 0&#x3002;</span>
+                    Ref <span class="hljs-number">2</span>    
+                    <span class="hljs-comment">// stencil &#x6BD4;&#x8F83;&#x65B9;&#x5F0F;&#x662F;&#x6C38;&#x8FDC;&#x901A;&#x8FC7;&#xFF0C;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x4E0D;&#x7BA1; stencilBufferValue &#x662F;&#x591A;&#x5C11;&#xFF0C;&#x6A21;&#x7248;&#x6D4B;&#x8BD5;&#x90FD;&#x662F;&#x6210;&#x529F;&#x901A;&#x8FC7;&#x7684;&#x3002;        </span>
                     Comp always
-                    // pass &#x7684;&#x5904;&#x7406;&#x662F;&#x66FF;&#x6362;&#xFF0C;&#x5F53;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x5219;&#x5C06;referenceValue &#x66FF;&#x6362;&#x7ED9; stencilBufferValue&#xFF0C;&#x6B64;&#x65F6;
-stencilBufferValue &#x503C;&#x4E3A;2&#x3002;
+                    <span class="hljs-comment">// pass &#x7684;&#x5904;&#x7406;&#x662F;&#x66FF;&#x6362;&#xFF0C;&#x5F53;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x5219;&#x5C06;referenceValue &#x66FF;&#x6362;&#x7ED9; stencilBufferValue&#xFF0C;&#x6B64;&#x65F6;</span>
+stencilBufferValue &#x503C;&#x4E3A;<span class="hljs-number">2</span>&#x3002;
                     Pass replace
-                    // ZFail &#x7684;&#x5904;&#x7406;&#x662F;&#x6EA2;&#x51FA;&#x578B;&#x51CF; 1&#x3002;
+                    <span class="hljs-comment">// ZFail &#x7684;&#x5904;&#x7406;&#x662F;&#x6EA2;&#x51FA;&#x578B;&#x51CF; 1&#x3002;</span>
                     ZFail decrWrap  
                 }   
-                // &#x4E0B;&#x9762;&#x662F; stencil &#x548C; zbuffer &#x90FD;&#x901A;&#x8FC7;&#x7684;&#x8BDD;&#x5C31;&#x6267;&#x884C;&#x3002;&#x628A;&#x70B9;&#x6E32;&#x67D3;&#x6210;&#x7EA2;&#x8272;&#x3002;
+                <span class="hljs-comment">// &#x4E0B;&#x9762;&#x662F; stencil &#x548C; zbuffer &#x90FD;&#x901A;&#x8FC7;&#x7684;&#x8BDD;&#x5C31;&#x6267;&#x884C;&#x3002;&#x628A;&#x70B9;&#x6E32;&#x67D3;&#x6210;&#x7EA2;&#x8272;&#x3002;</span>
 
                 CGPROGRAM 
-                #pragma vertex vert 
-                #pragma fragment frag  
+                <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> vertex vert </span>
+                <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> fragment frag  </span>
 
-                struct appdata 
+                <span class="hljs-keyword">struct</span> appdata 
                 { 
                     float4 vertex : POSITION; 
                 };  
 
-                struct v2f 
+                <span class="hljs-keyword">struct</span> v2f 
                 { 
                     float4 pos : SV_POSITION; 
                 };  
 
-                v2f vert(appdata v) 
-                { 
+                <span class="hljs-function">v2f <span class="hljs-title">vert</span>(<span class="hljs-params">appdata v</span>) 
+                </span>{ 
                     v2f o; 
                     o.pos = mul(UNITY_MATRIX_MVP, v.vertex); 
-                    return o; 
+                    <span class="hljs-keyword">return</span> o; 
                 }  
 
-                half4 frag(v2f i) : SV_Target 
-                { 
-                    return half4(1, 0, 0, 1); 
+                <span class="hljs-function">half4 <span class="hljs-title">frag</span>(<span class="hljs-params">v2f i</span>) : SV_Target 
+                </span>{ 
+                    <span class="hljs-keyword">return</span> half4(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>); 
                 } 
                 ENDCG 
-            } // end pass
-        } // end subshader
+            } <span class="hljs-comment">// end pass</span>
+        } <span class="hljs-comment">// end subshader</span>
     }
 </code></pre>
 <p><img src="../assets/stencil_red.png" alt=""></p>
@@ -1295,18 +1309,19 @@ stencilBufferValue &#x503C;&#x4E3A;2&#x3002;
 <p>&#x25CF; &#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x5BF9;&#x8FD9;&#x4E2A;&#x4E24;&#x4E2A;&#x503C;&#x4F7F;&#x7528;&#x7279;&#x5B9A;&#x7684;&#x6BD4;&#x8F83;&#x64CD;&#x4F5C;&#xFF1A;Never&#xFF0C;Always&#xFF0C;Less &#xFF0C;LEqual&#xFF0C;Greater&#xFF0C;Equal &#x7B49;&#x7B49;&#x3002;</p>
 <p>&#x25CF; &#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x4E4B;&#x540E;&#x8981;&#x5BF9;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x503C;&#xFF08;stencilBufferValue&#xFF09;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#xFF0C;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;Keep&#xFF0C;Zero&#xFF0C;Replace&#xFF0C;IncrSat&#xFF0C;DecrSat&#xFF0C;Invert &#x7B49;&#x7B49;&#x3002;</p>
 <p>&#x25CF; &#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x7ED3;&#x679C;&#x5BF9;&#x6A21;&#x677F;&#x7F13;&#x51B2;&#x533A;&#x505A;&#x4E0D;&#x540C;&#x7684;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x6210;&#x529F;&#x64CD;&#x4F5C; Pass&#xFF0C;&#x6A21;&#x677F;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x64CD;&#x4F5C; Fail&#xFF0C;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x64CD;&#x4F5C; ZFail&#xFF0C;&#x8FD8;&#x6709;&#x6B63;&#x5BF9;&#x6B63;&#x9762;&#x548C;&#x80CC;&#x9762;&#x7CBE;&#x786E;&#x66F4;&#x65B0;&#x64CD;&#x4F5C; PassBack&#xFF0C;PassFront&#xFF0C;FailBack&#x7B49;&#x7B49;&#x3002; </p>
-<h4 id="&#x793A;&#x4F8B;-2&#xFF1A;">&#x793A;&#x4F8B; 2&#xFF1A;</h4>
-<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x7740;&#x8272;&#x5668;&#x5C06;&#x53EA;&#x5BF9;&#x7B2C;&#x4E00;&#x4E2A;(&#x7EA2;&#x8272;)&#x7740;&#x8272;&#x5668;&#x901A;&#x8FC7;,&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x68C0;&#x67E5;&#x503C;&#x7B49;&#x4E8E; 2&#x3002;&#x5982;&#x679C;&#x6A21;&#x7248;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x5C06;&#x503C;&#x6EA2;&#x51FA;&#x578B;&#x51CF; 1&#x3002;</p>
-<pre><code class="lang-javascript">    Shader &quot;Green&quot; 
+<hr>
+<h4 id="&#x2003;&#x2003;&#x793A;&#x4F8B;-2&#xFF1A;">&#x2003;&#x2003;&#x793A;&#x4F8B; 2&#xFF1A;</h4>
+<p>&#x2003;&#x2003;&#x7B2C;&#x4E8C;&#x4E2A;&#x7740;&#x8272;&#x5668;&#x5C06;&#x53EA;&#x5BF9;&#x7B2C;&#x4E00;&#x4E2A;(&#x7EA2;&#x8272;)&#x7740;&#x8272;&#x5668;&#x901A;&#x8FC7;,&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x68C0;&#x67E5;&#x503C;&#x7B49;&#x4E8E; 2&#x3002;&#x5982;&#x679C;&#x6A21;&#x7248;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x5C06;&#x503C;&#x6EA2;&#x51FA;&#x578B;&#x51CF; 1&#x3002;</p>
+<pre><code class="lang-csharp">    Shader <span class="hljs-string">&quot;Green&quot;</span> 
     { 
         SubShader 
         { 
-            Tags { &quot;RenderType&quot;=&quot;Opaque&quot; &quot;Queue&quot;=&quot;Geometry+1&quot; } 
+            Tags { <span class="hljs-string">&quot;RenderType&quot;</span>=<span class="hljs-string">&quot;Opaque&quot;</span> <span class="hljs-string">&quot;Queue&quot;</span>=<span class="hljs-string">&quot;Geometry+1&quot;</span> } 
             Pass  
             { 
                 Stencil 
                 { 
-                    Ref 2 
+                    Ref <span class="hljs-number">2</span> 
                     Comp Equal 
                     Pass replace 
                     Fail decrWrap 
@@ -1314,28 +1329,28 @@ stencilBufferValue &#x503C;&#x4E3A;2&#x3002;
                 }
 
                 CGPROGRAM 
-                #pragma vertex vert 
-                #pragma fragment frag
+                <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> vertex vert </span>
+                <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> fragment frag</span>
 
-                struct appdata 
+                <span class="hljs-keyword">struct</span> appdata 
                 { 
                     float4 vertex : POSITION; 
                 };
 
-                struct v2f 
+                <span class="hljs-keyword">struct</span> v2f 
                 { 
                     float4 pos : SV_POSITION; 
                 };
 
-                v2f vert(appdata v) 
-                { 
+                <span class="hljs-function">v2f <span class="hljs-title">vert</span>(<span class="hljs-params">appdata v</span>) 
+                </span>{ 
                     v2f o; o.pos = mul(UNITY_MATRIX_MVP, v.vertex); 
-                    return o; 
+                    <span class="hljs-keyword">return</span> o; 
                 }
 
-                float4 frag(v2f o) : SV_Target 
-                { 
-                    return float4(0, 1, 0, 1); 
+                <span class="hljs-function">float4 <span class="hljs-title">frag</span>(<span class="hljs-params">v2f o</span>) : SV_Target 
+                </span>{ 
+                    <span class="hljs-keyword">return</span> float4(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>); 
                 }  
                 ENDCG  
             }  
@@ -1343,44 +1358,45 @@ stencilBufferValue &#x503C;&#x4E3A;2&#x3002;
     }
 </code></pre>
 <p><img src="../assets/stencil_greed.png" alt=""></p>
-<h4 id="&#x793A;&#x4F8B;-3&#xFF1A;">&#x793A;&#x4F8B; 3&#xFF1A;</h4>
-<p>&#x7B2C;&#x4E09;&#x4E2A;&#x7740;&#x8272;&#x5668;&#x5C06;&#x53EA;&#x901A;&#x8FC7;&#x6A21;&#x7248;&#x503C;&#x88AB;&#x51CF;&#x5C11;&#x4E86;2&#x6B21;&#x7684;&#x50CF;&#x7D20;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x7740;&#x8272;&#x5668;&#xFF08;&#x7EA2;&#x8272;&#xFF09;&#x7684;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x7684;&#x5E76;&#x4E14;&#x7B2C;&#x4E8C;&#x4E2A;&#x7740;&#x8272;&#x5668;&#x6A21;&#x7248;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x7684;&#x50CF;&#x7D20;&#x3002;</p>
-<pre><code class="lang-javascript">    Shader &quot;Blud&quot; 
+<hr>
+<h4 id="&#x2003;&#x2003;&#x793A;&#x4F8B;-3&#xFF1A;">&#x2003;&#x2003;&#x793A;&#x4F8B; 3&#xFF1A;</h4>
+<p>&#x2003;&#x2003;&#x7B2C;&#x4E09;&#x4E2A;&#x7740;&#x8272;&#x5668;&#x5C06;&#x53EA;&#x901A;&#x8FC7;&#x6A21;&#x7248;&#x503C;&#x88AB;&#x51CF;&#x5C11;&#x4E86;2&#x6B21;&#x7684;&#x50CF;&#x7D20;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x7740;&#x8272;&#x5668;&#xFF08;&#x7EA2;&#x8272;&#xFF09;&#x7684;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x7684;&#x5E76;&#x4E14;&#x7B2C;&#x4E8C;&#x4E2A;&#x7740;&#x8272;&#x5668;&#x6A21;&#x7248;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x7684;&#x50CF;&#x7D20;&#x3002;</p>
+<pre><code class="lang-csharp">    Shader <span class="hljs-string">&quot;Blud&quot;</span> 
     { 
         SubShader 
         { 
-            Tags { &quot;RenderType&quot;=&quot;Opaque&quot; &quot;Queue&quot;=&quot;Geometry+2&quot; } 
+            Tags { <span class="hljs-string">&quot;RenderType&quot;</span>=<span class="hljs-string">&quot;Opaque&quot;</span> <span class="hljs-string">&quot;Queue&quot;</span>=<span class="hljs-string">&quot;Geometry+2&quot;</span> } 
             Pass 
             { 
                 Stencil 
                 { 
-                    Ref 254 
+                    Ref <span class="hljs-number">254</span> 
                     Comp Equal 
                 }
 
                 CGPROGRAM 
-                #pragma vertex vert 
-                #pragma fragment frag
+                <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> vertex vert </span>
+                <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> fragment frag</span>
 
-                struct appdata 
+                <span class="hljs-keyword">struct</span> appdata 
                 { 
                     float4 vertex : POSITION; 
                 };
 
-                struct v2f 
+                <span class="hljs-keyword">struct</span> v2f 
                 { 
                     float4 pos : SV_POSITION; 
                 };
 
-                v2f vert(appdata v) 
-                { 
+                <span class="hljs-function">v2f <span class="hljs-title">vert</span>(<span class="hljs-params">appdata v</span>) 
+                </span>{ 
                     v2f o; o.pos = mul(UNITY_MATRIX_MVP, v.vertex); 
-                    return o; 
+                    <span class="hljs-keyword">return</span> o; 
                 }
 
-                float4 frag(v2f o) : SV_Target 
-                { 
-                    return float4(0, 0, 1, 1); 
+                <span class="hljs-function">float4 <span class="hljs-title">frag</span>(<span class="hljs-params">v2f o</span>) : SV_Target 
+                </span>{ 
+                    <span class="hljs-keyword">return</span> float4(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>); 
                 } 
                 ENDCG 
             } 
@@ -1388,41 +1404,41 @@ stencilBufferValue &#x503C;&#x4E3A;2&#x3002;
     }
 </code></pre>
 <p><img src="../assets/StencilExample.png" alt=""></p>
-<p>&#x7136;&#x540E;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x8868;&#x9762;&#x7740;&#x8272;&#x5668;&#x518D;&#x6E32;&#x67D3;&#x4E00;&#x6B21;&#xFF0C;&#x4F7F;&#x7528;&#x6B63;&#x9762;&#x5254;&#x9664;&#xFF0C;&#x7981;&#x7528;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x548C;&#x6A21;&#x7248;&#x6D4B;&#x8BD5;&#x4E22;&#x5F03;&#x4E4B;&#x524D;&#x6807;&#x8BB0;&#x7684;&#x50CF;&#x7D20;&#x3002;</p>
-<pre><code class="lang-javascript">    Shader &quot;Hole&quot; 
+<p>&#x2003;&#x2003;&#x7136;&#x540E;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x8868;&#x9762;&#x7740;&#x8272;&#x5668;&#x518D;&#x6E32;&#x67D3;&#x4E00;&#x6B21;&#xFF0C;&#x4F7F;&#x7528;&#x6B63;&#x9762;&#x5254;&#x9664;&#xFF0C;&#x7981;&#x7528;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x548C;&#x6A21;&#x7248;&#x6D4B;&#x8BD5;&#x4E22;&#x5F03;&#x4E4B;&#x524D;&#x6807;&#x8BB0;&#x7684;&#x50CF;&#x7D20;&#x3002;</p>
+<pre><code class="lang-csharp">    Shader <span class="hljs-string">&quot;Hole&quot;</span> 
     { 
         Properties 
         { 
-            _Color (&quot;MainColor&quot;, Color) = (1,1,1,1) 
+            _Color (<span class="hljs-string">&quot;MainColor&quot;</span>, Color) = (<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>) 
         } 
         SubShader 
         { 
-            Tags { &quot;RenderType&quot;=&quot;Opaque&quot; &quot;Queue&quot;=&quot;Geometry+2&quot; }  
+            Tags { <span class="hljs-string">&quot;RenderType&quot;</span>=<span class="hljs-string">&quot;Opaque&quot;</span> <span class="hljs-string">&quot;Queue&quot;</span>=<span class="hljs-string">&quot;Geometry+2&quot;</span> }  
             ColorMask RGB 
             Cull Front 
             ZTest Always  
 
             Stencil 
             { 
-                Ref 1 
+                Ref <span class="hljs-number">1</span> 
                 Comp notequal 
             }  
 
             CGPROGRAM 
-            #pragma surface surf Lambert 
+            <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> surface surf Lambert </span>
 
             float4 _Color; 
 
-            struct Input 
+            <span class="hljs-keyword">struct</span> Input 
             { 
                 float4 color : COLOR; 
             };
 
-            void surf(Input IN, inout SurfaceOutput o) 
-            { 
+            <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">surf</span>(<span class="hljs-params">Input IN, inout SurfaceOutput o</span>) 
+            </span>{ 
                 o.Albedo = _Color.rgb; 
-                o.Normal = half3(0, 0, -1); 
-                o.Alpha = 1; 
+                o.Normal = half3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>); 
+                o.Alpha = <span class="hljs-number">1</span>; 
             } 
             ENDCG  
         } 
@@ -1456,7 +1472,7 @@ stencilBufferValue &#x503C;&#x4E3A;2&#x3002;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2.1.4 Stencil","level":"1.2.1.2.1.4","depth":5,"next":{"title":"1.2.1.5 Name","level":"1.2.1.2.1.5","depth":5,"path":"1. ShaderLab 框架/1215-name.md","ref":"1. ShaderLab 框架/1215-name.md","articles":[]},"previous":{"title":"1.2.1.3 Pass Tags","level":"1.2.1.2.1.3","depth":5,"path":"1. ShaderLab 框架/1213-pass-tags.md","ref":"1. ShaderLab 框架/1213-pass-tags.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/1214-stencil.md","mtime":"2016-12-25T06:09:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-30T17:15:32.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2.1.4 Stencil","level":"1.2.1.2.1.4","depth":5,"next":{"title":"1.2.1.5 Name","level":"1.2.1.2.1.5","depth":5,"path":"1. ShaderLab 框架/1215-name.md","ref":"1. ShaderLab 框架/1215-name.md","articles":[]},"previous":{"title":"1.2.1.3 Pass Tags","level":"1.2.1.2.1.3","depth":5,"path":"1. ShaderLab 框架/1213-pass-tags.md","ref":"1. ShaderLab 框架/1213-pass-tags.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/1214-stencil.md","mtime":"2017-05-14T15:37:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-14T15:39:15.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

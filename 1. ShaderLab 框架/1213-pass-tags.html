@@ -235,7 +235,7 @@
                 <a href="1216-legacy-lightiing.html">
             
                     
-                    1.2.1.6 Legacy Lightiing
+                    1.2.1.6 Legacy Lighting
             
                 </a>
             
@@ -433,7 +433,7 @@
                 <a href="13-在-cghlsl-中访问-shader-属性.html">
             
                     
-                    1.3 在 Cg\/HLSL 中访问着色器属性
+                    1.3 在 Cg/HLSL 中访问着色器属性
             
                 </a>
             
@@ -847,14 +847,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" >
+        <li class="chapter " data-level="1.3.2" data-path="../2. Cg 语法/2.html">
             
-                <span>
+                <a href="../2. Cg 语法/2.html">
             
                     
                     第2章 最简单的程序
             
-                </span>
+                </a>
             
 
             
@@ -1036,6 +1036,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.1.4" data-path="../3. ShaderLab 开发实战/18.4.html">
+            
+                <a href="../3. ShaderLab 开发实战/18.4.html">
+            
+                    
+                    18.4 镜面反射
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1089,17 +1102,17 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="pass-tags">Pass Tags</h2>
-<p>Pass &#x4F7F;&#x7528;&#x6807;&#x7B7E;&#x544A;&#x8BC9;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x5982;&#x4F55;&#x53CA;&#x4F55;&#x65F6;&#x5E0C;&#x671B;&#x88AB;&#x6E32;&#x67D3;&#x3002;</p>
+<p>&#x2003;&#x2003;Pass &#x4F7F;&#x7528;&#x6807;&#x7B7E;&#x544A;&#x8BC9;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x5982;&#x4F55;&#x53CA;&#x4F55;&#x65F6;&#x5E0C;&#x671B;&#x88AB;&#x6E32;&#x67D3;&#x3002;</p>
 <h3 id="&#x8BED;&#x6CD5;&#xFF1A;">&#x8BED;&#x6CD5;&#xFF1A;</h3>
-<hr>
-<pre><code class="lang-javascript">    Tags { <span class="hljs-string">&quot;TagName1&quot;</span> = <span class="hljs-string">&quot;Value1&quot;</span> <span class="hljs-string">&quot;TagName2&quot;</span> = <span class="hljs-string">&quot;Value2&quot;</span> }
+<pre><code class="lang-csharp">    Tags { <span class="hljs-string">&quot;TagName1&quot;</span> = <span class="hljs-string">&quot;Value1&quot;</span> <span class="hljs-string">&quot;TagName2&quot;</span> = <span class="hljs-string">&quot;Value2&quot;</span> }
 </code></pre>
-<p>&#x53EF;&#x4EE5;&#x6709;&#x4EFB;&#x610F;&#x591A;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x3002;</p>
-<h4 id="&#x7EC6;&#x8282;">&#x7EC6;&#x8282;</h4>
-<p>&#x6807;&#x7B7E;&#x57FA;&#x672C;&#x4E0A;&#x662F; &#x201C;&#x952E;&#x201C;-&#x201D;&#x503C;&#x201C; &#x5BF9;&#x3002;Pass &#x6807;&#x7B7E;&#x88AB;&#x7528;&#x6765;&#x63A7;&#x5236;&#x8FD9;&#x4E2A;&#x901A;&#x9053;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x5728;&#x706F;&#x5149;&#x7BA1;&#x9053;&#xFF08;&#x73AF;&#x5883;&#x5149;&#xFF0C;&#x9876;&#x70B9;&#x5149;&#x7167;&#xFF0C;&#x50CF;&#x7D20;&#x5149;&#x7167;&#x7B49;&#xFF09;&#x548C;&#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x9009;&#x9879;&#x3002;&#x6CE8;&#x610F;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x6807;&#x7B7E;&#x5FC5;&#x987B;&#x5728; Pass &#x90E8;&#x5206;&#x800C;&#x4E0D;&#x5728; SubShader &#x90E8;&#x5206;&#xFF01;</p>
+<p>&#x2003;&#x2003;&#x53EF;&#x4EE5;&#x6709;&#x4EFB;&#x610F;&#x591A;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x3002;</p>
 <hr>
-<h4 id="lightmode-tag">LightMode tag</h4>
-<p>LightMode &#x6807;&#x7B7E;&#x5B9A;&#x4E49;&#x4E86; Pass &#x5728;&#x5149;&#x7167;&#x7BA1;&#x7EBF;&#x4E2D;&#x7684;&#x4F5C;&#x7528;&#x3002;&#x89C1;&#x6E32;&#x67D3;&#x7BA1;&#x9053;&#x7684;&#x7EC6;&#x8282;&#x3002;&#x8FD9;&#x4E9B;&#x6807;&#x7B7E;&#x5F88;&#x5C11;&#x4F7F;&#x7528;&#x624B;&#x52A8;&#xFF1B;&#x5927;&#x591A;&#x6570;&#x7740;&#x8272;&#x5668;&#x9700;&#x8981;&#x4E0E;&#x706F;&#x5149;&#x7684;&#x914D;&#x5408;&#xFF0C;&#x5199;&#x6210;&#x8868;&#x9762;&#x7740;&#x8272;&#x5668;&#xFF0C;&#x7136;&#x540E;&#x7167;&#x987E;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x7EC6;&#x8282;&#x3002;</p>
+<h4 id="&#x2003;&#x2003;&#x7EC6;&#x8282;">&#x2003;&#x2003;&#x7EC6;&#x8282;</h4>
+<p>&#x2003;&#x2003;&#x6807;&#x7B7E;&#x57FA;&#x672C;&#x4E0A;&#x662F; &#x201C;&#x952E;&#x201C;-&#x201D;&#x503C;&#x201C; &#x5BF9;&#x3002;Pass &#x6807;&#x7B7E;&#x88AB;&#x7528;&#x6765;&#x63A7;&#x5236;&#x8FD9;&#x4E2A;&#x901A;&#x9053;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x5728;&#x706F;&#x5149;&#x7BA1;&#x9053;&#xFF08;&#x73AF;&#x5883;&#x5149;&#xFF0C;&#x9876;&#x70B9;&#x5149;&#x7167;&#xFF0C;&#x50CF;&#x7D20;&#x5149;&#x7167;&#x7B49;&#xFF09;&#x548C;&#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x9009;&#x9879;&#x3002;&#x6CE8;&#x610F;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x6807;&#x7B7E;&#x5FC5;&#x987B;&#x5728; Pass &#x90E8;&#x5206;&#x800C;&#x4E0D;&#x5728; SubShader &#x90E8;&#x5206;&#xFF01;</p>
+<hr>
+<h4 id="&#x2003;&#x2003;lightmode-tag">&#x2003;&#x2003;LightMode tag</h4>
+<p>&#x2003;&#x2003;LightMode &#x6807;&#x7B7E;&#x5B9A;&#x4E49;&#x4E86; Pass &#x5728;&#x5149;&#x7167;&#x7BA1;&#x7EBF;&#x4E2D;&#x7684;&#x4F5C;&#x7528;&#x3002;&#x89C1;&#x6E32;&#x67D3;&#x7BA1;&#x9053;&#x7684;&#x7EC6;&#x8282;&#x3002;&#x8FD9;&#x4E9B;&#x6807;&#x7B7E;&#x5F88;&#x5C11;&#x4F7F;&#x7528;&#x624B;&#x52A8;&#xFF1B;&#x5927;&#x591A;&#x6570;&#x7740;&#x8272;&#x5668;&#x9700;&#x8981;&#x4E0E;&#x706F;&#x5149;&#x7684;&#x914D;&#x5408;&#xFF0C;&#x5199;&#x6210;&#x8868;&#x9762;&#x7740;&#x8272;&#x5668;&#xFF0C;&#x7136;&#x540E;&#x7167;&#x987E;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x7EC6;&#x8282;&#x3002;</p>
 <p>&#x2003;&#x2003;<strong>LightMode &#x6807;&#x7B7E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x503C;&#xFF1A;</strong></p>
 <table>
 <thead>
@@ -1152,7 +1165,7 @@
 </tbody>
 </table>
 <hr>
-<h4 id="requireoptions-tag">RequireOptions tag</h4>
+<h4 id="&#x2003;&#x2003;requireoptions-tag">&#x2003;&#x2003;RequireOptions tag</h4>
 <p>&#x53EA;&#x6709;&#x5F53;&#x5916;&#x90E8;&#x6761;&#x4EF6;&#x6EE1;&#x8DB3;&#x7684;&#x60C5;&#x51B5;&#x4E0B; Pass &#x624D;&#x80FD;&#x88AB;&#x6267;&#x884C;&#x3002;&#x8FD9;&#x662F;&#x901A;&#x8FC7;&#x4F7F;&#x7528;requireoptions&#x6807;&#x7B7E;&#xFF0C;&#x5176;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x683C;&#x5206;&#x9694;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x9009;&#x9879;&#x3002;&#x76EE;&#x524D;&#xFF0C;Unity &#x652F;&#x6301;&#x7684;&#x9009;&#x9879;&#x662F;&#xFF1A;</p>
 <p>&#x2003;&#x2003;<strong>SoftVegetation(&#x690D;&#x88AB;)</strong>: &#x53EA;&#x6709;&#x5728; <code>Quality Settings</code> &#x4E2D;&#x8BBE;&#x7F6E; <code>Soft Vegetaion</code> &#x4E3A; <code>on</code> &#x7684;&#x65F6;&#x5019;&#x624D;&#x88AB;&#x6E32;&#x67D3;&#x3002;</p>
 <p>&#x1F51A;</p>
@@ -1183,7 +1196,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2.1.3 Pass Tags","level":"1.2.1.2.1.3","depth":5,"next":{"title":"1.2.1.4 Stencil","level":"1.2.1.2.1.4","depth":5,"path":"1. ShaderLab 框架/1214-stencil.md","ref":"1. ShaderLab 框架/1214-stencil.md","articles":[]},"previous":{"title":"1.2.1.2 Blending","level":"1.2.1.2.1.2","depth":5,"path":"1. ShaderLab 框架/1212-blending.md","ref":"1. ShaderLab 框架/1212-blending.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/1213-pass-tags.md","mtime":"2016-12-25T05:42:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-30T17:15:32.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2.1.3 Pass Tags","level":"1.2.1.2.1.3","depth":5,"next":{"title":"1.2.1.4 Stencil","level":"1.2.1.2.1.4","depth":5,"path":"1. ShaderLab 框架/1214-stencil.md","ref":"1. ShaderLab 框架/1214-stencil.md","articles":[]},"previous":{"title":"1.2.1.2 Blending","level":"1.2.1.2.1.2","depth":5,"path":"1. ShaderLab 框架/1212-blending.md","ref":"1. ShaderLab 框架/1212-blending.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/1213-pass-tags.md","mtime":"2017-05-14T15:34:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-14T15:39:15.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

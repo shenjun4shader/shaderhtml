@@ -235,7 +235,7 @@
                 <a href="1216-legacy-lightiing.html">
             
                     
-                    1.2.1.6 Legacy Lightiing
+                    1.2.1.6 Legacy Lighting
             
                 </a>
             
@@ -433,7 +433,7 @@
                 <a href="13-在-cghlsl-中访问-shader-属性.html">
             
                     
-                    1.3 在 Cg\/HLSL 中访问着色器属性
+                    1.3 在 Cg/HLSL 中访问着色器属性
             
                 </a>
             
@@ -847,14 +847,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" >
+        <li class="chapter " data-level="1.3.2" data-path="../2. Cg 语法/2.html">
             
-                <span>
+                <a href="../2. Cg 语法/2.html">
             
                     
                     第2章 最简单的程序
             
-                </span>
+                </a>
             
 
             
@@ -1036,6 +1036,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.1.4" data-path="../3. ShaderLab 开发实战/18.4.html">
+            
+                <a href="../3. ShaderLab 开发实战/18.4.html">
+            
+                    
+                    18.4 镜面反射
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1100,32 +1113,34 @@ This difference tends not to have any effect on your project, other than when re
 <p>When you use Image Effects and anti-aliasing, the resulting source Texture for an Image Effect is not flipped to match the OpenGL-like platform convention. In this case, Unity renders to the screen to get anti-aliasing and then resolves rendering into a Render Texture for further processing with an Image Effect.</p>
 <p>If your Image Effect is a simple one that processes one Render Texture at a time, Graphics.Blit deals with the inconsistent coordinates. However, if you&#x2019;re processing more than one Render Texture together in your Image Effect, the Render Textures are likely to come out at different vertical orientations in Direct3D-like platforms and when you use anti-aliasing. To standardise the coordinates, you need to manually &#x201C;flip&#x201D; the screen Texture upside down in your Vertex Shader so that it matches the OpenGL-like coordinate standard.</p>
 <p>The following code sample demonstrates how to do this:</p>
-<pre><code>// Flip sampling of the Texture: 
-// The main Texture
-// texel size will have negative Y).
+<pre><code class="lang-csharp"><span class="hljs-comment">// Flip sampling of the Texture: </span>
+<span class="hljs-comment">// The main Texture</span>
+<span class="hljs-comment">// texel size will have negative Y).</span>
 
-#if UNITY_UV_STARTS_AT_TOP
-if (_MainTex_TexelSize.y &lt; 0)
-        uv.y = 1-uv.y;
-#endif
-</code></pre><p>Refer to the Edge Detection Scene in Unity&#x2019;s Shader Replacement sample project (see Unity&#x2019;s Learn resources) for a more detailed example of this. Edge detection in this project uses both the screen Texture and the Camera&#x2019;s Depth+Normals texture.</p>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> UNITY_UV_STARTS_AT_TOP</span>
+<span class="hljs-keyword">if</span> (_MainTex_TexelSize.y &lt; <span class="hljs-number">0</span>)
+        uv.y = <span class="hljs-number">1</span>-uv.y;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>Refer to the Edge Detection Scene in Unity&#x2019;s Shader Replacement sample project (see Unity&#x2019;s Learn resources) for a more detailed example of this. Edge detection in this project uses both the screen Texture and the Camera&#x2019;s Depth+Normals texture.</p>
 <p>A similar situation occurs with GrabPass. The resulting render Texture might not actually be turned upside down on Direct3D-like (non-OpenGL-like) platforms. If your Shader code samples GrabPass Textures, use the ComputeGrabScreenPos function from the UnityCG include file.</p>
 <h4 id="rendering-in-uv-space">Rendering in UV space</h4>
 <p>When rendering in Texture coordinate (UV) space for special effects or tools, you might need to adjust your Shaders so that rendering is consistent between Direct3D-like and OpenGL-like systems. You also might need to adjust your rendering between rendering into the screen and rendering into a Texture. Adjust these by flipping the Direct3D-like projection upside down so its coordinates match the OpenGL-like projection coordinates.</p>
 <p>The built-in variable ProjectionParams.x contains a +1 or &#x2013;1 value. -1 indicates a projection has been flipped upside down to match OpenGL-like projection coordinates, while +1 indicates it hasn&#x2019;t been flipped. You can check this value in your Shaders and then perform different actions. The example below checks if a projection has been flipped and, if so, flips and then returns the UV coordinates to match.</p>
-<pre><code>float4 vert(float2 uv : TEXCOORD0) : SV_POSITION
-{
+<pre><code class="lang-csharp"><span class="hljs-function">float4 <span class="hljs-title">vert</span>(<span class="hljs-params">float2 uv : TEXCOORD0</span>) : SV_POSITION
+</span>{
     float4 pos;
     pos.xy = uv;
-    // This example is rendering with upside-down flipped projection,
-    // so flip the vertical UV coordinate too
-    if (_ProjectionParams.x &lt; 0)
-        pos.y = 1 - pos.y;
-    pos.z = 0;
-    pos.w = 1;
-    return pos;
+    <span class="hljs-comment">// This example is rendering with upside-down flipped projection,</span>
+    <span class="hljs-comment">// so flip the vertical UV coordinate too</span>
+    <span class="hljs-keyword">if</span> (_ProjectionParams.x &lt; <span class="hljs-number">0</span>)
+        pos.y = <span class="hljs-number">1</span> - pos.y;
+    pos.z = <span class="hljs-number">0</span>;
+    pos.w = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> pos;
 }
-</code></pre><h4 id="clip-space-coordinates">Clip space coordinates</h4>
+</code></pre>
+<h4 id="clip-space-coordinates">Clip space coordinates</h4>
 <p>Similar to Texture coordinates, the clip space coordinates (also known as post-projection space coordinates) differ between Direct3D-like and OpenGL-like platforms:</p>
 <p>Direct3D-like: The clip space depth goes from 0.0 at the near plane to +1.0 at the far plane. This applies to Direct3D, Metal and consoles.
 OpenGL-like: The clip space depth goes from &#x2013;1.0 at the near plane to +1.0 at the far plane. This applies to OpenGL and OpenGL ES.
@@ -1149,38 +1164,41 @@ When rendering Meshes as Points, output PSIZE semantics from the vertex Shader (
 <p>Direct3D platforms use Microsoft&#x2019;s HLSL Shader compiler. The HLSL compiler is stricter than other compilers about various subtle Shader errors. For example, it doesn&#x2019;t accept function output values that aren&#x2019;t initialized properly.</p>
 <p>The most common situations that you might run into using this are:</p>
 <p>A Surface Shader vertex modifier that has an out parameter. Initialize the output like this:</p>
-<pre><code>  void vert (inout appdata_full v, out Input o) 
-      {
+<pre><code class="lang-csharp">  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">vert</span> (<span class="hljs-params">inout appdata_full v, <span class="hljs-keyword">out</span> Input o</span>) 
+      </span>{
         **UNITY_INITIALIZE_OUTPUT(Input,o);**
-        // ...
+        <span class="hljs-comment">// ...</span>
       }
-</code></pre><p>Partially initialized values. For example, a function returns float4 but the code only sets the .xyz values of it. Set all values or change to float3 if you only need three values.
+</code></pre>
+<p>Partially initialized values. For example, a function returns float4 but the code only sets the .xyz values of it. Set all values or change to float3 if you only need three values.
 Using tex2D in the Vertex Shader. This is not valid, because UV derivatives don&#x2019;t exist in the vertex Shader. You need to sample an explicit mip level instead; for example, use tex2Dlod (tex, float4(uv,0,0)). You also need to add #pragma target 3.0 as tex2Dlod is a Shader model 3.0 feature.</p>
 <h4 id="directx-11-dx11-hlsl-syntax-in-shaders">DirectX 11 (DX11) HLSL syntax in Shaders</h4>
 <p>Some parts of the Surface Shader compilation pipeline do not understand DirectX 11-specific HLSL (Microsoft&#x2019;s shader language) syntax.</p>
 <p>If you&#x2019;re using HLSL features like StructuredBuffers, RWTextures and other non-DirectX 9 syntax, wrap them in a DirectX X11-only preprocessor macro as shown in the example below.</p>
-<pre><code>#ifdef SHADER_API_D3D11
-// DirectX11-specific code, for example
+<pre><code class="lang-csharp"><span class="hljs-meta">#ifdef SHADER_API_D3D11</span>
+<span class="hljs-comment">// DirectX11-specific code, for example</span>
 StructuredBuffer&lt;float4&gt; myColors;
 RWTexture2D&lt;float4&gt; myRandomWriteTexture;
-#endif
-</code></pre><h4 id="using-shader-framebuffer-fetch">Using Shader framebuffer fetch</h4>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<h4 id="using-shader-framebuffer-fetch">Using Shader framebuffer fetch</h4>
 <p>Some GPUs (most notably PowerVR-based ones on iOS) allow you to do a form of programmable blending by providing current fragment color as input to the Fragment Shader (see EXT_shader_framebuffer_fetch on khronos.org).</p>
 <p>It is possible to write Shaders in Unity that use the framebuffer fetch functionality. To do this, use the inout color argument when you write a Fragment Shader in either HLSL (Microsoft&#x2019;s shading language - see msdn.microsoft.com) or Cg (the shading language by Nvidia - see nvidia.co.uk).</p>
 <p>The example below is in Cg.</p>
-<pre><code>CGPROGRAM
-// only compile Shader for platforms that can potentially
-// do it (currently gles,gles3,metal)
-#pragma only_renderers framebufferfetch
+<pre><code class="lang-csharp">CGPROGRAM
+<span class="hljs-comment">// only compile Shader for platforms that can potentially</span>
+<span class="hljs-comment">// do it (currently gles,gles3,metal)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> only_renderers framebufferfetch</span>
 
-void frag (v2f i, inout half4 ocol : SV_Target)
-{
-    // ocol can be read (current framebuffer color)
-    // and written into (will change color to that one)
-    // ...
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">frag</span> (<span class="hljs-params">v2f i, inout half4 ocol : SV_Target</span>)
+</span>{
+    <span class="hljs-comment">// ocol can be read (current framebuffer color)</span>
+    <span class="hljs-comment">// and written into (will change color to that one)</span>
+    <span class="hljs-comment">// ...</span>
 }   
 ENDCG
-</code></pre><h4 id="the-depth-z-direction-in-shaders">The Depth (Z) direction in Shaders</h4>
+</code></pre>
+<h4 id="the-depth-z-direction-in-shaders">The Depth (Z) direction in Shaders</h4>
 <p>Depth (Z) direction differs on different Shader platforms.</p>
 <p><strong>DirectX 11, DirectX 12, PS4, Xbox One, Metal: Reversed direction</strong></p>
 <p>The depth (Z) buffer is 1.0 at the near plane, decreasing to 0.0 at the far plane.
@@ -1201,36 +1219,38 @@ LinearEyeDepth(float z)
 UNITY_CALC_FOG_FACTOR(coord)</p>
 <h4 id="fetching-the-depth-buffer">Fetching the depth Buffer</h4>
 <p>If you are fetching the depth (Z) buffer value manually, you might want to check the buffer direction. The following is an example of this:</p>
-<pre><code>float z = tex2D(_CameraDepthTexture, uv);
-#if defined(UNITY_REVERSED_Z)
-    z = 1.0f - z;
-#endif
-</code></pre><h4 id="using-clip-space">Using clip space</h4>
+<pre><code class="lang-csharp"><span class="hljs-keyword">float</span> z = tex2D(_CameraDepthTexture, uv);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> defined(UNITY_REVERSED_Z)</span>
+    z = <span class="hljs-number">1.0</span>f - z;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<h4 id="using-clip-space">Using clip space</h4>
 <p>If you are using clip space (Z) depth manually, you might also want to abstract platform differences by using the following macro:</p>
 <p>float clipSpaceRange01 = UNITY_Z_0_FAR_FROM_CLIPSPACE(rawClipSpace);</p>
 <p>Note: This macro does not alter clip space on OpenGL or OpenGL ES platforms, so it returns within &#x201C;-near&#x201D;1 (near) to far (far) on these platforms.</p>
 <h4 id="projection-matrices">Projection matrices</h4>
 <p>GL.GetGPUProjectionMatrix() returns a z-reverted matrix if you are on a platform where the depth (Z) is reversed. However, if you&#x2019;re composing from projection matrices manually (for example, for custom shadows or depth rendering), you need to revert depth (Z) direction yourself where it applies via script.</p>
 <p>An example of this is below:</p>
-<pre><code>var shadowProjection = Matrix4x4.Ortho(...); //shadow camera projection matrix
-var shadowViewMat = ...     //shadow camera view matrix
-var shadowSpaceMatrix = ... //from clip to shadowMap texture space
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> shadowProjection = Matrix4x4.Ortho(...); <span class="hljs-comment">//shadow camera projection matrix</span>
+<span class="hljs-keyword">var</span> shadowViewMat = ...     <span class="hljs-comment">//shadow camera view matrix</span>
+<span class="hljs-keyword">var</span> shadowSpaceMatrix = ... <span class="hljs-comment">//from clip to shadowMap texture space</span>
 
-//&apos;m_shadowCamera.projectionMatrix&apos; is implicitly reversed 
-//when the engine calculates device projection matrix from the camera projection
+<span class="hljs-comment">//&apos;m_shadowCamera.projectionMatrix&apos; is implicitly reversed </span>
+<span class="hljs-comment">//when the engine calculates device projection matrix from the camera projection</span>
 m_shadowCamera.projectionMatrix = shadowProjection; 
 
-//&apos;shadowProjection&apos; is manually flipped before being concatenated to &apos;m_shadowMatrix&apos;
-//because it is seen as any other matrix to a Shader.
-if(SystemInfo.usesReversedZBuffer) 
+<span class="hljs-comment">//&apos;shadowProjection&apos; is manually flipped before being concatenated to &apos;m_shadowMatrix&apos;</span>
+<span class="hljs-comment">//because it is seen as any other matrix to a Shader.</span>
+<span class="hljs-keyword">if</span>(SystemInfo.usesReversedZBuffer) 
 {
-    shadowProjection[2, 0] = -shadowProjection[2, 0];
-    shadowProjection[2, 1] = -shadowProjection[2, 1];
-    shadowProjection[2, 2] = -shadowProjection[2, 2];
-    shadowProjection[2, 3] = -shadowProjection[2, 3];
+    shadowProjection[<span class="hljs-number">2</span>, <span class="hljs-number">0</span>] = -shadowProjection[<span class="hljs-number">2</span>, <span class="hljs-number">0</span>];
+    shadowProjection[<span class="hljs-number">2</span>, <span class="hljs-number">1</span>] = -shadowProjection[<span class="hljs-number">2</span>, <span class="hljs-number">1</span>];
+    shadowProjection[<span class="hljs-number">2</span>, <span class="hljs-number">2</span>] = -shadowProjection[<span class="hljs-number">2</span>, <span class="hljs-number">2</span>];
+    shadowProjection[<span class="hljs-number">2</span>, <span class="hljs-number">3</span>] = -shadowProjection[<span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
 }
     m_shadowMatrix = shadowSpaceMatrix * shadowProjection * shadowViewMat;
-</code></pre><h4 id="depth-z-bias">Depth (Z) bias</h4>
+</code></pre>
+<h4 id="depth-z-bias">Depth (Z) bias</h4>
 <p>Unity automatically deals with depth (Z) bias to ensure it matches Unity&#x2019;s depth (Z) direction. However, if you are using a native code rendering plugin, you need to negate (reverse) depth (Z) bias in your C or C++ code.</p>
 <h5 id="tools-to-check-for-depth-z-direction">Tools to check for depth (Z) direction</h5>
 <p>Use SystemInfo.usesReversedZBuffer to find out if you are on a platform using reversed depth (Z).</p>
@@ -1261,7 +1281,7 @@ if(SystemInfo.usesReversedZBuffer)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.6 特定平台的渲染差异","level":"1.2.4.6","depth":3,"next":{"title":"1.7 着色器细节等级","level":"1.2.4.7","depth":3,"path":"1. ShaderLab 框架/17-着色器细节等级.md","ref":"1. ShaderLab 框架/17-着色器细节等级.md","articles":[]},"previous":{"title":"1.5 使用深度图","level":"1.2.4.5","depth":3,"path":"1. ShaderLab 框架/15-使用深度图.md","ref":"1. ShaderLab 框架/15-使用深度图.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/16-特定平台的渲染差异.md","mtime":"2016-12-24T14:51:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-30T17:15:32.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.6 特定平台的渲染差异","level":"1.2.4.6","depth":3,"next":{"title":"1.7 着色器细节等级","level":"1.2.4.7","depth":3,"path":"1. ShaderLab 框架/17-着色器细节等级.md","ref":"1. ShaderLab 框架/17-着色器细节等级.md","articles":[]},"previous":{"title":"1.5 使用深度图","level":"1.2.4.5","depth":3,"path":"1. ShaderLab 框架/15-使用深度图.md","ref":"1. ShaderLab 框架/15-使用深度图.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/16-特定平台的渲染差异.md","mtime":"2017-02-15T06:06:37.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-14T15:39:15.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

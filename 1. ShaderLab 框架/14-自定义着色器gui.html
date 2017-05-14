@@ -235,7 +235,7 @@
                 <a href="1216-legacy-lightiing.html">
             
                     
-                    1.2.1.6 Legacy Lightiing
+                    1.2.1.6 Legacy Lighting
             
                 </a>
             
@@ -433,7 +433,7 @@
                 <a href="13-在-cghlsl-中访问-shader-属性.html">
             
                     
-                    1.3 在 Cg\/HLSL 中访问着色器属性
+                    1.3 在 Cg/HLSL 中访问着色器属性
             
                 </a>
             
@@ -847,14 +847,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" >
+        <li class="chapter " data-level="1.3.2" data-path="../2. Cg 语法/2.html">
             
-                <span>
+                <a href="../2. Cg 语法/2.html">
             
                     
                     第2章 最简单的程序
             
-                </span>
+                </a>
             
 
             
@@ -1036,6 +1036,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.1.4" data-path="../3. ShaderLab 开发实战/18.4.html">
+            
+                <a href="../3. ShaderLab 开发实战/18.4.html">
+            
+                    
+                    18.4 镜面反射
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1092,83 +1105,88 @@
 <p>Sometimes you have a shader with some interesting data types that can not be nicely represented using the built in Unity material editor. Unity provides a way to override the default way shader properties are presented so that you can define your own. You can use this feature to define custom controls and data range validation.</p>
 <p>The first part to writing custom editor for your shader&#x2019;s gui is defining a shader that requires a Custom Editor. The name you use for the custom editor is the class that will be looked up by Unity for the material editor.</p>
 <p>To define a custom editor you extend from the ShaderGUI class and place the script below an Editor folder in the assets directory.</p>
-<pre><code>using UnityEditor;
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> UnityEditor;
 
-public class CustomShaderGUI : ShaderGUI 
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CustomShaderGUI</span> : <span class="hljs-title">ShaderGUI</span> 
 {
-    public override void OnGUI (MaterialEditor materialEditor, MaterialProperty[] properties)
-    {
-        base.OnGUI (materialEditor, properties);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span> (<span class="hljs-params">MaterialEditor materialEditor, MaterialProperty[] properties</span>)
+    </span>{
+        <span class="hljs-keyword">base</span>.OnGUI (materialEditor, properties);
     }
 }
-</code></pre><p>Any shader that has a custom editor defined (CustomEditor &#x201C;CustomShaderGUI&#x201D;) will instantiate an instance of the shader gui class listed above and execute the associated code.</p>
+</code></pre>
+<p>Any shader that has a custom editor defined (CustomEditor &#x201C;CustomShaderGUI&#x201D;) will instantiate an instance of the shader gui class listed above and execute the associated code.</p>
 <h4 id="a-simple-example">A simple example</h4>
 <p>So we have a situation where we have a shader that can work in two modes; it renders standard diffuse lighting or it renders the blue and green channels with 50%.</p>
-<pre><code>Shader &quot;Custom/Redify&quot; {
+<pre><code class="lang-csharp">Shader <span class="hljs-string">&quot;Custom/Redify&quot;</span> {
     Properties {
-        _MainTex (&quot;Base (RGB)&quot;, 2D) = &quot;white&quot; {}
+        _MainTex (<span class="hljs-string">&quot;Base (RGB)&quot;</span>, <span class="hljs-number">2</span>D) = <span class="hljs-string">&quot;white&quot;</span> {}
     }
     SubShader {
-        Tags { &quot;RenderType&quot;=&quot;Opaque&quot; }
-        LOD 200
+        Tags { <span class="hljs-string">&quot;RenderType&quot;</span>=<span class="hljs-string">&quot;Opaque&quot;</span> }
+        LOD <span class="hljs-number">200</span>
 
         CGPROGRAM
-        #pragma surface surf Lambert addshadow
-        #pragma shader_feature REDIFY_ON
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> surface surf Lambert addshadow</span>
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> shader_feature REDIFY_ON</span>
 
         sampler2D _MainTex;
 
-        struct Input {
+        <span class="hljs-keyword">struct</span> Input {
             float2 uv_MainTex;
         };
 
-        void surf (Input IN, inout SurfaceOutput o) {
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">surf</span> (<span class="hljs-params">Input IN, inout SurfaceOutput o</span>) </span>{
             half4 c = tex2D (_MainTex, IN.uv_MainTex);
             o.Albedo = c.rgb;
             o.Alpha = c.a;
 
-            #if REDIFY_ON
-            o.Albedo.gb *= 0.5;
-            #endif
+            <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> REDIFY_ON</span>
+            o.Albedo.gb *= <span class="hljs-number">0.5</span>;
+            <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
         }
         ENDCG
     } 
-    CustomEditor &quot;CustomShaderGUI&quot;
+    CustomEditor <span class="hljs-string">&quot;CustomShaderGUI&quot;</span>
 }
-</code></pre><p>As you can see the shader has a Keyword available for setting: REDIFY_ON. This can be changed be set on a per material basis by using the shaderKeywords property of the material. Below is an ShaderGUI instance that does this.</p>
-<pre><code>using UnityEngine;
-using UnityEditor;
-using System;
+</code></pre>
+<p>As you can see the shader has a Keyword available for setting: REDIFY_ON. This can be changed be set on a per material basis by using the shaderKeywords property of the material. Below is an ShaderGUI instance that does this.</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> UnityEngine;
+<span class="hljs-keyword">using</span> UnityEditor;
+<span class="hljs-keyword">using</span> System;
 
-public class CustomShaderGUI : ShaderGUI
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CustomShaderGUI</span> : <span class="hljs-title">ShaderGUI</span>
 {
-    public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] properties)
-    {
-        // render the default gui
-        base.OnGUI(materialEditor, properties);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>(<span class="hljs-params">MaterialEditor materialEditor, MaterialProperty[] properties</span>)
+    </span>{
+        <span class="hljs-comment">// render the default gui</span>
+        <span class="hljs-keyword">base</span>.OnGUI(materialEditor, properties);
 
-        Material targetMat = materialEditor.target as Material;
+        Material targetMat = materialEditor.target <span class="hljs-keyword">as</span> Material;
 
-        // see if redify is set, and show a checkbox
-        bool redify = Array.IndexOf(targetMat.shaderKeywords, &quot;REDIFY_ON&quot;) != -1;
+        <span class="hljs-comment">// see if redify is set, and show a checkbox</span>
+        <span class="hljs-keyword">bool</span> redify = Array.IndexOf(targetMat.shaderKeywords, <span class="hljs-string">&quot;REDIFY_ON&quot;</span>) != <span class="hljs-number">-1</span>;
         EditorGUI.BeginChangeCheck();
-        redify = EditorGUILayout.Toggle(&quot;Redify material&quot;, redify);
-        if (EditorGUI.EndChangeCheck())
+        redify = EditorGUILayout.Toggle(<span class="hljs-string">&quot;Redify material&quot;</span>, redify);
+        <span class="hljs-keyword">if</span> (EditorGUI.EndChangeCheck())
         {
-            // enable or disable the keyword based on checkbox
-            if (redify)
-                targetMat.EnableKeyword(&quot;REDIFY_ON&quot;);
-            else
-                targetMat.DisableKeyword(&quot;REDIFY_ON&quot;);
+            <span class="hljs-comment">// enable or disable the keyword based on checkbox</span>
+            <span class="hljs-keyword">if</span> (redify)
+                targetMat.EnableKeyword(<span class="hljs-string">&quot;REDIFY_ON&quot;</span>);
+            <span class="hljs-keyword">else</span>
+                targetMat.DisableKeyword(<span class="hljs-string">&quot;REDIFY_ON&quot;</span>);
         }
     }
 }
-</code></pre><p>For a more comprehensive ShaderGUI example see the StandardShaderGUI.cs file together with the Standard.shader found in the &#x2018;Built-in shaders&#x2019; package that can be downloaded from Unity Download Archive.</p>
-<p>Note that the simple example above could also be solved much simpler using MaterialPropertyDrawers. Add the following line to the Properties section of the Custom/Redify shader:</p>
-<pre><code>    [Toggle(REDIFY_ON)] _Redify(&quot;Red?&quot;, Int) = 0
-</code></pre><p>and remove the:</p>
-<pre><code>    CustomEditor &quot;CustomShaderGUI&quot;
 </code></pre>
+<p>For a more comprehensive ShaderGUI example see the StandardShaderGUI.cs file together with the Standard.shader found in the &#x2018;Built-in shaders&#x2019; package that can be downloaded from Unity Download Archive.</p>
+<p>Note that the simple example above could also be solved much simpler using MaterialPropertyDrawers. Add the following line to the Properties section of the Custom/Redify shader:</p>
+<pre><code class="lang-csharp">    [Toggle(REDIFY_ON)] _Redify(<span class="hljs-string">&quot;Red?&quot;</span>, Int) = <span class="hljs-number">0</span>
+</code></pre>
+<p>and remove the:</p>
+<pre><code class="lang-csharp">    CustomEditor <span class="hljs-string">&quot;CustomShaderGUI&quot;</span>
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1195,7 +1213,7 @@ public class CustomShaderGUI : ShaderGUI
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.4 自定义着色器GUI","level":"1.2.4.4","depth":3,"next":{"title":"1.5 使用深度图","level":"1.2.4.5","depth":3,"path":"1. ShaderLab 框架/15-使用深度图.md","ref":"1. ShaderLab 框架/15-使用深度图.md","articles":[]},"previous":{"title":"1.3 使用替换的着色器渲染","level":"1.2.4.3","depth":3,"path":"1. ShaderLab 框架/13-使用替换的着色器渲染.md","ref":"1. ShaderLab 框架/13-使用替换的着色器渲染.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/14-自定义着色器gui.md","mtime":"2016-12-24T14:40:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-30T17:15:32.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.4 自定义着色器GUI","level":"1.2.4.4","depth":3,"next":{"title":"1.5 使用深度图","level":"1.2.4.5","depth":3,"path":"1. ShaderLab 框架/15-使用深度图.md","ref":"1. ShaderLab 框架/15-使用深度图.md","articles":[]},"previous":{"title":"1.3 使用替换的着色器渲染","level":"1.2.4.3","depth":3,"path":"1. ShaderLab 框架/13-使用替换的着色器渲染.md","ref":"1. ShaderLab 框架/13-使用替换的着色器渲染.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/14-自定义着色器gui.md","mtime":"2017-02-15T03:28:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-14T15:39:15.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

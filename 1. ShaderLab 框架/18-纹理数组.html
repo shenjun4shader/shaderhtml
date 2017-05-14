@@ -235,7 +235,7 @@
                 <a href="1216-legacy-lightiing.html">
             
                     
-                    1.2.1.6 Legacy Lightiing
+                    1.2.1.6 Legacy Lighting
             
                 </a>
             
@@ -433,7 +433,7 @@
                 <a href="13-在-cghlsl-中访问-shader-属性.html">
             
                     
-                    1.3 在 Cg\/HLSL 中访问着色器属性
+                    1.3 在 Cg/HLSL 中访问着色器属性
             
                 </a>
             
@@ -847,14 +847,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" >
+        <li class="chapter " data-level="1.3.2" data-path="../2. Cg 语法/2.html">
             
-                <span>
+                <a href="../2. Cg 语法/2.html">
             
                     
                     第2章 最简单的程序
             
-                </span>
+                </a>
             
 
             
@@ -1036,6 +1036,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.1.4" data-path="../3. ShaderLab 开发实战/18.4.html">
+            
+                <a href="../3. ShaderLab 开发实战/18.4.html">
+            
+                    
+                    18.4 镜面反射
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1112,56 +1125,57 @@ UNITY_SAMPLE_TEX2DARRAY(name,uv) samples a texture array with a float3 UV; the z
 UNITY_SAMPLE_TEX2DARRAY_LOD(name,uv,lod) samples a texture array with an explicit mipmap level.</p>
 <h4 id="examples">Examples</h4>
 <p>The following shader example samples a texture array using object space vertex positions as coordinates:</p>
-<pre><code>Shader &quot;Example/Sample2DArrayTexture&quot;
+<pre><code class="lang-csharp">Shader <span class="hljs-string">&quot;Example/Sample2DArrayTexture&quot;</span>
 {
     Properties
     {
-        _MyArr (&quot;Tex&quot;, 2DArray) = &quot;&quot; {}
-        _SliceRange (&quot;Slices&quot;, Range(0,16)) = 6
-        _UVScale (&quot;UVScale&quot;, Float) = 1.0
+        _MyArr (<span class="hljs-string">&quot;Tex&quot;</span>, <span class="hljs-number">2</span>DArray) = <span class="hljs-string">&quot;&quot;</span> {}
+        _SliceRange (<span class="hljs-string">&quot;Slices&quot;</span>, Range(<span class="hljs-number">0</span>,<span class="hljs-number">16</span>)) = <span class="hljs-number">6</span>
+        _UVScale (<span class="hljs-string">&quot;UVScale&quot;</span>, Float) = <span class="hljs-number">1.0</span>
     }
     SubShader
     {
         Pass
         {
             CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            // to use texture arrays we need to target DX10/OpenGLES3 which
-            // is shader model 3.5 minimum
-            #pragma target 3.5
+            <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> vertex vert</span>
+            <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> fragment frag</span>
+            <span class="hljs-comment">// to use texture arrays we need to target DX10/OpenGLES3 which</span>
+            <span class="hljs-comment">// is shader model 3.5 minimum</span>
+            <span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> target 3.5</span>
 
-            #include &quot;UnityCG.cginc&quot;
+            <span class="hljs-meta">#include &quot;UnityCG.cginc&quot;</span>
 
-            struct v2f
+            <span class="hljs-keyword">struct</span> v2f
             {
                 float3 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
             };
 
-            float _SliceRange;
-            float _UVScale;
+            <span class="hljs-keyword">float</span> _SliceRange;
+            <span class="hljs-keyword">float</span> _UVScale;
 
-            v2f vert (float4 vertex : POSITION)
-            {
+            <span class="hljs-function">v2f <span class="hljs-title">vert</span> (<span class="hljs-params">float4 vertex : POSITION</span>)
+            </span>{
                 v2f o;
                 o.vertex = mul(UNITY_MATRIX_MVP, vertex);
-                o.uv.xy = (vertex.xy + 0.5) * _UVScale;
-                o.uv.z = (vertex.z + 0.5) * _SliceRange;
-                return o;
+                o.uv.xy = (vertex.xy + <span class="hljs-number">0.5</span>) * _UVScale;
+                o.uv.z = (vertex.z + <span class="hljs-number">0.5</span>) * _SliceRange;
+                <span class="hljs-keyword">return</span> o;
             }
 
             UNITY_DECLARE_TEX2DARRAY(_MyArr);
 
-            half4 frag (v2f i) : SV_Target
-            {
-                return UNITY_SAMPLE_TEX2DARRAY(_MyArr, i.uv);
+            <span class="hljs-function">half4 <span class="hljs-title">frag</span> (<span class="hljs-params">v2f i</span>) : SV_Target
+            </span>{
+                <span class="hljs-keyword">return</span> UNITY_SAMPLE_TEX2DARRAY(_MyArr, i.uv);
             }
             ENDCG
         }
     }
 }
 </code></pre>
+
                                 
                                 </section>
                             
@@ -1188,7 +1202,7 @@ UNITY_SAMPLE_TEX2DARRAY_LOD(name,uv,lod) samples a texture array with an explici
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.8 纹理数组","level":"1.2.4.8","depth":3,"next":{"title":"1.9 使用 Visual Studio 调试 DirectX11 着色器","level":"1.2.4.9","depth":3,"path":"1. ShaderLab 框架/19-使用-visual-studio-调试-directx11-着色器.md","ref":"1. ShaderLab 框架/19-使用-visual-studio-调试-directx11-着色器.md","articles":[]},"previous":{"title":"1.7 着色器细节等级","level":"1.2.4.7","depth":3,"path":"1. ShaderLab 框架/17-着色器细节等级.md","ref":"1. ShaderLab 框架/17-着色器细节等级.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/18-纹理数组.md","mtime":"2016-12-24T14:53:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-30T17:15:32.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.8 纹理数组","level":"1.2.4.8","depth":3,"next":{"title":"1.9 使用 Visual Studio 调试 DirectX11 着色器","level":"1.2.4.9","depth":3,"path":"1. ShaderLab 框架/19-使用-visual-studio-调试-directx11-着色器.md","ref":"1. ShaderLab 框架/19-使用-visual-studio-调试-directx11-着色器.md","articles":[]},"previous":{"title":"1.7 着色器细节等级","level":"1.2.4.7","depth":3,"path":"1. ShaderLab 框架/17-着色器细节等级.md","ref":"1. ShaderLab 框架/17-着色器细节等级.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/18-纹理数组.md","mtime":"2017-02-15T06:04:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-14T15:39:15.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

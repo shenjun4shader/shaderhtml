@@ -235,7 +235,7 @@
                 <a href="1216-legacy-lightiing.html">
             
                     
-                    1.2.1.6 Legacy Lightiing
+                    1.2.1.6 Legacy Lighting
             
                 </a>
             
@@ -433,7 +433,7 @@
                 <a href="13-在-cghlsl-中访问-shader-属性.html">
             
                     
-                    1.3 在 Cg\/HLSL 中访问着色器属性
+                    1.3 在 Cg/HLSL 中访问着色器属性
             
                 </a>
             
@@ -847,14 +847,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" >
+        <li class="chapter " data-level="1.3.2" data-path="../2. Cg 语法/2.html">
             
-                <span>
+                <a href="../2. Cg 语法/2.html">
             
                     
                     第2章 最简单的程序
             
-                </span>
+                </a>
             
 
             
@@ -1036,6 +1036,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.1.4" data-path="../3. ShaderLab 开发实战/18.4.html">
+            
+                <a href="../3. ShaderLab 开发实战/18.4.html">
+            
+                    
+                    18.4 镜面反射
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1089,49 +1102,54 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="&#x4F20;&#x7EDF;&#x7684;-bindchannels">&#x4F20;&#x7EDF;&#x7684; BindChannels</h2>
-<p>bindchannels&#x547D;&#x4EE4;&#x5141;&#x8BB8;&#x60A8;&#x6307;&#x5B9A;&#x9876;&#x70B9;&#x6570;&#x636E;&#x6620;&#x5C04;&#x5230;&#x56FE;&#x5F62;&#x786C;&#x4EF6;&#x3002;</p>
+<p>&#x2003;&#x2003;bindchannels&#x547D;&#x4EE4;&#x5141;&#x8BB8;&#x60A8;&#x6307;&#x5B9A;&#x9876;&#x70B9;&#x6570;&#x636E;&#x6620;&#x5C04;&#x5230;&#x56FE;&#x5F62;&#x786C;&#x4EF6;&#x3002;</p>
+<blockquote>
 <p>&#x6CE8;&#xFF1A;&#x5F53;&#x4F7F;&#x7528;&#x9876;&#x70B9;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;_bindchannels&#x6CA1;&#x6709;&#x6548;&#x679C;&#x7684;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7ED1;&#x5B9A;&#x662F;&#x7531;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x7684;&#x8F93;&#x5165;&#x63A7;&#x5236;&#x3002;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x53EF;&#x7F16;&#x7A0B;&#x7740;&#x8272;&#x5668;&#x800C;&#x4E0D;&#x662F;&#x56FA;&#x5B9A;&#x529F;&#x80FD;&#x9876;&#x70B9;&#x5904;&#x7406;&#x3002;</p>
-<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Unity&#x4E3A;&#x4F60;&#x7ED8;&#x5236;&#x7ED1;&#x5B9A;&#xFF0C;&#x4F46;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x5E0C;&#x671B;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7ED1;&#x5B9A;&#x3002;</p>
-<p>&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x7EB9;&#x7406;&#x9636;&#x6BB5;&#x548C;&#x5728;&#x7B2C;&#x4E8C;&#x4E2A;&#x7EB9;&#x7406;&#x9636;&#x6BB5;&#x4F7F;&#x7528;&#x7684;&#x4E8C;&#x6B21;UV&#x96C6;&#x7ED8;&#x5236;&#x4E3B;UV&#x96C6;&#xFF0C;&#x6216;&#x8005;&#x544A;&#x8BC9;&#x786C;&#x4EF6;&#x9876;&#x70B9;&#x989C;&#x8272;&#x5E94;&#x8BE5;&#x88AB;&#x8003;&#x8651;&#x5728;&#x5185;&#x3002;</p>
-<p>&#x8BED;&#x6CD5;&#xFF1A;</p>
+</blockquote>
+<p>&#x2003;&#x2003;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Unity&#x4E3A;&#x4F60;&#x7ED8;&#x5236;&#x7ED1;&#x5B9A;&#xFF0C;&#x4F46;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x5E0C;&#x671B;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7ED1;&#x5B9A;&#x3002;</p>
+<hr>
+<p>&#x2003;&#x2003;&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x7EB9;&#x7406;&#x9636;&#x6BB5;&#x548C;&#x5728;&#x7B2C;&#x4E8C;&#x4E2A;&#x7EB9;&#x7406;&#x9636;&#x6BB5;&#x4F7F;&#x7528;&#x7684;&#x4E8C;&#x6B21;UV&#x96C6;&#x7ED8;&#x5236;&#x4E3B;UV&#x96C6;&#xFF0C;&#x6216;&#x8005;&#x544A;&#x8BC9;&#x786C;&#x4EF6;&#x9876;&#x70B9;&#x989C;&#x8272;&#x5E94;&#x8BE5;&#x88AB;&#x8003;&#x8651;&#x5728;&#x5185;&#x3002;</p>
+<h4 id="&#x2003;&#x2003;&#x8BED;&#x6CD5;&#xFF1A;">&#x2003;&#x2003;&#x8BED;&#x6CD5;&#xFF1A;</h4>
 <pre><code>        BindChannels { Bind &quot;source&quot;, target }
-</code></pre><p>&#x6307;&#x5B9A;&#x9876;&#x70B9;&#x6570;&#x636E;&#x6E90;&#x6620;&#x5C04;&#x5230;&#x786C;&#x4EF6;&#x76EE;&#x6807;&#x3002;</p>
-<pre><code>Source can be one of:
-        Vertex: vertex position
-        Normal: vertex normal
-        Tangent: vertex tangent
-        Texcoord: primary UV coordinate
-        Texcoord1: secondary UV coordinate
-        Color: per-vertex color
+</code></pre><p>&#x2003;&#x2003;&#x6307;&#x5B9A;&#x9876;&#x70B9;&#x6570;&#x636E;&#x6E90;&#x6620;&#x5C04;&#x5230;&#x786C;&#x4EF6;&#x76EE;&#x6807;&#x3002;</p>
+<pre><code>        Source can be one of:
+                Vertex: vertex position
+                Normal: vertex normal
+                Tangent: vertex tangent
+                Texcoord: primary UV coordinate
+                Texcoord1: secondary UV coordinate
+                Color: per-vertex color
 
-Target can be one of:
-        Vertex: vertex position
-        Normal: vertex normal
-        Tangent: vertex tangent
-        Texcoord0, Texcoord1, &#x2026;: texture coordinates for corresponding texture stage
-        Texcoord: texture coordinates for all texture stages
-        Color: vertex color
-</code></pre><h4 id="&#x7EC6;&#x8282;&#xFF1A;">&#x7EC6;&#x8282;&#xFF1A;</h4>
-<p>Unity&#x653E;&#x7F6E;&#x4E00;&#x4E9B;&#x9650;&#x5236;&#xFF0C;&#x54EA;&#x4E9B;&#x6E90;&#x53EF;&#x4EE5;&#x6620;&#x5C04;&#x5230;&#x54EA;&#x4E2A;&#x76EE;&#x6807;&#x3002;&#x6E90;&#x548C;&#x76EE;&#x6807;&#x5FC5;&#x987B;&#x5339;&#x914D;&#x9876;&#x70B9;&#xFF0C;&#x6CD5;&#x7EBF;&#xFF0C;&#x5207;&#x7EBF;&#x548C;&#x989C;&#x8272;&#x3002;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x7F51;&#x683C;&#xFF08;Texcoord&#x548C;Texcoord1&#xFF09;&#x53EF;&#x4EE5;&#x6620;&#x5C04;&#x5230;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x7684;&#x76EE;&#x6807;&#xFF08;Texcoord&#x6240;&#x6709;&#x7EB9;&#x7406;&#x9636;&#x6BB5;&#xFF0C;&#x6216;texcoordn&#x4E3A;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x9636;&#x6BB5;&#xFF09;&#x3002;</p>
-<p>BindChannels&#x6709;&#x4E24;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x7528;&#x4F8B;&#xFF1A;</p>
+        Target can be one of:
+                Vertex: vertex position
+                Normal: vertex normal
+                Tangent: vertex tangent
+                Texcoord0, Texcoord1, &#x2026;: texture coordinates for corresponding texture stage
+                Texcoord: texture coordinates for all texture stages
+                Color: vertex color
+</code></pre><hr>
+<h4 id="&#x2003;&#x2003;&#x7EC6;&#x8282;&#xFF1A;">&#x2003;&#x2003;&#x7EC6;&#x8282;&#xFF1A;</h4>
+<p>&#x2003;&#x2003;Unity&#x653E;&#x7F6E;&#x4E00;&#x4E9B;&#x9650;&#x5236;&#xFF0C;&#x54EA;&#x4E9B;&#x6E90;&#x53EF;&#x4EE5;&#x6620;&#x5C04;&#x5230;&#x54EA;&#x4E2A;&#x76EE;&#x6807;&#x3002;&#x6E90;&#x548C;&#x76EE;&#x6807;&#x5FC5;&#x987B;&#x5339;&#x914D;&#x9876;&#x70B9;&#xFF0C;&#x6CD5;&#x7EBF;&#xFF0C;&#x5207;&#x7EBF;&#x548C;&#x989C;&#x8272;&#x3002;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x7F51;&#x683C;&#xFF08;Texcoord&#x548C;Texcoord1&#xFF09;&#x53EF;&#x4EE5;&#x6620;&#x5C04;&#x5230;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x7684;&#x76EE;&#x6807;&#xFF08;Texcoord&#x6240;&#x6709;&#x7EB9;&#x7406;&#x9636;&#x6BB5;&#xFF0C;&#x6216;texcoordn&#x4E3A;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x9636;&#x6BB5;&#xFF09;&#x3002;</p>
+<p>&#x2003;&#x2003;<strong>BindChannels&#x6709;&#x4E24;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x7528;&#x4F8B;&#xFF1A;</strong></p>
 <pre><code>    Shaders that take vertex colors into account.
     Shaders that use two UV sets.
-</code></pre><p>Examples</p>
-<pre><code>// Maps the first UV set to the first texture stage
-// and the second UV set to the second texture stage
-BindChannels {
-   Bind &quot;Vertex&quot;, vertex
-   Bind &quot;texcoord&quot;, texcoord0
-   Bind &quot;texcoord1&quot;, texcoord1
-}
+</code></pre><hr>
+<h4 id="&#x2003;&#x2003;examples&#xFF1A;">&#x2003;&#x2003;Examples&#xFF1A;</h4>
+<pre><code>        // Maps the first UV set to the first texture stage
+        // and the second UV set to the second texture stage
+        BindChannels {
+           Bind &quot;Vertex&quot;, vertex
+           Bind &quot;texcoord&quot;, texcoord0
+           Bind &quot;texcoord1&quot;, texcoord1
+        }
 
-// Maps the first UV set to all texture stages
-// and uses vertex colors
-BindChannels {
-   Bind &quot;Vertex&quot;, vertex
-   Bind &quot;texcoord&quot;, texcoord
-   Bind &quot;Color&quot;, color
-}
+        // Maps the first UV set to all texture stages
+        // and uses vertex colors
+        BindChannels {
+           Bind &quot;Vertex&quot;, vertex
+           Bind &quot;texcoord&quot;, texcoord
+           Bind &quot;Color&quot;, color
+        }
 </code></pre><p>&#x1F51A;</p>
 
                                 
@@ -1160,7 +1178,7 @@ BindChannels {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2.1.10 Legacy BindChannels","level":"1.2.1.2.1.10","depth":5,"next":{"title":"1.2.2 UsePass","level":"1.2.1.2.2","depth":4,"path":"1. ShaderLab 框架/122-usepass.md","ref":"1. ShaderLab 框架/122-usepass.md","articles":[]},"previous":{"title":"1.2.1.9 Legacy Fog","level":"1.2.1.2.1.9","depth":5,"path":"1. ShaderLab 框架/1219-legacy-fog.md","ref":"1. ShaderLab 框架/1219-legacy-fog.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/12110-legacy-bindchannels.md","mtime":"2016-12-24T04:08:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-30T17:15:32.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2.1.10 Legacy BindChannels","level":"1.2.1.2.1.10","depth":5,"next":{"title":"1.2.2 UsePass","level":"1.2.1.2.2","depth":4,"path":"1. ShaderLab 框架/122-usepass.md","ref":"1. ShaderLab 框架/122-usepass.md","articles":[]},"previous":{"title":"1.2.1.9 Legacy Fog","level":"1.2.1.2.1.9","depth":5,"path":"1. ShaderLab 框架/1219-legacy-fog.md","ref":"1. ShaderLab 框架/1219-legacy-fog.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","dirction":"沈军","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ShaderLab 开发实战","language":"zh-cn","gitbook":">=2.0.0","description":"Cg语法及ShaderLab开发实战"},"file":{"path":"1. ShaderLab 框架/12110-legacy-bindchannels.md","mtime":"2017-05-14T15:38:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-14T15:39:15.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
